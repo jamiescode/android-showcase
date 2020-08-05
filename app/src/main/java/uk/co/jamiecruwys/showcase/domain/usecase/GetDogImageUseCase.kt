@@ -15,21 +15,10 @@ class GetDogImageUseCase(
     suspend fun execute(): Result {
         return try {
             dogImageRepository.getRandomImage()?.let {
-                if (isUnsupportedFileType(it.imageUrl)) {
-                    Result.Error(java.lang.RuntimeException("Unsupported file type"))
-                } else {
-                    Result.Success(it.imageUrl)
-                }
+                Result.Success(it.imageUrl)
             } ?: Result.Error(RuntimeException("No image url"))
         } catch (e: IOException) {
             Result.Error(e)
         }
-    }
-
-    private fun isUnsupportedFileType(imageUrl: String): Boolean {
-        return imageUrl.endsWith(".mp4", ignoreCase = true) || imageUrl.endsWith(
-            ".webm",
-            ignoreCase = true
-        )
     }
 }
