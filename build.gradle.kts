@@ -4,10 +4,12 @@ buildscript {
         google()
         mavenCentral()
     }
-    dependencies {
-        classpath(libs.plugins.gradle.get().toString())
-        classpath(libs.plugins.kotlin.get().toString())
-    }
+}
+
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
 }
 
 allprojects {

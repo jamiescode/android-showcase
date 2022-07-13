@@ -1,3 +1,13 @@
-include(":app")
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
 rootProject.name = "Showcase"
-enableFeaturePreview("VERSION_CATALOGS")
+
+include(
+    ":app",
+)
