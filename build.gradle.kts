@@ -15,6 +15,8 @@ plugins {
     alias(libs.plugins.kotlin) apply false
 }
 
+apply(from = "gradle/projectDependencyGraph.gradle")
+
 allprojects {
     repositories {
         google()
