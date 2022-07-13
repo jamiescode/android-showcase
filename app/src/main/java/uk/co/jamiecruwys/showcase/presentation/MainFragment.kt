@@ -59,14 +59,14 @@ class MainFragment : Fragment(), DIAware {
                         viewModel.onImageLoaded(it)
                         return false
                     }
-
                 }).into(binding.image)
             }
         }
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)

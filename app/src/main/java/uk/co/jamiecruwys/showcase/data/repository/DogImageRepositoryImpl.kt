@@ -12,5 +12,4 @@ internal class DogImageRepositoryImpl(
     override suspend fun getRandomImage(): DogImageDomainModel? {
         return dogImageRetrofitService.getRandomImageAsync()?.toDomainModel()
     }
-
 }

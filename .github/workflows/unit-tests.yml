@@ -1,4 +1,4 @@
-name: Lint
+name: Unit tests
 
 on:
   push:
@@ -19,10 +19,10 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
 
-      - name: Run lint
-        run: ./gradlew lint
+      - name: Run unit tests
+        run: ./gradlew test
 
       - uses: actions/upload-artifact@v3
         with:
-          name: lint-results-debug.html.zip
-          path: app/build/reports/lint-results-debug.html
+          name: unit-test-results.zip
+          path: ./**/build/reports/tests/
