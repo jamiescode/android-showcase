@@ -11,7 +11,7 @@ kotlin = "1.7.10"
 # Libraries
 retrofit = "2.9.0"
 okhttp-logging-interceptor = "4.10.0"
-kodein = "7.2.0"
+kodein = "7.13.0"
 glide = "4.13.2"
 core-ktx = "1.8.0"
 appcompat = "1.4.2"
