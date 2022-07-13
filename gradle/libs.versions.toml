@@ -9,6 +9,7 @@ android = "7.2.1"
 kotlin = "1.7.10"
 detekt = "1.20.0"
 kotlinter = "3.11.1"
+dagger = "2.42"
 
 # Libraries
 retrofit = "2.9.0"
@@ -33,6 +34,7 @@ kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 oss-licenses = { id = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -48,6 +50,12 @@ lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", v
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
+
+# Dagger
+dagger-hilt = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+dagger-hilt-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+dagger-hilt-androidx = { module = "androidx.hilt:hilt-compiler", version = "1.0.0" }
 
 # Annotations
 annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
