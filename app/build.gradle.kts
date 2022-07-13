@@ -55,7 +55,7 @@ dependencies {
     implementation(libs.lifecycle.ext)
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.glide)
-    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
+    implementation(libs.oss.licenses)
 
     annotationProcessor(libs.annotation.glide.compiler)
 

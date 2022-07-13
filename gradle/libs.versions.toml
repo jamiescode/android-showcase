@@ -43,7 +43,7 @@ constraintlayout = { module = "androidx.constraintlayout:constraintlayout", vers
 lifecycle-ext = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycle" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
-oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version = "oss-licenses" }
+oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
 
 # Annotations
 annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
