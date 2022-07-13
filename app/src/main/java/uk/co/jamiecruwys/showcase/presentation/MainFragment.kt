@@ -13,12 +13,11 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.main_fragment.*
 import org.kodein.di.DI
 import org.kodein.di.DIAware
 import org.kodein.di.android.x.di
 import org.kodein.di.instance
-import uk.co.jamiecruwys.showcase.R
+import uk.co.jamiecruwys.showcase.databinding.MainFragmentBinding
 
 class MainFragment : Fragment(), DIAware {
 
@@ -29,14 +28,15 @@ class MainFragment : Fragment(), DIAware {
     override val di: DI by di()
 
     private val viewModel: MainViewModel by instance()
+    private var _binding: MainFragmentBinding? = null
+    private val binding get() = _binding!!
 
     private val stateObserver = Observer<MainViewModel.State> {
-        progress_bar.isVisible = it.isLoading
-        random_button.isVisible = !it.isLoading
-
+        binding.progressBar.isVisible = it.isLoading
+        binding.randomButton.isVisible = !it.isLoading
         it.imageUrl.let { url ->
             if (url.isEmpty()) {
-                image.setImageResource(android.R.color.transparent)
+                binding.image.setImageResource(android.R.color.transparent)
             } else {
                 Glide.with(this).load(url).addListener(object : RequestListener<Drawable> {
                     override fun onLoadFailed(
@@ -60,7 +60,7 @@ class MainFragment : Fragment(), DIAware {
                         return false
                     }
 
-                }).into(image)
+                }).into(binding.image)
             }
         }
     }
@@ -69,15 +69,16 @@ class MainFragment : Fragment(), DIAware {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.stateLiveData.observe(this, stateObserver)
+        viewModel.stateLiveData.observe(viewLifecycleOwner, stateObserver)
 
-        random_button.setOnClickListener {
+        binding.randomButton.setOnClickListener {
             viewModel.onRandomButtonPressed()
         }
 
