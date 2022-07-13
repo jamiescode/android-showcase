@@ -2,8 +2,9 @@ package uk.co.jamiecruwys.showcase.domain.usecase
 
 import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
 import java.io.IOException
+import javax.inject.Inject
 
-class GetDogImageUseCase(
+class GetDogImageUseCase @Inject constructor(
     private val dogImageRepository: DogImageRepository
 ) {
 

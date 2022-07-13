@@ -7,27 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import org.kodein.di.DI
-import org.kodein.di.DIAware
-import org.kodein.di.android.x.di
-import org.kodein.di.instance
+import dagger.hilt.android.AndroidEntryPoint
 import uk.co.jamiecruwys.showcase.databinding.MainFragmentBinding
 
-class MainFragment : Fragment(), DIAware {
+@AndroidEntryPoint
+class MainFragment : Fragment() {
 
     companion object {
         fun newInstance() = MainFragment()
     }
 
-    override val di: DI by di()
+    private val viewModel: MainViewModel by viewModels()
 
-    private val viewModel: MainViewModel by instance()
     private var _binding: MainFragmentBinding? = null
     private val binding get() = _binding!!
 

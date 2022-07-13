@@ -4,8 +4,9 @@ import uk.co.jamiecruwys.showcase.data.retrofit.response.toDomainModel
 import uk.co.jamiecruwys.showcase.data.retrofit.service.DogImageRetrofitService
 import uk.co.jamiecruwys.showcase.domain.model.DogImageDomainModel
 import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
+import javax.inject.Inject
 
-internal class DogImageRepositoryImpl(
+class DogImageRepositoryImpl @Inject constructor(
     private val dogImageRetrofitService: DogImageRetrofitService
 ) : DogImageRepository {
 
