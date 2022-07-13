@@ -1,22 +1,22 @@
 package uk.co.jamiecruwys.showcase
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.junit.runners.JUnit4
 
 /**
  * Instrumented test, which will execute on an Android device.
  *
  * See [testing documentation](http://d.android.com/tools/testing).
  */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+@RunWith(JUnit4::class)
+class PackageNameTest {
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
+    fun assertPackageName() {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("uk.co.jamiecruwys.showcase", appContext.packageName)
+        val expectedBasePackageName = "uk.co.jamiecruwys.showcase"
+        assertTrue(appContext.packageName.startsWith(expectedBasePackageName))
     }
 }

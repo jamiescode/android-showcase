@@ -27,5 +27,5 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         with:
-          name: test-results-debug.zip
-          path: app/build/reports/tests/testDebugUnitTest/
+          name: unit-test-results.zip
+          path: ./**/build/reports/tests/
