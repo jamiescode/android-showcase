@@ -1,21 +1,18 @@
 package uk.co.jamiecruwys.showcase.presentation
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import org.kodein.di.DIAware
-import org.kodein.di.android.x.di
 import uk.co.jamiecruwys.showcase.domain.usecase.GetDogImageUseCase
+import javax.inject.Inject
 
-class MainViewModel(
-    private val app: Application,
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val getRandomDogImageUseCase: GetDogImageUseCase
-) : AndroidViewModel(app), DIAware {
-
-    override val di by di()
+) : ViewModel() {
 
     private val stateMutableLiveData: MutableLiveData<State> by lazy {
         MutableLiveData<State>(

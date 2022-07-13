@@ -1,9 +1,11 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("com.google.android.gms.oss-licenses-plugin")
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -16,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.sky.sport.test.HiltTestRunner"
     }
 
     buildTypes {
@@ -42,6 +44,11 @@ android {
         viewBinding = true
     }
 
+    // Hilt Android - allow references to generated code
+    kapt {
+        correctErrorTypes = true
+    }
+
     namespace = "uk.co.jamiecruwys.showcase"
 }
 
@@ -50,7 +57,6 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
     implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.kodein)
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
@@ -58,6 +64,10 @@ dependencies {
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.glide)
     implementation(libs.oss.licenses)
+    implementation(libs.activity.ktx)
+    implementation(libs.fragment.ktx)
+    implementation(libs.dagger.hilt)
+    kapt(libs.dagger.hilt.compiler)
 
     debugImplementation(libs.leakcanary)
 
@@ -67,4 +77,6 @@ dependencies {
     testImplementation(libs.junit5)
 
     androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.dagger.hilt.testing)
+    kaptAndroidTest(libs.dagger.hilt.compiler)
 }
