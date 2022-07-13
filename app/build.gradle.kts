@@ -66,8 +66,8 @@ dependencies {
     implementation(libs.oss.licenses)
     implementation(libs.activity.ktx)
     implementation(libs.fragment.ktx)
-    implementation(libs.dagger.hilt)
-    kapt(libs.dagger.hilt.compiler)
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
 
     debugImplementation(libs.leakcanary)
 
@@ -77,6 +77,6 @@ dependencies {
     testImplementation(libs.junit5)
 
     androidTestImplementation(libs.espresso)
-    androidTestImplementation(libs.dagger.hilt.testing)
-    kaptAndroidTest(libs.dagger.hilt.compiler)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
 }
