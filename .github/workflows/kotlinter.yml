@@ -1,4 +1,4 @@
-name: Lint
+name: Kotlinter
 
 on:
   push:
@@ -19,10 +19,5 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
 
-      - name: Run lint
-        run: ./gradlew lint
-
-      - uses: actions/upload-artifact@v3
-        with:
-          name: lint-results-debug.html.zip
-          path: app/build/reports/lint-results-debug.html
+      - name: Run kotliner
+        run: ./gradlew lintKotlin
