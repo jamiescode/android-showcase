@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath libs.plugins.android.gradle.get().toString()
+        classpath libs.plugins.gradle.get().toString()
         classpath libs.plugins.kotlin.get().toString()
     }
 }
