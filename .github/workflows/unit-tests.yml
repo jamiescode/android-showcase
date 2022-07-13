@@ -1,0 +1,31 @@
+name: Unit tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
+
+      - name: Run unit tests
+        run: ./gradlew test
+
+      - name: Zip test results
+        run: zip -r app/build/reports/tests/testDebugUnitTest
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: test-results-debug.zip
+          path: app/build/reports/tests/testDebugUnitTest/

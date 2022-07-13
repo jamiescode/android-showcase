@@ -63,8 +63,8 @@ dependencies {
 
     annotationProcessor(libs.annotation.glide.compiler)
 
-    testImplementation(libs.junit)
+    testImplementation(platform(libs.junit5.bom))
+    testImplementation(libs.junit5)
 
-    androidTestImplementation(libs.junit.ui)
     androidTestImplementation(libs.espresso)
 }
