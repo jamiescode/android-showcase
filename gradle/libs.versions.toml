@@ -29,6 +29,7 @@ android-gradle = { id = "com.android.tools.build:gradle", version.ref = "android
 kotlin = { id = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [libraries]
+kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 retrofit-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "retrofit-logging-interceptor" }
@@ -47,5 +48,5 @@ glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = 
 junit = { module = "junit:junit", version.ref = "junit" }
 
 # UI testing
-junit-ui-test = { module = "androidx.test.ext:junit", version.ref = "junit-ui-test" }
-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
+junit-ui = { module = "androidx.test.ext:junit", version.ref = "junit-ui-test" }
+espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
