@@ -2,21 +2,17 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath libs.plugins.gradle.get().toString()
-        classpath libs.plugins.kotlin.get().toString()
+        classpath(libs.plugins.gradle.get().toString())
+        classpath(libs.plugins.kotlin.get().toString())
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
