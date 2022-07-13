@@ -22,9 +22,6 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
-      - name: Zip test results
-        run: zip -r app/build/reports/tests/testDebugUnitTest
-
       - uses: actions/upload-artifact@v3
         with:
           name: unit-test-results.zip
