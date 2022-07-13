@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    id("com.google.android.gms.oss-licenses-plugin")
 }
 
 android {
@@ -21,12 +22,13 @@ android {
             applicationIdSuffix = ".debug"
         }
         getByName("release") {
-            isShrinkResources = true
-            isMinifyEnabled = true
+            isShrinkResources = false
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 
@@ -53,6 +55,7 @@ dependencies {
     implementation(libs.lifecycle.ext)
     implementation(libs.lifecycle.viewmodel)
     implementation(libs.glide)
+    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
 
     annotationProcessor(libs.annotation.glide.compiler)
 

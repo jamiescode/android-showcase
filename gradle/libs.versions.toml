@@ -17,6 +17,8 @@ core-ktx = "1.8.0"
 appcompat = "1.4.2"
 constraintlayout = "2.1.4"
 lifecycle = "2.2.0"
+oss-licenses = "17.0.0"
+oss-licenses-plugin = "0.10.5"
 
 # Testing
 junit = "4.13.2"
@@ -27,6 +29,7 @@ espresso = "3.4.0"
 application = { id = "com.android.application", version.ref = "android" }
 library = { id = "com.android.library", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+oss-licenses = { id = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
@@ -40,6 +43,7 @@ constraintlayout = { module = "androidx.constraintlayout:constraintlayout", vers
 lifecycle-ext = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycle" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version = "oss-licenses" }
 
 # Annotations
 annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
