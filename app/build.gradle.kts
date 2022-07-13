@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.oss.licenses)
 
+    debugImplementation(libs.leakcanary)
+
     annotationProcessor(libs.annotation.glide.compiler)
 
     testImplementation(libs.junit)

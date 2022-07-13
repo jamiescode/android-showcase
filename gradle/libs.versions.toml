@@ -19,6 +19,7 @@ constraintlayout = "2.1.4"
 lifecycle = "2.2.0"
 oss-licenses = "17.0.0"
 oss-licenses-plugin = "0.10.5"
+leakcanary = "2.9.1"
 
 # Testing
 junit = "4.13.2"
@@ -44,6 +45,7 @@ lifecycle-ext = { module = "androidx.lifecycle:lifecycle-extensions", version.re
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
+leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 
 # Annotations
 annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
