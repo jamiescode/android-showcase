@@ -2,6 +2,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     id("com.google.android.gms.oss-licenses-plugin")
+    id("io.gitlab.arturbosch.detekt")
+    id("org.jmailen.kotlinter")
 }
 
 android {
