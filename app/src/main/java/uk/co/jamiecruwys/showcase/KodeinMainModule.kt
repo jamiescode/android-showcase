@@ -3,8 +3,12 @@ package uk.co.jamiecruwys.showcase
 import androidx.fragment.app.Fragment
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.kodein.di.*
+import org.kodein.di.DI
 import org.kodein.di.android.x.AndroidLifecycleScope
+import org.kodein.di.bind
+import org.kodein.di.instance
+import org.kodein.di.scoped
+import org.kodein.di.singleton
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import uk.co.jamiecruwys.showcase.data.repository.DogImageRepositoryImpl
@@ -50,5 +54,4 @@ val mainModule = DI.Module("MainModule") {
         val logging = HttpLoggingInterceptor()
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
     }
-
 }
