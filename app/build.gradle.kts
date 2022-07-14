@@ -38,10 +38,16 @@ android {
 
     kotlinOptions {
         jvmTarget = "11"
+        freeCompilerArgs = freeCompilerArgs + kotlinCompilerOptIns()
     }
 
     buildFeatures {
         viewBinding = true
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 
     // Hilt Android - allow references to generated code
@@ -52,20 +58,24 @@ android {
     namespace = "uk.co.jamiecruwys.showcase"
 }
 
+fun kotlinCompilerOptIns(): String = listOf(
+    "androidx.compose.animation.ExperimentalAnimationApi",
+    "androidx.compose.foundation.ExperimentalFoundationApi",
+).joinToString(prefix = "-Xopt-in=", separator = ",")
+
 dependencies {
     implementation(libs.kotlin)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.ext)
-    implementation(libs.lifecycle.viewmodel)
     implementation(libs.glide)
     implementation(libs.oss.licenses)
-    implementation(libs.activity.ktx)
-    implementation(libs.fragment.ktx)
+
+    implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.ktx)
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.accompanist)
+
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
