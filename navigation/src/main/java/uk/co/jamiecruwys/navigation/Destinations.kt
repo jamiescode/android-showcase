@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.presentation
+package uk.co.jamiecruwys.navigation
 
 sealed class Destinations(val route: String) {
     object Home : Destinations(Routes.HOME.value)

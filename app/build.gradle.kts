@@ -34,6 +34,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":ui"))
+    implementation(project(":navigation"))
+
     implementation(libs.kotlin)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)

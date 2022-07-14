@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.presentation
+package uk.co.jamiecruwys.showcase.ui
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import uk.co.jamiecruwys.navigation.Destinations
 
 @Composable
 fun homeScreen(navController: NavController) {

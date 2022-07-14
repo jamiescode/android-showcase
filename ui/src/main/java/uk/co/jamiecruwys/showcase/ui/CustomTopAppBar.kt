@@ -9,11 +9,11 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.core.content.ContextCompat.startActivity
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
-import uk.co.jamiecruwys.showcase.R
+import uk.co.jamiecruwys.showcase.ui.R
+import uk.co.jamiecruwys.showcase.ui.overflowMenu
 
 @Composable
-fun customTopAppBar() {
-    val appName = stringResource(id = R.string.app_name)
+fun customTopAppBar(appName: String) {
     val context = LocalContext.current
 
     TopAppBar(

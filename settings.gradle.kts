@@ -10,5 +10,6 @@ rootProject.name = "Showcase"
 
 include(
     ":app",
-    ":ui"
+    ":ui",
+    ":navigation"
 )
