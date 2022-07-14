@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.ui
+package uk.co.jamiecruwys.showcase.ui.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
