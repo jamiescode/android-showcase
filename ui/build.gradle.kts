@@ -1,36 +1,10 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    id("com.google.android.gms.oss-licenses-plugin")
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")
     id("com.google.dagger.hilt.android")
-}
-
-android {
-    defaultConfig {
-        applicationId = "uk.co.jamiecruwys.showcase"
-        versionCode = 1
-        versionName = "1.0"
-    }
-
-    buildTypes {
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
-        }
-        getByName("release") {
-            isShrinkResources = false
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
-
-    namespace = "uk.co.jamiecruwys.showcase"
 }
 
 dependencies {
@@ -57,7 +31,6 @@ dependencies {
     testImplementation(libs.junit5)
 
     androidTestImplementation(libs.espresso)
-    androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.hilt.testing)
     kaptAndroidTest(libs.hilt.compiler)
 }
