@@ -10,6 +10,7 @@ dependencies {
     implementation(project(":navigation"))
 
     implementation(libs.kotlin)
+    implementation(libs.timber)
     implementation(libs.bundles.compose)
 
     testImplementation(platform(libs.junit5.bom))

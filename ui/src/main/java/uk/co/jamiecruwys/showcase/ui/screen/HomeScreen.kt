@@ -8,10 +8,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import timber.log.Timber
 import uk.co.jamiecruwys.navigation.Destinations
 
 @Composable
 fun homeScreen(navController: NavController) {
+    Timber.d("Showing home screen")
+
     val paddingModifier = Modifier.padding(16.dp)
 
     Column(modifier = paddingModifier) {

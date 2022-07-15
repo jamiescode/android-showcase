@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.glide)
     implementation(libs.oss.licenses)
+    implementation(libs.startup)
+    implementation(libs.timber)
 
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.ktx)
