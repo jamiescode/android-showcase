@@ -9,16 +9,10 @@ plugins {
 }
 
 android {
-    compileSdk = libs.versions.sdk.compile.get().toInt()
-
     defaultConfig {
         applicationId = "uk.co.jamiecruwys.showcase"
-        minSdk = libs.versions.sdk.min.get().toInt()
-        targetSdk = libs.versions.sdk.target.get().toInt()
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "com.sky.sport.test.HiltTestRunner"
     }
 
     buildTypes {
@@ -36,36 +30,25 @@ android {
         }
     }
 
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-
-    buildFeatures {
-        viewBinding = true
-    }
-
-    // Hilt Android - allow references to generated code
-    kapt {
-        correctErrorTypes = true
-    }
-
     namespace = "uk.co.jamiecruwys.showcase"
 }
 
 dependencies {
+    implementation(project(":ui"))
+    implementation(project(":navigation"))
+
     implementation(libs.kotlin)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    implementation(libs.okhttp.logging.interceptor)
-    implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
-    implementation(libs.lifecycle.ext)
-    implementation(libs.lifecycle.viewmodel)
     implementation(libs.glide)
     implementation(libs.oss.licenses)
-    implementation(libs.activity.ktx)
-    implementation(libs.fragment.ktx)
+
+    implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.ktx)
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.accompanist)
+
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
@@ -77,6 +60,7 @@ dependencies {
     testImplementation(libs.junit5)
 
     androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.androidx.test.runner)
     androidTestImplementation(libs.hilt.testing)
     kaptAndroidTest(libs.hilt.compiler)
 }
