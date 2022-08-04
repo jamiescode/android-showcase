@@ -29,7 +29,7 @@ compose-activity = "1.5.1"
 compose-viewmodel = "2.5.1"
 compose-navigation = "2.5.0"
 compose-hilt-navigation = "1.0.0"
-accompanist = "0.23.1"
+accompanist = "0.25.0"
 startup = "1.1.1"
 timber = "5.0.1"
 
