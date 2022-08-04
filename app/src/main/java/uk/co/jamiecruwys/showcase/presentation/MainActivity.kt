@@ -1,5 +1,6 @@
 package uk.co.jamiecruwys.showcase.presentation
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -19,6 +20,7 @@ import uk.co.jamiecruwys.showcase.ui.customTopAppBar
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
