@@ -54,7 +54,6 @@ okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-intercepto
 core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
-lifecycle-ext = { module = "androidx.lifecycle:lifecycle-extensions", version.ref = "lifecycle" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
 oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
@@ -117,5 +116,5 @@ accompanist = [
     "accompanist-system-ui", "accompanist-insets-ui", "accompanist-swiperefresh"
 ]
 lifecycle = [
-    "lifecycle-ext", "lifecycle-viewmodel"
+    "lifecycle-viewmodel"
 ]
