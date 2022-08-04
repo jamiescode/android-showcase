@@ -50,8 +50,13 @@ allprojects {
     }
 }
 
+/**
+ * Which Java version the app will use
+ */
+fun appJavaVersion(): String = JavaVersion.VERSION_11.toString()
+
 fun KotlinJvmOptions.applySharedConfig() {
-    jvmTarget = "11"
+    jvmTarget = appJavaVersion()
     freeCompilerArgs = freeCompilerArgs + kotlinCompilerOptIns()
 }
 
@@ -61,8 +66,8 @@ fun kotlinCompilerOptIns(): String = listOf(
 ).joinToString(prefix = "-Xopt-in=", separator = ",")
 
 fun JavaCompile.applySharedConfig() {
-    sourceCompatibility = JavaVersion.VERSION_11.toString()
-    targetCompatibility = JavaVersion.VERSION_11.toString()
+    sourceCompatibility = appJavaVersion()
+    targetCompatibility = appJavaVersion()
 }
 
 fun Test.applySharedConfig() {
