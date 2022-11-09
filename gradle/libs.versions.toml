@@ -34,7 +34,7 @@ startup = "1.1.1"
 timber = "5.0.1"
 
 # Testing
-espresso = "3.4.0"
+espresso = "3.5.0"
 androidx-test = "1.4.0"
 
 [plugins]
