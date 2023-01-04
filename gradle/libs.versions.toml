@@ -35,7 +35,7 @@ timber = "5.0.1"
 
 # Testing
 espresso = "3.5.1"
-androidx-test = "1.5.1"
+androidx-test = "1.5.2"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
