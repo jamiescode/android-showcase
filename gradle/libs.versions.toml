@@ -90,7 +90,7 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
 # Testing
-junit5-bom = { module = "org.junit:junit-bom", version = "5.9.1" }
+junit5-bom = { module = "org.junit:junit-bom", version = "5.9.2" }
 junit5 = { module = "org.junit.jupiter:junit-jupiter" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
