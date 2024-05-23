@@ -53,7 +53,7 @@ allprojects {
 /**
  * Which Java version the app will use
  */
-fun appJavaVersion(): String = JavaVersion.VERSION_11.toString()
+fun appJavaVersion(): String = JavaVersion.VERSION_17.toString()
 
 fun KotlinJvmOptions.applySharedConfig() {
     jvmTarget = appJavaVersion()
