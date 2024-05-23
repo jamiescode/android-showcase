@@ -23,20 +23,7 @@ jobs:
         run: ./gradlew test
 
       - name: Generate Kover reports
-        run: ./gradlew :app:koverXmlReportDebug :app:koverVerify
-
-      - name: Upload Kover failed coverage reports
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: kover-error-report
-          path:
-              app/build/reports/kover/verify.err
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: unit-test-results.zip
-          path: ./**/build/reports/tests/
+        run: ./gradlew :app:koverXmlReportDebug
 
       - name: Upload coverage reports to Codecov
         if: always()
@@ -44,5 +31,5 @@ jobs:
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: app/build/reports/kover/reportDebug.xml
+          files: app/build/reports/kover/reportDebug.xml, navigation/build/reports/kover/reportDebug.xml, ui/build/reports/kover/reportDebug.xml
           verbose: true

@@ -28,6 +28,22 @@ plugins {
     alias(libs.plugins.kover)
 }
 
+dependencies {
+    kover(project(":app"))
+    kover(project(":navigation"))
+    kover(project(":ui"))
+}
+
+kover {
+    reports {
+        filters {
+            excludes {
+                androidGeneratedClasses()
+            }
+        }
+    }
+}
+
 apply(from = "gradle/projectDependencyGraph.gradle")
 
 allprojects {
