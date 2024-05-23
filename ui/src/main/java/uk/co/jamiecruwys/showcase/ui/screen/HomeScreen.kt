@@ -21,13 +21,13 @@ fun homeScreen(navController: NavController) {
         Text(text = "Hello World!", modifier = paddingModifier)
         Button(
             modifier = paddingModifier,
-            onClick = { navController.navigate(Destinations.Dogs.route) }
+            onClick = { navController.navigate(Destinations.Dogs.route) },
         ) {
             Text("Dogs")
         }
         Button(
             modifier = paddingModifier,
-            onClick = { navController.navigate(Destinations.Cats.route) }
+            onClick = { navController.navigate(Destinations.Cats.route) },
         ) {
             Text("Cats")
         }

@@ -41,7 +41,7 @@ class MainFragment : Fragment() {
                         e: GlideException?,
                         model: Any?,
                         target: Target<Drawable>?,
-                        isFirstResource: Boolean
+                        isFirstResource: Boolean,
                     ): Boolean {
                         viewModel.onImageLoaded(it)
                         return false
@@ -52,7 +52,7 @@ class MainFragment : Fragment() {
                         model: Any?,
                         target: Target<Drawable>?,
                         dataSource: DataSource?,
-                        isFirstResource: Boolean
+                        isFirstResource: Boolean,
                     ): Boolean {
                         viewModel.onImageLoaded(it)
                         return false
@@ -65,7 +65,7 @@ class MainFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = MainFragmentBinding.inflate(inflater, container, false)
         return binding.root

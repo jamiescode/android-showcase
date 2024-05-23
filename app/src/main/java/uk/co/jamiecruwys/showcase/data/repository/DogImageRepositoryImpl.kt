@@ -7,7 +7,7 @@ import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
 import javax.inject.Inject
 
 class DogImageRepositoryImpl @Inject constructor(
-    private val dogImageRetrofitService: DogImageRetrofitService
+    private val dogImageRetrofitService: DogImageRetrofitService,
 ) : DogImageRepository {
 
     override suspend fun getRandomImage(): DogImageDomainModel? {

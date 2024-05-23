@@ -5,7 +5,7 @@ import java.io.IOException
 import javax.inject.Inject
 
 class GetDogImageUseCase @Inject constructor(
-    private val dogImageRepository: DogImageRepository
+    private val dogImageRepository: DogImageRepository,
 ) {
 
     sealed class Result {

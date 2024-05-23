@@ -28,7 +28,7 @@ object AppDependencies {
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor(
             HttpLoggingInterceptor()
-                .setLevel(HttpLoggingInterceptor.Level.BODY)
+                .setLevel(HttpLoggingInterceptor.Level.BODY),
         )
         .build()
 
