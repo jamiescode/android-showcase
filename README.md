@@ -5,6 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/jamiecruwys/android-showcase/badge)](https://www.codefactor.io/repository/github/jamiecruwys/android-showcase)
 [![GitHub release](https://img.shields.io/github/release/jamiecruwys/android-showcase.svg?maxAge=60)](https://github.com/jamiecruwys/android-showcase/releases)
 [![TODOs](https://badgen.net/https/api.tickgit.com/badgen/github.com/jamiecruwys/android-showcase)](https://www.tickgit.com/browse?repo=github.com/jamiecruwys/android-showcase)
+[![Codecov](https://codecov.io/github/JamieCruwys/android-showcase/graph/badge.svg?token=5W75L8DUQ0)](https://codecov.io/github/JamieCruwys/android-showcase)
 
 [![Kotlin Version](https://img.shields.io/badge/Kotlin-2.0.x-blue.svg)](https://kotlinlang.org)
 [![AGP](https://img.shields.io/badge/AGP-8.x-blue?style=flat)](https://developer.android.com/studio/releases/gradle-plugin)
