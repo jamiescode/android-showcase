@@ -5,6 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.ui.res.stringResource
@@ -37,6 +40,8 @@ class MainActivity : AppCompatActivity() {
                     NavHost(
                         navController = navController,
                         startDestination = Destinations.Home.route,
+                        enterTransition = { fadeIn(animationSpec = tween(0)) },
+                        exitTransition = { fadeOut(animationSpec = tween(0)) },
                         builder = { createNavigationRoutes(navController) },
                     )
                 }
