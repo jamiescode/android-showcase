@@ -6,10 +6,10 @@ sdk-target = "34"
 
 # Plugins
 android = "8.4.1"
-kotlin = "1.7.0"
+kotlin = "1.9.24"
 detekt = "1.23.6"
 kotlinter = "3.11.1"
-hilt = "2.44.2"
+hilt = "2.49"
 
 # Libraries
 retrofit = "2.9.0"
@@ -24,7 +24,7 @@ oss-licenses-plugin = "0.10.6"
 leakcanary = "2.14"
 ktx = "1.5.1"
 compose = "1.6.7"
-compose-compiler = "1.2.0"
+compose-compiler = "1.5.14"
 compose-activity = "1.9.0"
 compose-viewmodel = "2.5.1"
 compose-navigation = "2.7.7"
