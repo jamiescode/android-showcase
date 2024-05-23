@@ -53,7 +53,7 @@ allprojects {
 /**
  * Which Java version the app will use
  */
-fun appJavaVersion(): String = JavaVersion.VERSION_11.toString()
+fun appJavaVersion(): String = JavaVersion.VERSION_17.toString()
 
 fun KotlinJvmOptions.applySharedConfig() {
     jvmTarget = appJavaVersion()
@@ -142,7 +142,7 @@ fun LibraryExtension.applySharedConfig(moduleName: String) {
 fun LibraryDefaultConfig.applySharedConfig(withConsumerProguard: Boolean = false) {
     minSdk = libs.versions.sdk.min.get().toInt()
     targetSdk = libs.versions.sdk.target.get().toInt()
-    testInstrumentationRunner = "uk.co.jamiecruwys.showcase.HiltTestRunner"
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     if (withConsumerProguard) {
         consumerProguardFiles("consumer-rules.pro")
     }

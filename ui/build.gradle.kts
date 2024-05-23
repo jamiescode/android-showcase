@@ -6,6 +6,10 @@ plugins {
     id("org.jmailen.kotlinter")
 }
 
+android {
+    namespace = "uk.co.jamiecruwys.showcase.ui"
+}
+
 dependencies {
     implementation(project(":navigation"))
 

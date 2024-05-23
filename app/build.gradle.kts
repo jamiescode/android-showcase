@@ -9,10 +9,12 @@ plugins {
 }
 
 android {
+    namespace = "uk.co.jamiecruwys.showcase"
     defaultConfig {
         applicationId = "uk.co.jamiecruwys.showcase"
         versionCode = 1
         versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -30,7 +32,9 @@ android {
         }
     }
 
-    namespace = "uk.co.jamiecruwys.showcase"
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
