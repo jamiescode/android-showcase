@@ -2,6 +2,7 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")
 }

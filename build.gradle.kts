@@ -1,11 +1,10 @@
 import com.android.build.api.dsl.BuildFeatures
-import com.android.build.api.dsl.ComposeOptions
 import com.android.build.api.dsl.LibraryDefaultConfig
 import com.android.build.api.dsl.TestOptions
 import com.android.build.api.dsl.Lint
 import com.android.build.gradle.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -22,6 +21,7 @@ plugins {
     alias(libs.plugins.application) apply false
     alias(libs.plugins.library) apply false
     alias(libs.plugins.kotlin) apply false
+    alias(libs.plugins.compose) apply false
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinter)
@@ -30,7 +30,12 @@ plugins {
 apply(from = "gradle/projectDependencyGraph.gradle")
 
 allprojects {
-    tasks.withType<KotlinCompile>().configureEach { kotlinOptions.applySharedConfig() }
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+            freeCompilerArgs.add(kotlinCompilerOptIns())
+        }
+    }
     tasks.withType<JavaCompile> { applySharedConfig() }
     tasks.withType<Test> { applySharedConfig() }
 
@@ -50,24 +55,20 @@ allprojects {
     }
 }
 
-/**
- * Which Java version the app will use
- */
-fun appJavaVersion(): String = JavaVersion.VERSION_17.toString()
-
-fun KotlinJvmOptions.applySharedConfig() {
-    jvmTarget = appJavaVersion()
-    freeCompilerArgs = freeCompilerArgs + kotlinCompilerOptIns()
-}
-
 fun kotlinCompilerOptIns(): String = listOf(
     "androidx.compose.animation.ExperimentalAnimationApi",
     "androidx.compose.foundation.ExperimentalFoundationApi",
 ).joinToString(prefix = "-opt-in=", separator = ",")
 
+/**
+ * Which Java version the app will use
+ */
+fun appJavaVersion(): String = JavaVersion.VERSION_17.toString()
+
 fun JavaCompile.applySharedConfig() {
-    sourceCompatibility = appJavaVersion()
-    targetCompatibility = appJavaVersion()
+    val javaVersion = JavaVersion.VERSION_17.toString()
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
 }
 
 fun Test.applySharedConfig() {
@@ -126,7 +127,6 @@ fun BaseAppModuleExtension.applySharedConfig(moduleName: String) {
     defaultConfig.applySharedConfig()
     testOptions.applySharedConfig()
     buildFeatures.applySharedConfig()
-    composeOptions.applySharedConfig()
 }
 
 fun LibraryExtension.applySharedConfig(moduleName: String) {
@@ -135,7 +135,6 @@ fun LibraryExtension.applySharedConfig(moduleName: String) {
     defaultConfig.applySharedConfig(withConsumerProguard = true)
     testOptions.applySharedConfig()
     buildFeatures.applySharedConfig()
-    composeOptions.applySharedConfig()
     lint.applySharedConfig()
 }
 
@@ -155,10 +154,6 @@ fun TestOptions.applySharedConfig() {
 fun BuildFeatures.applySharedConfig() {
     compose = true
     viewBinding = true
-}
-
-fun ComposeOptions.applySharedConfig() {
-    kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
 }
 
 fun Lint.applySharedConfig() {
