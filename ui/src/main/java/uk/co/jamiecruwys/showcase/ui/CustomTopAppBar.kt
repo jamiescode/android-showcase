@@ -7,7 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 
 @Composable
-fun customTopAppBar(appName: String, onLicensesClicked: () -> Unit) {
+fun customTopAppBar(
+    appName: String,
+    onLicensesClicked: () -> Unit,
+) {
     TopAppBar(
         title = {
             Text(text = appName)
