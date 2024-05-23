@@ -9,6 +9,7 @@ plugins {
 }
 
 android {
+    namespace = "uk.co.jamiecruwys.showcase.App"
     defaultConfig {
         applicationId = "uk.co.jamiecruwys.showcase"
         versionCode = 1
@@ -28,6 +29,10 @@ android {
             )
             signingConfig = signingConfigs.getByName("debug")
         }
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     namespace = "uk.co.jamiecruwys.showcase"

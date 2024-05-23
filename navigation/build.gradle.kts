@@ -6,6 +6,10 @@ plugins {
     id("org.jmailen.kotlinter")
 }
 
+android {
+    namespace = "uk.co.jamiecruwys.navigation"
+}
+
 dependencies {
     implementation(libs.kotlin)
     implementation(libs.bundles.compose)
