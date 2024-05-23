@@ -19,7 +19,6 @@ import uk.co.jamiecruwys.showcase.ui.customTopAppBar
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
     @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

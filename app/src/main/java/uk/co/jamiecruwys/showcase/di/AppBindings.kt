@@ -10,7 +10,6 @@ import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
 @Module
 @InstallIn(SingletonComponent::class)
 interface AppBindings {
-
     @Binds
     fun dogImageRepository(impl: DogImageRepositoryImpl): DogImageRepository
 }
