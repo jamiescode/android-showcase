@@ -9,7 +9,7 @@ android = "8.4.1"
 kotlin = "1.9.24"
 detekt = "1.23.6"
 kotlinter = "3.11.1"
-hilt = "2.49"
+hilt = "2.51.1"
 
 # Libraries
 retrofit = "2.11.0"
