@@ -42,7 +42,7 @@ class MainFragment : Fragment() {
                                 e: GlideException?,
                                 model: Any?,
                                 target: Target<Drawable>,
-                                isFirstResource: Boolean
+                                isFirstResource: Boolean,
                             ): Boolean {
                                 viewModel.onImageLoaded(it)
                                 return false
@@ -53,7 +53,7 @@ class MainFragment : Fragment() {
                                 model: Any,
                                 target: Target<Drawable>?,
                                 dataSource: DataSource,
-                                isFirstResource: Boolean
+                                isFirstResource: Boolean,
                             ): Boolean {
                                 viewModel.onImageLoaded(it)
                                 return false
