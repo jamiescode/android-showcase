@@ -65,7 +65,7 @@ dependencies {
 
     debugImplementation(libs.leakcanary)
 
-    annotationProcessor(libs.annotation.glide.compiler)
+    kapt(libs.annotation.glide.compiler)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
