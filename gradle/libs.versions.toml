@@ -8,7 +8,7 @@ sdk-target = "32"
 android = "7.2.2"
 kotlin = "1.7.0"
 detekt = "1.23.6"
-kotlinter = "3.11.1"
+kotlinter = "3.16.0"
 hilt = "2.44.2"
 
 # Libraries
