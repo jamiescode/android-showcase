@@ -18,16 +18,16 @@ fun overflowMenu(content: @Composable () -> Unit) {
     IconButton(
         onClick = {
             showMenu = !showMenu
-        }
+        },
     ) {
         Icon(
             imageVector = Icons.Outlined.MoreVert,
-            contentDescription = stringResource(R.string.more)
+            contentDescription = stringResource(R.string.more),
         )
     }
     DropdownMenu(
         expanded = showMenu,
-        onDismissRequest = { showMenu = false }
+        onDismissRequest = { showMenu = false },
     ) {
         content()
     }

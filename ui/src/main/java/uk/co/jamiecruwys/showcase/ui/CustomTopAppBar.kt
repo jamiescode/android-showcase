@@ -15,11 +15,11 @@ fun customTopAppBar(appName: String, onLicensesClicked: () -> Unit) {
         actions = {
             overflowMenu {
                 DropdownMenuItem(
-                    onClick = { onLicensesClicked.invoke() }
+                    onClick = { onLicensesClicked.invoke() },
                 ) {
                     Text(stringResource(id = R.string.menu_oss_title))
                 }
             }
-        }
+        },
     )
 }

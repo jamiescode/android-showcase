@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val getRandomDogImageUseCase: GetDogImageUseCase
+    private val getRandomDogImageUseCase: GetDogImageUseCase,
 ) : ViewModel() {
 
     private val stateMutableLiveData: MutableLiveData<State> by lazy {
@@ -19,8 +19,8 @@ class MainViewModel @Inject constructor(
             State(
                 isLoading = false,
                 isError = false,
-                imageUrl = ""
-            )
+                imageUrl = "",
+            ),
         )
     }
 
@@ -31,8 +31,8 @@ class MainViewModel @Inject constructor(
             State(
                 isLoading = true,
                 isError = false,
-                imageUrl = ""
-            )
+                imageUrl = "",
+            ),
         )
 
         viewModelScope.launch {
@@ -43,8 +43,8 @@ class MainViewModel @Inject constructor(
                             State(
                                 isLoading = true,
                                 isError = false,
-                                imageUrl = it.imageUrl
-                            )
+                                imageUrl = it.imageUrl,
+                            ),
                         )
                     }
                     is GetDogImageUseCase.Result.Error -> {
@@ -52,8 +52,8 @@ class MainViewModel @Inject constructor(
                             State(
                                 isLoading = false,
                                 isError = true,
-                                imageUrl = ""
-                            )
+                                imageUrl = "",
+                            ),
                         )
                     }
                 }
@@ -68,6 +68,6 @@ class MainViewModel @Inject constructor(
     data class State(
         val isLoading: Boolean = false,
         val isError: Boolean = false,
-        val imageUrl: String = ""
+        val imageUrl: String = "",
     )
 }

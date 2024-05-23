@@ -10,17 +10,17 @@ import uk.co.jamiecruwys.showcase.ui.screen.homeScreen
 
 fun NavGraphBuilder.createNavigationRoutes(navController: NavController) {
     composable(
-        route = Destinations.Home.route
+        route = Destinations.Home.route,
     ) {
         homeScreen(navController)
     }
     composable(
-        route = Destinations.Dogs.route
+        route = Destinations.Dogs.route,
     ) {
         dogsScreen()
     }
     composable(
-        route = Destinations.Cats.route
+        route = Destinations.Cats.route,
     ) {
         catsScreen()
     }

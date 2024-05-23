@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity() {
                     topBar = {
                         customTopAppBar(
                             appName = appName,
-                            onLicensesClicked = { showOpenSourceLicenses() }
+                            onLicensesClicked = { showOpenSourceLicenses() },
                         )
-                    }
+                    },
                 ) {
                     NavHost(
                         navController = navController,
                         startDestination = Destinations.Home.route,
-                        builder = { createNavigationRoutes(navController) }
+                        builder = { createNavigationRoutes(navController) },
                     )
                 }
             }
