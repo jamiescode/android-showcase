@@ -19,7 +19,6 @@ import uk.co.jamiecruwys.showcase.databinding.MainFragmentBinding
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
-
     companion object {
         fun newInstance() = MainFragment()
     }
@@ -27,40 +26,43 @@ class MainFragment : Fragment() {
     private val viewModel: MainViewModel by viewModels()
 
     private var _binding: MainFragmentBinding? = null
-    private val binding get() = _binding!!
+    val binding get() = _binding!!
 
-    private val stateObserver = Observer<MainViewModel.State> {
-        binding.progressBar.isVisible = it.isLoading
-        binding.randomButton.isVisible = !it.isLoading
-        it.imageUrl.let { url ->
-            if (url.isEmpty()) {
-                binding.image.setImageResource(android.R.color.transparent)
-            } else {
-                Glide.with(this).load(url).addListener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        isFirstResource: Boolean,
-                    ): Boolean {
-                        viewModel.onImageLoaded(it)
-                        return false
-                    }
+    private val stateObserver =
+        Observer<MainViewModel.State> {
+            binding.progressBar.isVisible = it.isLoading
+            binding.randomButton.isVisible = !it.isLoading
+            it.imageUrl.let { url ->
+                if (url.isEmpty()) {
+                    binding.image.setImageResource(android.R.color.transparent)
+                } else {
+                    Glide.with(this).load(url).addListener(
+                        object : RequestListener<Drawable> {
+                            override fun onLoadFailed(
+                                e: GlideException?,
+                                model: Any?,
+                                target: Target<Drawable>?,
+                                isFirstResource: Boolean,
+                            ): Boolean {
+                                viewModel.onImageLoaded(it)
+                                return false
+                            }
 
-                    override fun onResourceReady(
-                        resource: Drawable?,
-                        model: Any?,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource?,
-                        isFirstResource: Boolean,
-                    ): Boolean {
-                        viewModel.onImageLoaded(it)
-                        return false
-                    }
-                }).into(binding.image)
+                            override fun onResourceReady(
+                                resource: Drawable?,
+                                model: Any?,
+                                target: Target<Drawable>?,
+                                dataSource: DataSource?,
+                                isFirstResource: Boolean,
+                            ): Boolean {
+                                viewModel.onImageLoaded(it)
+                                return false
+                            }
+                        },
+                    ).into(binding.image)
+                }
             }
         }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -71,7 +73,10 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.stateLiveData.observe(viewLifecycleOwner, stateObserver)
