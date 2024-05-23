@@ -63,7 +63,7 @@ fun KotlinJvmOptions.applySharedConfig() {
 fun kotlinCompilerOptIns(): String = listOf(
     "androidx.compose.animation.ExperimentalAnimationApi",
     "androidx.compose.foundation.ExperimentalFoundationApi",
-).joinToString(prefix = "-Xopt-in=", separator = ",")
+).joinToString(prefix = "-opt-in=", separator = ",")
 
 fun JavaCompile.applySharedConfig() {
     sourceCompatibility = appJavaVersion()
