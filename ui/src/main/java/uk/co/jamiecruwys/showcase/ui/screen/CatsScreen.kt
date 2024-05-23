@@ -6,7 +6,7 @@ import androidx.compose.runtime.Composable
 import timber.log.Timber
 
 @Composable
-fun CatsScreen() {
+fun catsScreen() {
     Timber.d("Showing cat screen")
     Box {
         Text(text = "Meow!")

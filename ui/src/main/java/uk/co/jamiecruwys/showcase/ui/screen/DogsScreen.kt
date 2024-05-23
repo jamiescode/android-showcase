@@ -18,29 +18,31 @@ import timber.log.Timber
 import uk.co.jamiecruwys.domain.DogViewModel
 
 @Composable
-fun DogsScreen(viewModel: DogViewModel = hiltViewModel()) {
+fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
     Timber.d("Showing dog screen")
 
-    val state = viewModel.stateLiveData.asFlow().collectAsState(
-        initial = DogViewModel.State(
-            isLoading = true,
-            isError = false,
-            imageUrl = "",
+    val state =
+        viewModel.stateLiveData.asFlow().collectAsState(
+            initial =
+                DogViewModel.State(
+                    isLoading = true,
+                    isError = false,
+                    imageUrl = "",
+                ),
         )
-    )
 
     Column {
         Button(onClick = { viewModel.onRandomButtonPressed() }) {
-            Text("Tap here for another dog")
+            Text("Get random dog!")
         }
         Spacer(modifier = Modifier.height(50.dp))
-        DogImageState(state = state.value)
+        dogImageState(state = state.value)
     }
 }
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun DogImageState(state: DogViewModel.State) {
+fun dogImageState(state: DogViewModel.State) {
     if (state.isLoading) {
         Timber.d("Loading...")
         Text("Loading...")
@@ -55,7 +57,7 @@ fun DogImageState(state: DogViewModel.State) {
         GlideImage(
             model = state.imageUrl,
             contentDescription = "Image of a dog",
-            modifier = Modifier.size(300.dp)
+            modifier = Modifier.size(300.dp),
         )
     }
 }

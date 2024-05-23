@@ -4,8 +4,8 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import uk.co.jamiecruwys.navigation.Destinations
-import uk.co.jamiecruwys.showcase.ui.screen.CatsScreen
-import uk.co.jamiecruwys.showcase.ui.screen.DogsScreen
+import uk.co.jamiecruwys.showcase.ui.screen.catsScreen
+import uk.co.jamiecruwys.showcase.ui.screen.dogsScreen
 import uk.co.jamiecruwys.showcase.ui.screen.homeScreen
 
 fun NavGraphBuilder.createNavigationRoutes(navController: NavController) {
@@ -17,11 +17,11 @@ fun NavGraphBuilder.createNavigationRoutes(navController: NavController) {
     composable(
         route = Destinations.Dogs.route,
     ) {
-        DogsScreen()
+        dogsScreen()
     }
     composable(
         route = Destinations.Cats.route,
     ) {
-        CatsScreen()
+        catsScreen()
     }
 }
