@@ -17,3 +17,6 @@ How to run the code quality tools:
 * Run `./gradlew formatKotlin` to automatically format your code
 * Run `./gradlew lintKotlin` to run ktlint via Kotlinter
 * Run `./gradlew lint` to run Android lint
+
+How to run the UI tests:
+* Run `./gradlew connectedCheck`
