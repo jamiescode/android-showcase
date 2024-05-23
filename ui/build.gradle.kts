@@ -8,6 +8,11 @@ plugins {
 
 android {
     namespace = "uk.co.jamiecruwys.showcase.ui"
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
 }
 
 dependencies {

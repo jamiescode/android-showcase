@@ -32,6 +32,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
     buildFeatures {
         buildConfig = true
     }
@@ -60,7 +65,7 @@ dependencies {
 
     debugImplementation(libs.leakcanary)
 
-    annotationProcessor(libs.annotation.glide.compiler)
+    kapt(libs.annotation.glide.compiler)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
