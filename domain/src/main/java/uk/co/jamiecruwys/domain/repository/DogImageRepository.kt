@@ -3,5 +3,5 @@ package uk.co.jamiecruwys.domain.repository
 import uk.co.jamiecruwys.domain.model.DogImageDomainModel
 
 interface DogImageRepository {
-    suspend fun getRandomImage(): uk.co.jamiecruwys.domain.model.DogImageDomainModel?
+    suspend fun getRandomImage(): DogImageDomainModel?
 }

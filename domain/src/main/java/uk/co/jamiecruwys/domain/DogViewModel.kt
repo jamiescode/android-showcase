@@ -16,59 +16,35 @@ class DogViewModel
         private val getRandomDogImageUseCase: GetDogImageUseCase,
     ) : ViewModel() {
         private val stateMutableLiveData: MutableLiveData<State> by lazy {
-            MutableLiveData<State>(
-                State(
-                    isLoading = false,
-                    isError = false,
-                    imageUrl = "",
-                ),
-            )
+            MutableLiveData<State>(State.Initial)
         }
 
         val stateLiveData = stateMutableLiveData as LiveData<State>
 
         fun onRandomButtonPressed() {
-            stateMutableLiveData.postValue(
-                State(
-                    isLoading = true,
-                    isError = false,
-                    imageUrl = "",
-                ),
-            )
+            stateMutableLiveData.postValue(State.Loading)
 
             viewModelScope.launch {
                 getRandomDogImageUseCase.execute().also {
                     when (it) {
                         is GetDogImageUseCase.Result.Success -> {
-                            stateMutableLiveData.postValue(
-                                State(
-                                    isLoading = false,
-                                    isError = false,
-                                    imageUrl = it.imageUrl,
-                                ),
-                            )
+                            stateMutableLiveData.postValue(State.Loaded(it.imageUrl))
                         }
                         is GetDogImageUseCase.Result.Error -> {
-                            stateMutableLiveData.postValue(
-                                State(
-                                    isLoading = false,
-                                    isError = true,
-                                    imageUrl = "",
-                                ),
-                            )
+                            stateMutableLiveData.postValue(State.Error)
                         }
                     }
                 }
             }
         }
 
-        fun onImageLoaded(lastState: State) {
-            stateMutableLiveData.postValue(lastState.copy(isLoading = false))
-        }
+        sealed class State {
+            data object Initial : State()
 
-        data class State(
-            val isLoading: Boolean = false,
-            val isError: Boolean = false,
-            val imageUrl: String = "",
-        )
+            data object Loading : State()
+
+            data object Error : State()
+
+            data class Loaded(val imageUrl: String) : State()
+        }
     }
