@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.android.gms.oss-licenses-plugin")
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")

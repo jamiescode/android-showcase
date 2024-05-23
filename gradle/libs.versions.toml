@@ -25,7 +25,6 @@ leakcanary = "2.14"
 ktx-activity = "1.9.0"
 ktx-fragment = "1.7.1"
 compose = "1.6.7"
-compose-compiler = "1.5.14"
 compose-activity = "1.9.0"
 compose-viewmodel = "2.8.0"
 compose-navigation = "2.7.7"
@@ -42,6 +41,7 @@ androidx-test = "1.5.2"
 application = { id = "com.android.application", version.ref = "android" }
 library = { id = "com.android.library", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin"}
 oss-licenses = { id = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
