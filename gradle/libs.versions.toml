@@ -10,6 +10,7 @@ kotlin = "2.0.0"
 detekt = "1.23.6"
 kotlinter = "4.3.0"
 hilt = "2.51.1"
+kover = "0.8.0"
 
 # Libraries
 retrofit = "2.11.0"
@@ -46,6 +47,7 @@ oss-licenses = { id = "com.google.android.gms:oss-licenses-plugin", version.ref 
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }

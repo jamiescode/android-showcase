@@ -25,6 +25,7 @@ plugins {
     alias(libs.plugins.hilt) apply false
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinter)
+    alias(libs.plugins.kover)
 }
 
 apply(from = "gradle/projectDependencyGraph.gradle")
