@@ -1,6 +1,5 @@
 package uk.co.jamiecruwys.showcase.ui.screen
 
-import android.widget.Spinner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -21,10 +20,13 @@ import uk.co.jamiecruwys.domain.DogViewModel
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
 fun dogImageState(state: DogViewModel.State) {
+    @Suppress("MagicNumber")
+    val maxHeightFraction = 0.5f
     Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.5f),
+        modifier =
+            Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(maxHeightFraction),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {

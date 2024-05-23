@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
-import timber.log.Timber
 import uk.co.jamiecruwys.domain.DogViewModel
 
 @Composable
@@ -28,23 +27,26 @@ fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
 
     val state =
         viewModel.stateLiveData.asFlow().collectAsState(
-            initial = DogViewModel.State.Initial
+            initial = DogViewModel.State.Initial,
         )
 
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         dogImageState(state = state.value)
         Spacer(modifier = Modifier.height(48.dp))
         Button(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(64.dp),
-            onClick = { viewModel.onRandomButtonPressed() }) {
+            modifier =
+                Modifier
+                    .fillMaxWidth()
+                    .height(64.dp),
+            onClick = { viewModel.onRandomButtonPressed() },
+        ) {
             Text("Get random dog!")
         }
     }
