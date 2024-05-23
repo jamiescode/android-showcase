@@ -1,13 +1,12 @@
-package uk.co.jamiecruwys.showcase.domain.usecase
+package uk.co.jamiecruwys.domain.usecase
 
-import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
 import java.io.IOException
 import javax.inject.Inject
 
 class GetDogImageUseCase
     @Inject
     constructor(
-        private val dogImageRepository: DogImageRepository,
+        private val dogImageRepository: uk.co.jamiecruwys.domain.repository.DogImageRepository,
     ) {
         sealed class Result {
             data class Success(val imageUrl: String) : Result()

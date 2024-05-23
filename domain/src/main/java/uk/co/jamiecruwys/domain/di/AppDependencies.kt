@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.di
+package uk.co.jamiecruwys.domain.di
 
 import dagger.Module
 import dagger.Provides
@@ -8,7 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uk.co.jamiecruwys.showcase.data.retrofit.service.DogImageRetrofitService
+import uk.co.jamiecruwys.domain.retrofit.DogImageRetrofitService
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
