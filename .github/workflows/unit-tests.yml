@@ -22,7 +22,14 @@ jobs:
       - name: Run unit tests
         run: ./gradlew test
 
-      - uses: actions/upload-artifact@v4
+      - name: Generate Kover reports
+        run: ./gradlew :app:koverXmlReportDebug
+
+      - name: Upload coverage reports to Codecov
+        if: always()
+        uses: codecov/codecov-action@v4
         with:
-          name: unit-test-results.zip
-          path: ./**/build/reports/tests/
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: app/build/reports/kover/reportDebug.xml, navigation/build/reports/kover/reportDebug.xml, ui/build/reports/kover/reportDebug.xml
+          verbose: true

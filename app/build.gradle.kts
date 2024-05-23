@@ -7,6 +7,7 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")
     id("com.google.dagger.hilt.android")
+    id("org.jetbrains.kotlinx.kover")
 }
 
 android {
