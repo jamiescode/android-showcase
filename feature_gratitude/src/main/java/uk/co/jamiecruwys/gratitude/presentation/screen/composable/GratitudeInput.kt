@@ -6,14 +6,14 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,7 +33,7 @@ fun gratitudeInput(viewModel: GratitudeViewModel) {
         modifier =
             Modifier
                 .fillMaxWidth()
-                .background(MaterialTheme.colors.primary)
+                .background(MaterialTheme.colorScheme.primary)
                 .padding(16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -50,14 +50,15 @@ fun gratitudeInput(viewModel: GratitudeViewModel) {
             },
             maxLines = 1,
             colors =
-                TextFieldDefaults.textFieldColors(
-                    textColor = Color.White,
+                TextFieldDefaults.colors().copy(
+                    focusedTextColor = Color.White,
+                    unfocusedTextColor = Color.White,
                     cursorColor = Color.White,
-                    backgroundColor = Color.Transparent,
+                    focusedContainerColor = Color.Transparent,
+                    unfocusedContainerColor = Color.Transparent,
                     focusedIndicatorColor = Color.White,
                     unfocusedIndicatorColor = Color.White,
                 ),
-            modifier = Modifier.weight(1f),
         )
         Spacer(modifier = Modifier.width(16.dp))
         IconButton(

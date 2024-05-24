@@ -8,4 +8,6 @@ sealed class Destinations(val route: String) {
     data object Cats : Destinations(Routes.CATS.value)
 
     data object Gratitude : Destinations(Routes.GRATITUDE.value)
+
+    data object Settings : Destinations(Routes.SETTINGS.value)
 }

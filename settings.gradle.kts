@@ -15,4 +15,5 @@ include(
     ":feature_gratitude",
     ":feature_home",
     ":navigation",
+    ":theme",
 )

@@ -5,4 +5,5 @@ enum class Routes(val value: String) {
     DOGS("dogs"),
     CATS("cats"),
     GRATITUDE("gratitude"),
+    SETTINGS("settings"),
 }

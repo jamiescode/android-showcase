@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.gratitude"
+    namespace = "uk.co.jamiecruwys.showcase.theme"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -18,18 +18,9 @@ android {
 }
 
 dependencies {
-    implementation(project(":navigation"))
-    implementation(project(":theme"))
-
     implementation(libs.kotlin)
-    implementation(libs.timber)
     implementation(libs.bundles.compose)
-
-    implementation(libs.hilt)
-    implementation(project(":feature_dog"))
-    kapt(libs.hilt.compiler)
-
-    debugImplementation(libs.leakcanary)
+    implementation(libs.oss.licenses)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)

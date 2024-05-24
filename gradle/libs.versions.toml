@@ -1,7 +1,7 @@
 [versions]
 # Android setup
 sdk-compile = "34"
-sdk-min = "23"
+sdk-min = "24"
 sdk-target = "34"
 
 # Plugins
@@ -30,6 +30,7 @@ compose-activity = "1.9.0"
 compose-viewmodel = "2.8.0"
 compose-navigation = "2.7.7"
 compose-hilt-navigation = "1.2.0"
+compose-material3 = "1.2.1"
 accompanist = "0.34.0"
 startup = "1.1.1"
 timber = "5.0.1"
@@ -38,7 +39,6 @@ timber = "5.0.1"
 espresso = "3.5.1"
 androidx-test = "1.5.2"
 junit = "1.1.5"
-material = "1.12.0"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
@@ -74,7 +74,7 @@ compose-ui-core = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3-android", version.ref = "compose-material3" }
 
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity" }
 compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose-viewmodel" }
@@ -104,7 +104,6 @@ espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "esp
 compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose"}
 compose-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "compose-navigation" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 retrofit = [
@@ -115,7 +114,7 @@ ktx = [
 ]
 compose = [
     "compose-runtime", "compose-ui-core", "compose-ui-tooling", "compose-ui-tooling-preview",
-    "compose-foundation", "compose-material", "compose-activity", "compose-viewmodel",
+    "compose-foundation", "compose-material3", "compose-activity", "compose-viewmodel",
     "compose-navigation", "compose-hilt-navigation",
 ]
 accompanist = [

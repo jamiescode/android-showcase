@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+    <color name="appBarIconColor">#2598F3</color>
+
+    <color name="listColorPurple">#E1BEE7FF</color>
+    <color name="listColorRed">#FFCDD2FF</color>
+    <color name="listColorOrange">#FFCC80FF</color>
+    <color name="listColorBlue">#BBDEFBFF</color>
+    <color name="listColorPink">#F8BBD0FF</color>
+    <color name="listColorAmber">#FFECB3FF</color>
+    <color name="listColorCyan">#B2EBF2FF</color>
+    <color name="listColorGreen">#C8E6C9FF</color>
+    <color name="listColorTeal">#B2DFDBFF</color>
+</resources>
