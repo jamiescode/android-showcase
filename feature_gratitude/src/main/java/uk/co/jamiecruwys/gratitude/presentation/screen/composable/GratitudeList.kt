@@ -20,6 +20,7 @@ fun gratitudeList(
             gratitudeRow(
                 gratitudeEntry = gratitudeEntry,
                 backgroundColor = backgroundColor,
+                onEditEntry = {},
             )
         }
     }

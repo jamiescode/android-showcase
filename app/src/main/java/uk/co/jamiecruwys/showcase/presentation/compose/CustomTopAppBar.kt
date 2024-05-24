@@ -29,7 +29,7 @@ fun customTopAppBar(
         title = {
             Text(
                 text = stringResource(id = R.string.app_bar_title),
-                fontSize = 32.sp,
+                fontSize = 36.sp,
                 fontFamily = gratitudeFont,
                 textAlign = TextAlign.Center,
             )
