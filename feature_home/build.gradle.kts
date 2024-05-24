@@ -21,18 +21,8 @@ dependencies {
     implementation(project(":navigation"))
 
     implementation(libs.kotlin)
-    implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.oss.licenses)
-    implementation(libs.startup)
     implementation(libs.timber)
-    implementation(libs.glide)
-
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.ktx)
-    implementation(libs.bundles.lifecycle)
     implementation(libs.bundles.compose)
-    implementation(libs.bundles.accompanist)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)

@@ -7,7 +7,6 @@ import timber.log.Timber
 
 @Composable
 fun catsScreen() {
-    Timber.d("Showing cat screen")
     Box {
         Text(text = "Meow!")
     }
