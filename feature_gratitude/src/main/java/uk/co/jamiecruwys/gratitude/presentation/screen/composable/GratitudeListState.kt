@@ -27,5 +27,8 @@ fun gratitudeListState(
                 gratitudeEntries = state.gratitudeEntries,
             )
         }
+        GratitudeViewModel.State.Empty -> {
+            Text(text = "Enter what you are grateful for in the text input at the bottom")
+        }
     }
 }

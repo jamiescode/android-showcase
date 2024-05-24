@@ -29,7 +29,14 @@ class GratitudeViewModel
                 getGratitudeEntriesUseCase.execute().also {
                     when (it) {
                         is GetGratitudeEntriesUseCase.Result.Success -> {
-                            stateMutableLiveData.postValue(State.Loaded(it.gratitudeEntries))
+                            val entries = it.gratitudeEntries
+                            val value =
+                                if (entries.isEmpty()) {
+                                    State.Empty
+                                } else {
+                                    State.Loaded(entries)
+                                }
+                            stateMutableLiveData.postValue(value)
                         }
 
                         is GetGratitudeEntriesUseCase.Result.Error -> {
@@ -66,5 +73,7 @@ class GratitudeViewModel
             data object Error : State()
 
             data class Loaded(val gratitudeEntries: List<GratitudeEntry>) : State()
+
+            data object Empty : State()
         }
     }
