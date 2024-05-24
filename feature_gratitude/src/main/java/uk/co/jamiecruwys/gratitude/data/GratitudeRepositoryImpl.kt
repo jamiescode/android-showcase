@@ -16,6 +16,8 @@ class GratitudeRepositoryImpl
                 GratitudeEntry("Owning books that I can enjoy"),
                 GratitudeEntry("The kind things other people do for me"),
                 GratitudeEntry("This application"),
+                GratitudeEntry("People who download this app"),
+                GratitudeEntry("Food"),
             )
 
         override suspend fun getEntries(): List<GratitudeEntry> = entries

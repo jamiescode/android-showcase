@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">Showcase</string>
+    <string name="app_name">Gratitude</string>
+    <string name="app_bar_title">Gratitude</string>
     <string name="more">More</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_settings">Settings</string>
     <string name="menu_oss_title">Licenses</string>
 </resources>

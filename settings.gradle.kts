@@ -13,4 +13,5 @@ include(
     ":feature_dog",
     ":feature_gratitude",
     ":navigation",
+    ":theme",
 )

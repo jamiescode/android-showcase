@@ -1,7 +1,7 @@
 package uk.co.jamiecruwys.gratitude.presentation.screen.composable
 
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Text
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel

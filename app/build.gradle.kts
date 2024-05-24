@@ -48,12 +48,12 @@ dependencies {
     implementation(project(":feature_dog"))
     implementation(project(":feature_gratitude"))
     implementation(project(":navigation"))
+    implementation(project(":theme"))
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)
     implementation(libs.startup)
     implementation(libs.timber)
-
     implementation(libs.bundles.compose)
 
     implementation(libs.hilt)
