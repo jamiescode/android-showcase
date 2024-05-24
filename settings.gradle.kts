@@ -12,5 +12,5 @@ include(
     ":app",
     ":ui",
     ":navigation",
-    ":domain",
+    ":feature_dog",
 )

@@ -18,8 +18,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":domain"))
-
     implementation(libs.kotlin)
     implementation(libs.timber)
     implementation(libs.bundles.compose)

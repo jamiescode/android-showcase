@@ -38,7 +38,7 @@ fun MainContent(
                 startDestination = Destinations.Home.route,
                 enterTransition = { fadeIn(animationSpec = tween(0)) },
                 exitTransition = { fadeOut(animationSpec = tween(0)) },
-                builder = { createNavigationRoutes(navController) },
+                builder = { createNavigationRoutes(UiEventNavigator(navController)) },
             )
         }
     }

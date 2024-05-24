@@ -18,8 +18,8 @@ android {
 }
 
 dependencies {
+    implementation(project(":feature_dog"))
     implementation(project(":ui"))
-    implementation(project(":domain"))
 
     implementation(libs.kotlin)
     implementation(libs.bundles.compose)
