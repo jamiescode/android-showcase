@@ -7,8 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.Column
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
@@ -25,10 +29,13 @@ class MainActivity : AppCompatActivity() {
             MaterialTheme {
                 Scaffold(
                     topBar = {
-                        customTopAppBar(
-                            onLaunchSearch = {},
-                            onLaunchSettings = {},
-                        )
+                        Column {
+                            customTopAppBar(
+                                onLaunchSearch = {},
+                                onLaunchSettings = {},
+                            )
+                            HorizontalDivider(color = Color.Black, thickness = 1.dp)
+                        }
                     },
                 ) {
                     NavHost(
