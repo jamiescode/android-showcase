@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                         startDestination = Destinations.Gratitude.route,
                         enterTransition = { fadeIn(animationSpec = tween(0)) },
                         exitTransition = { fadeOut(animationSpec = tween(0)) },
-                        builder = { createNavigationRoutes(navController) },
+                        builder = { createNavigationRoutes() },
                     )
                 }
             }
