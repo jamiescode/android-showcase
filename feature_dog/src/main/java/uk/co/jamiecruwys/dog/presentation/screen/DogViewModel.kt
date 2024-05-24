@@ -6,13 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import uk.co.jamiecruwys.dog.domain.usecase.GetDogImageUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class DogViewModel
     @Inject
     constructor(
-        private val getRandomDogImageUseCase: uk.co.jamiecruwys.dog.domain.usecase.GetDogImageUseCase,
+        private val getRandomDogImageUseCase: GetDogImageUseCase,
     ) : ViewModel() {
         private val stateMutableLiveData: MutableLiveData<State> by lazy {
             MutableLiveData<State>(State.Initial)
@@ -24,10 +25,10 @@ class DogViewModel
             viewModelScope.launch {
                 getRandomDogImageUseCase.execute().also {
                     when (it) {
-                        is uk.co.jamiecruwys.dog.domain.usecase.GetDogImageUseCase.Result.Success -> {
+                        is GetDogImageUseCase.Result.Success -> {
                             stateMutableLiveData.postValue(State.ImageAvailable(it.imageUrl))
                         }
-                        is uk.co.jamiecruwys.dog.domain.usecase.GetDogImageUseCase.Result.Error -> {
+                        is GetDogImageUseCase.Result.Error -> {
                             stateMutableLiveData.postValue(State.Error)
                         }
                     }

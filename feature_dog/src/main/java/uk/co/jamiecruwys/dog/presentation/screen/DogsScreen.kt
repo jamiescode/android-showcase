@@ -19,14 +19,14 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
 
 @Composable
-fun dogsScreen(viewModel: uk.co.jamiecruwys.dog.presentation.screen.DogViewModel = hiltViewModel()) {
+fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.onRandomButtonPressed()
     }
 
     val state =
         viewModel.stateLiveData.asFlow().collectAsState(
-            initial = uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.State.Initial,
+            initial = DogViewModel.State.Initial,
         )
 
     Column(

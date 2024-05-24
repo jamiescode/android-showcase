@@ -20,7 +20,7 @@ import timber.log.Timber
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun dogImageState(state: uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.State) {
+fun dogImageState(state: DogViewModel.State) {
     @Suppress("MagicNumber")
     val maxHeightFraction = 0.5f
     Column(
@@ -32,13 +32,13 @@ fun dogImageState(state: uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.
         verticalArrangement = Arrangement.Center,
     ) {
         when (state) {
-            is uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.State.Initial -> {
+            is DogViewModel.State.Initial -> {
                 // Show nothing
             }
-            is uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.State.Error -> {
+            is DogViewModel.State.Error -> {
                 dogImageError(message = "Error: Failed to load data")
             }
-            is uk.co.jamiecruwys.dog.presentation.screen.DogViewModel.State.ImageAvailable -> {
+            is DogViewModel.State.ImageAvailable -> {
                 Timber.d("Image url: ${state.imageUrl}")
                 GlideImage(
                     model = state.imageUrl,
