@@ -26,9 +26,9 @@ fun dogImageState(state: DogViewModel.State) {
     val maxHeightFraction = 0.5f
     Column(
         modifier =
-        Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(maxHeightFraction),
+            Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(maxHeightFraction),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -46,7 +46,7 @@ fun dogImageState(state: DogViewModel.State) {
                     contentDescription = "Image of a dog",
                     modifier = Modifier.fillMaxSize(),
                     loading = placeholder { dogImageLoading() },
-                    failure = placeholder { dogImageError("Error: Failed to load image") }
+                    failure = placeholder { dogImageError("Error: Failed to load image") },
                 )
             }
         }
