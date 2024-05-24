@@ -7,12 +7,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import timber.log.Timber
-import uk.co.jamiecruwys.navigation.Destinations
+import uk.co.jamiecruwys.showcase.ui.UiNavigationEvent
 
 @Composable
-fun homeScreen(navController: NavController) {
+fun homeScreen(sendUiNavigationEvent: (UiNavigationEvent) -> Unit) {
     Timber.d("Showing home screen")
 
     val paddingModifier = Modifier.padding(16.dp)
@@ -21,13 +20,17 @@ fun homeScreen(navController: NavController) {
         Text(text = "Hello World!", modifier = paddingModifier)
         Button(
             modifier = paddingModifier,
-            onClick = { navController.navigate(Destinations.Dogs.route) },
+            onClick = {
+                sendUiNavigationEvent(UiNavigationEvent.DOG)
+            },
         ) {
             Text("Dogs")
         }
         Button(
             modifier = paddingModifier,
-            onClick = { navController.navigate(Destinations.Cats.route) },
+            onClick = {
+                sendUiNavigationEvent(UiNavigationEvent.CAT)
+            },
         ) {
             Text("Cats")
         }

@@ -18,7 +18,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":navigation"))
     implementation(project(":domain"))
 
     implementation(libs.kotlin)

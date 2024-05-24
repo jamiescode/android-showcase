@@ -18,8 +18,12 @@ android {
 }
 
 dependencies {
+    implementation(project(":ui"))
+    implementation(project(":domain"))
+
     implementation(libs.kotlin)
     implementation(libs.bundles.compose)
+    implementation(libs.oss.licenses)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)

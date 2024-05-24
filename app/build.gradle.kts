@@ -45,15 +45,12 @@ android {
 }
 
 dependencies {
-    implementation(project(":ui"))
     implementation(project(":navigation"))
-    implementation(project(":domain"))
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
     implementation(libs.glide)
-    implementation(libs.oss.licenses)
     implementation(libs.startup)
     implementation(libs.timber)
 
