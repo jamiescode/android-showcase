@@ -45,11 +45,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":navigation"))
-    implementation(project(":feature_home"))
-    implementation(project(":feature_dog"))
     implementation(project(":feature_cat"))
-    implementation(project(":ui"))
+    implementation(project(":feature_dog"))
+    implementation(project(":feature_home"))
+    implementation(project(":navigation"))
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)

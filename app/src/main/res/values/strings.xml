@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Showcase</string>
+    <string name="more">More</string>
+    <string name="menu_oss_title">Licenses</string>
 </resources>

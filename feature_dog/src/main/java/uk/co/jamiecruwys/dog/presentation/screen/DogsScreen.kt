@@ -46,7 +46,7 @@ fun dogsScreen(viewModel: uk.co.jamiecruwys.dog.presentation.screen.DogViewModel
                     .height(64.dp),
             onClick = { viewModel.onRandomButtonPressed() },
         ) {
-            Text("Get random dog!")
+            Text("Show another dog!")
         }
     }
 }

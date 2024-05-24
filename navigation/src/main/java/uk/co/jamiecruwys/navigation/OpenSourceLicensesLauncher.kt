@@ -5,9 +5,7 @@ import android.content.Intent
 import androidx.core.content.ContextCompat
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
-class OpenSourceLicensesLauncher {
-    fun launch(context: Context) {
-        val intent = Intent(context, OssLicensesMenuActivity::class.java)
-        ContextCompat.startActivity(context, intent, null)
-    }
+fun Context.launchOpenSourceLicenses() {
+    val intent = Intent(this, OssLicensesMenuActivity::class.java)
+    ContextCompat.startActivity(this, intent, null)
 }

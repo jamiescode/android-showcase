@@ -18,11 +18,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature_home"))
-    implementation(project(":feature_dog"))
-    implementation(project(":feature_cat"))
-    implementation(project(":ui"))
-
     implementation(libs.kotlin)
     implementation(libs.bundles.compose)
     implementation(libs.oss.licenses)

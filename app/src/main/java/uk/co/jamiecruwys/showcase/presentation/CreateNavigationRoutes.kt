@@ -1,20 +1,18 @@
-package uk.co.jamiecruwys.showcase
+package uk.co.jamiecruwys.showcase.presentation
 
+import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import uk.co.jamiecruwys.cat.presentation.screen.catsScreen
 import uk.co.jamiecruwys.dog.presentation.screen.dogsScreen
 import uk.co.jamiecruwys.home.presentation.screen.homeScreen
 import uk.co.jamiecruwys.navigation.Destinations
-import uk.co.jamiecruwys.navigation.UiEventNavigator
 
-fun NavGraphBuilder.createNavigationRoutes(uiEventNavigator: UiEventNavigator) {
+fun NavGraphBuilder.createNavigationRoutes(navController: NavController) {
     composable(
         route = Destinations.Home.route,
     ) {
-        homeScreen(
-            sendUiNavigationEvent = { uiEventNavigator.launch(it) },
-        )
+        homeScreen(navController = navController)
     }
     composable(
         route = Destinations.Dogs.route,
