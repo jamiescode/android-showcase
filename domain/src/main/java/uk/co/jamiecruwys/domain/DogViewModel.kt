@@ -22,13 +22,11 @@ class DogViewModel
         val stateLiveData = stateMutableLiveData as LiveData<State>
 
         fun onRandomButtonPressed() {
-            stateMutableLiveData.postValue(State.Loading)
-
             viewModelScope.launch {
                 getRandomDogImageUseCase.execute().also {
                     when (it) {
                         is GetDogImageUseCase.Result.Success -> {
-                            stateMutableLiveData.postValue(State.Loaded(it.imageUrl))
+                            stateMutableLiveData.postValue(State.ImageAvailable(it.imageUrl))
                         }
                         is GetDogImageUseCase.Result.Error -> {
                             stateMutableLiveData.postValue(State.Error)
@@ -41,10 +39,8 @@ class DogViewModel
         sealed class State {
             data object Initial : State()
 
-            data object Loading : State()
-
             data object Error : State()
 
-            data class Loaded(val imageUrl: String) : State()
+            data class ImageAvailable(val imageUrl: String) : State()
         }
     }
