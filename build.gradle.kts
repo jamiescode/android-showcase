@@ -30,8 +30,10 @@ plugins {
 
 dependencies {
     kover(project(":app"))
+    kover(project(":feature_cat"))
+    kover(project(":feature_dog"))
+    kover(project(":feature_home"))
     kover(project(":navigation"))
-    kover(project(":ui"))
 }
 
 kover {

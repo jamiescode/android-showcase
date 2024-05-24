@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.showcase.navigation"
+    namespace = "uk.co.jamiecruwys.showcase.dog"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -18,9 +18,17 @@ android {
 }
 
 dependencies {
+    implementation(project(":navigation"))
+
     implementation(libs.kotlin)
+    implementation(libs.timber)
+    implementation(libs.glide)
+
+    implementation(libs.bundles.retrofit)
     implementation(libs.bundles.compose)
-    implementation(libs.oss.licenses)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)

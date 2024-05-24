@@ -45,23 +45,17 @@ android {
 }
 
 dependencies {
-    implementation(project(":ui"))
+    implementation(project(":feature_cat"))
+    implementation(project(":feature_dog"))
+    implementation(project(":feature_home"))
     implementation(project(":navigation"))
-    implementation(project(":domain"))
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.glide)
-    implementation(libs.oss.licenses)
     implementation(libs.startup)
     implementation(libs.timber)
 
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.ktx)
-    implementation(libs.bundles.lifecycle)
     implementation(libs.bundles.compose)
-    implementation(libs.bundles.accompanist)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
