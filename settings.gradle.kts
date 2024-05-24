@@ -14,4 +14,5 @@ include(
     ":navigation",
     ":feature_dog",
     ":feature_cat",
+    ":feature_home",
 )

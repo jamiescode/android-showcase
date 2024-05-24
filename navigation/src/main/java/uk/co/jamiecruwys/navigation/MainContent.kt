@@ -8,17 +8,17 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import uk.co.jamiecruwys.navigation.Destinations
-import uk.co.jamiecruwys.navigation.OpenSourceLicensesLauncher
 import uk.co.jamiecruwys.showcase.ui.customTopAppBar
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
-fun MainContent(
+fun mainContent(
     appName: String,
-    openSourceLicensesLauncher: OpenSourceLicensesLauncher = OpenSourceLicensesLauncher()
+    openSourceLicensesLauncher: OpenSourceLicensesLauncher = OpenSourceLicensesLauncher(),
+    createNavigationRoutes: (NavGraphBuilder, UiEventNavigator) -> Unit,
 ) {
     val navController = rememberNavController()
     val context = LocalContext.current
@@ -38,7 +38,7 @@ fun MainContent(
                 startDestination = Destinations.Home.route,
                 enterTransition = { fadeIn(animationSpec = tween(0)) },
                 exitTransition = { fadeOut(animationSpec = tween(0)) },
-                builder = { createNavigationRoutes(UiEventNavigator(navController)) },
+                builder = { createNavigationRoutes(this, UiEventNavigator(navController)) },
             )
         }
     }

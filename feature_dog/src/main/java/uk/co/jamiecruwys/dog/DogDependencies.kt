@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import uk.co.jamiecruwys.dog.data.datasource.api.service.DogImageRetrofitService
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -34,7 +35,7 @@ object DogDependencies {
 
     @Singleton
     @Provides
-    fun provideDogImageRetrofitService(retrofit: Retrofit): uk.co.jamiecruwys.dog.data.datasource.api.service.DogImageRetrofitService {
-        return retrofit.create(uk.co.jamiecruwys.dog.data.datasource.api.service.DogImageRetrofitService::class.java)
+    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService {
+        return retrofit.create(DogImageRetrofitService::class.java)
     }
 }

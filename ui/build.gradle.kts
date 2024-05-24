@@ -19,9 +19,7 @@ android {
 
 dependencies {
     implementation(libs.kotlin)
-    implementation(libs.timber)
     implementation(libs.bundles.compose)
-    implementation(libs.glide)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
