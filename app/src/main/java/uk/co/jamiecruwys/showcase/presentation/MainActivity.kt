@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Destinations.Home.route,
+                        startDestination = Destinations.Gratitude.route,
                         enterTransition = { fadeIn(animationSpec = tween(0)) },
                         exitTransition = { fadeOut(animationSpec = tween(0)) },
                         builder = { createNavigationRoutes(navController) },
