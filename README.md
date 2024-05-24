@@ -15,8 +15,7 @@
 ![Target SDK 34](https://img.shields.io/badge/Target%20SDK-34-566573?logo=android&logoColor=white)
 [![Language: Kotlin](https://img.shields.io/github/languages/top/jamiecruwys/android-showcase.svg)](https://github.com/jamiecruwys/android-showcase/search?l=kotlin)
 
-Android application using MVVM, clean architecture &amp; Jetpack components
-
+Showcase Android application MVVM, clean architecture, Jetpack Compose and more
 
 ## Code quality
 
@@ -25,6 +24,7 @@ The following code quality tools are used:
 * [Detekt](https://github.com/detekt/detekt) - Static code analysis for Kotlin code
 * [Kotlinter](https://github.com/jeremymailen/kotlinter-gradle) - Static code analysis using [ktlint](https://github.com/pinterest/ktlint)
 * [Android lint](http://tools.android.com/tips/lint) - scans Android code for bugs
+* [Kover](https://github.com/Kotlin/kotlinx-kover) - collects test coverage data
 
 How to run the code quality tools:
 
@@ -34,5 +34,14 @@ How to run the code quality tools:
 * Run `./gradlew lintKotlin` to run ktlint via Kotlinter
 * Run `./gradlew lint` to run Android lint
 
+How to run the code coverage tools:
+* Run `./gradlew :app:koverXmlReportDebug` to generate the Kover XML report
+* Run `./gradlew :app:koverHtmlReportDebug` to generate the Kover HTML report
+
 How to run the UI tests:
 * Run `./gradlew connectedCheck`
+
+How to generate the dependency graph:
+* [Install `graphviz`](https://graphviz.gitlab.io/download/)
+* Run `./gradlew projectDependencyGraph`. The [gradle file](gradle/projectDependencyGraph.gradle) is in the `gradle` folder
+* The graph can be found at `/build/reports/dependency-graph/project.dot.png`
