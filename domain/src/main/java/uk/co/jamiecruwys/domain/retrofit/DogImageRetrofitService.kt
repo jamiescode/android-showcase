@@ -1,7 +1,6 @@
-package uk.co.jamiecruwys.showcase.data.retrofit.service
+package uk.co.jamiecruwys.domain.retrofit
 
 import retrofit2.http.GET
-import uk.co.jamiecruwys.showcase.data.retrofit.response.DogImageResponse
 
 interface DogImageRetrofitService {
     @GET("doggos")

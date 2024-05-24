@@ -15,7 +15,7 @@ kover = "0.8.0"
 # Libraries
 retrofit = "2.11.0"
 okhttp-logging-interceptor = "4.12.0"
-glide = "4.16.0"
+glide = "1.0.0-beta01"
 core-ktx = "1.13.1"
 appcompat = "1.6.1"
 constraintlayout = "2.1.4"
@@ -37,6 +37,8 @@ timber = "5.0.1"
 # Testing
 espresso = "3.5.1"
 androidx-test = "1.5.2"
+junit = "1.1.5"
+material = "1.10.0"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
@@ -58,7 +60,7 @@ core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
-glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide = { module = "com.github.bumptech.glide:compose", version.ref = "glide" }
 oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
 activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "ktx-activity"}
@@ -90,7 +92,6 @@ hilt-testing = { module = "com.google.dagger:hilt-android-testing", version.ref 
 hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 
 # Annotations
-annotation-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 
 # Testing
 junit5-bom = { module = "org.junit:junit-bom", version = "5.10.2" }
@@ -102,6 +103,8 @@ androidx-test-runner = { module = "androidx.test:runner", version.ref = "android
 espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 compose-ui-test = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose"}
 compose-navigation-test = { module = "androidx.navigation:navigation-testing", version.ref = "compose-navigation" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junit" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 retrofit = [

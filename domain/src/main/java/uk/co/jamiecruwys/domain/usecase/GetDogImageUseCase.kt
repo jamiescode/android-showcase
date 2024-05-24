@@ -1,6 +1,6 @@
-package uk.co.jamiecruwys.showcase.domain.usecase
+package uk.co.jamiecruwys.domain.usecase
 
-import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
+import uk.co.jamiecruwys.domain.repository.DogImageRepository
 import java.io.IOException
 import javax.inject.Inject
 

@@ -1,58 +1,26 @@
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     kotlin("android")
     kotlin("kapt")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("com.google.android.gms.oss-licenses-plugin")
     id("io.gitlab.arturbosch.detekt")
     id("org.jmailen.kotlinter")
-    id("com.google.dagger.hilt.android")
     id("org.jetbrains.kotlinx.kover")
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.showcase"
-    defaultConfig {
-        applicationId = "uk.co.jamiecruwys.showcase"
-        versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        getByName("debug") {
-            applicationIdSuffix = ".debug"
-        }
-        getByName("release") {
-            isShrinkResources = false
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-            signingConfig = signingConfigs.getByName("debug")
-        }
-    }
+    namespace = "uk.co.jamiecruwys.showcase.domain"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-
-    buildFeatures {
-        buildConfig = true
-    }
 }
 
 dependencies {
-    implementation(project(":ui"))
-    implementation(project(":navigation"))
-    implementation(project(":domain"))
-
     implementation(libs.kotlin)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
-    implementation(libs.glide)
     implementation(libs.oss.licenses)
     implementation(libs.startup)
     implementation(libs.timber)

@@ -19,10 +19,12 @@ android {
 
 dependencies {
     implementation(project(":navigation"))
+    implementation(project(":domain"))
 
     implementation(libs.kotlin)
     implementation(libs.timber)
     implementation(libs.bundles.compose)
+    implementation(libs.glide)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)

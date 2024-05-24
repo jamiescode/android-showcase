@@ -1,9 +1,8 @@
-package uk.co.jamiecruwys.showcase.data.repository
+package uk.co.jamiecruwys.domain.repository
 
-import uk.co.jamiecruwys.showcase.data.retrofit.response.toDomainModel
-import uk.co.jamiecruwys.showcase.data.retrofit.service.DogImageRetrofitService
-import uk.co.jamiecruwys.showcase.domain.model.DogImageDomainModel
-import uk.co.jamiecruwys.showcase.domain.repository.DogImageRepository
+import uk.co.jamiecruwys.domain.model.DogImageDomainModel
+import uk.co.jamiecruwys.domain.retrofit.DogImageRetrofitService
+import uk.co.jamiecruwys.domain.retrofit.toDomainModel
 import javax.inject.Inject
 
 class DogImageRepositoryImpl

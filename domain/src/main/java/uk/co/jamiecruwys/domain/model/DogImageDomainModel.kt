@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.domain.model
+package uk.co.jamiecruwys.domain.model
 
 data class DogImageDomainModel(
     val imageUrl: String,

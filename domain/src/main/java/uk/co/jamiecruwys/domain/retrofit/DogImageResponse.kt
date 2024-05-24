@@ -1,6 +1,6 @@
-package uk.co.jamiecruwys.showcase.data.retrofit.response
+package uk.co.jamiecruwys.domain.retrofit
 
-import uk.co.jamiecruwys.showcase.domain.model.DogImageDomainModel
+import uk.co.jamiecruwys.domain.model.DogImageDomainModel
 
 typealias DogImageResponse = List<String>
 

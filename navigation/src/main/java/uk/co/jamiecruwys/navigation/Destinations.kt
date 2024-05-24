@@ -1,9 +1,9 @@
 package uk.co.jamiecruwys.navigation
 
 sealed class Destinations(val route: String) {
-    object Home : Destinations(Routes.HOME.value)
+    data object Home : Destinations(Routes.HOME.value)
 
-    object Dogs : Destinations(Routes.DOGS.value)
+    data object Dogs : Destinations(Routes.DOGS.value)
 
-    object Cats : Destinations(Routes.CATS.value)
+    data object Cats : Destinations(Routes.CATS.value)
 }
