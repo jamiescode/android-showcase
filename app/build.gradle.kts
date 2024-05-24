@@ -45,10 +45,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature_cat"))
     implementation(project(":feature_dog"))
     implementation(project(":feature_gratitude"))
-    implementation(project(":feature_home"))
     implementation(project(":navigation"))
     implementation(project(":theme"))
 
