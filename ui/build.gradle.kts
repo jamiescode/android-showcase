@@ -25,4 +25,9 @@ dependencies {
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
+
+    androidTestImplementation(libs.espresso)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.hilt.testing)
+    kaptAndroidTest(libs.hilt.compiler)
 }

@@ -7,13 +7,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import timber.log.Timber
 import uk.co.jamiecruwys.showcase.ui.UiNavigationEvent
 
 @Composable
 fun homeScreen(sendUiNavigationEvent: (UiNavigationEvent) -> Unit) {
-    Timber.d("Showing home screen")
-
     val paddingModifier = Modifier.padding(16.dp)
 
     Column(modifier = paddingModifier) {

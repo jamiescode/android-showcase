@@ -13,4 +13,5 @@ include(
     ":ui",
     ":navigation",
     ":feature_dog",
+    ":feature_cat",
 )

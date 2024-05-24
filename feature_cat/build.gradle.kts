@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.navigation"
+    namespace = "uk.co.jamiecruwys.showcase.cat"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -18,13 +18,24 @@ android {
 }
 
 dependencies {
-    implementation(project(":feature_dog"))
-    implementation(project(":feature_cat"))
-    implementation(project(":ui"))
-
     implementation(libs.kotlin)
-    implementation(libs.bundles.compose)
+    implementation(libs.appcompat)
+    implementation(libs.constraintlayout)
     implementation(libs.oss.licenses)
+    implementation(libs.startup)
+    implementation(libs.timber)
+    implementation(libs.glide)
+
+    implementation(libs.bundles.retrofit)
+    implementation(libs.bundles.ktx)
+    implementation(libs.bundles.lifecycle)
+    implementation(libs.bundles.compose)
+    implementation(libs.bundles.accompanist)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+
+    debugImplementation(libs.leakcanary)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)

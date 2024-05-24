@@ -46,6 +46,8 @@ android {
 
 dependencies {
     implementation(project(":navigation"))
+    implementation(project(":feature_dog"))
+    implementation(project(":feature_cat"))
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)

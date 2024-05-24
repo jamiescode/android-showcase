@@ -1,4 +1,4 @@
-package uk.co.jamiecruwys.showcase.ui.screen
+package uk.co.jamiecruwys.cat.presentation.screen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.material.Text

@@ -11,5 +11,5 @@ import uk.co.jamiecruwys.dog.data.DogImageRepositoryImpl
 @InstallIn(SingletonComponent::class)
 interface DogBindings {
     @Binds
-    fun dogImageRepository(impl: uk.co.jamiecruwys.dog.data.DogImageRepositoryImpl): uk.co.jamiecruwys.dog.data.DogImageRepository
+    fun dogImageRepository(impl: DogImageRepositoryImpl): DogImageRepository
 }
