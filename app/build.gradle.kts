@@ -52,16 +52,10 @@ dependencies {
 
     implementation(libs.kotlin)
     implementation(libs.appcompat)
-    implementation(libs.constraintlayout)
-    implementation(libs.glide)
     implementation(libs.startup)
     implementation(libs.timber)
 
-    implementation(libs.bundles.retrofit)
-    implementation(libs.bundles.ktx)
-    implementation(libs.bundles.lifecycle)
     implementation(libs.bundles.compose)
-    implementation(libs.bundles.accompanist)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
