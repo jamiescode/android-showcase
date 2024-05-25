@@ -29,7 +29,7 @@ fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
         modifier = Modifier.fillMaxSize(),
     ) {
         gratitudeListState(
-            listModifier =
+            modifier =
                 Modifier
                     .fillMaxWidth()
                     .weight(1f),

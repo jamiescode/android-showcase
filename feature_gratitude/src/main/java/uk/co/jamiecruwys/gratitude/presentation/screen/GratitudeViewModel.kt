@@ -52,7 +52,7 @@ class GratitudeViewModel
         }
 
         fun addEntry(text: String) {
-            val gratitudeEntry = GratitudeEntry(text = text)
+            val gratitudeEntry = GratitudeEntry(entry = text)
             stateMutableLiveData.postValue(State.Loading)
             viewModelScope.launch {
                 addGratitudeEntryUseCase.execute(gratitudeEntry).also {

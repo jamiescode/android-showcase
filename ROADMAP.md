@@ -1,7 +1,7 @@
 ## Feature roadmap
 
 ### Gratitude Entries
-- [ ] Store entries in a database
+- [x] Store entries in a database
 - [x] Create entries
 - [x] Read entries
 - [ ] Update entries
