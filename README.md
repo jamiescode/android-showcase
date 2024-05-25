@@ -11,11 +11,13 @@
 [![AGP](https://img.shields.io/badge/AGP-8.x-blue?style=flat)](https://developer.android.com/studio/releases/gradle-plugin)
 [![Gradle](https://img.shields.io/badge/Gradle-8.x-blue?style=flat)](https://gradle.org)
 [![License](https://img.shields.io/github/license/jamiecruwys/android-showcase)](https://github.com/jamiecruwys/android-showcase/blob/master/LICENSE)
-![Min SDK 23](https://img.shields.io/badge/Min%20SDK-23-839192?logo=android&logoColor=white)
+![Min SDK 24](https://img.shields.io/badge/Min%20SDK-24-839192?logo=android&logoColor=white)
 ![Target SDK 34](https://img.shields.io/badge/Target%20SDK-34-566573?logo=android&logoColor=white)
 [![Language: Kotlin](https://img.shields.io/github/languages/top/jamiecruwys/android-showcase.svg)](https://github.com/jamiecruwys/android-showcase/search?l=kotlin)
 
 Showcase Android application MVVM, clean architecture, Jetpack Compose and more
+
+To see the list of current and upcoming features please take a look at the [feature roadmap](ROADMAP.md).
 
 ## Code quality
 
