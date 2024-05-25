@@ -16,10 +16,14 @@ import java.util.Date
 
 @SuppressLint("SimpleDateFormat")
 @Composable
-fun gratitudeDateDivider(date: Date?, dateStringFallback: String,) {
-    val string = date?.let {
-        SimpleDateFormat("EEEE MMMM dd yyyy").format(it)
-    } ?: dateStringFallback
+fun gratitudeDateDivider(
+    date: Date?,
+    dateStringFallback: String,
+) {
+    val string =
+        date?.let {
+            SimpleDateFormat("EEEE MMMM dd yyyy").format(it)
+        } ?: dateStringFallback
     Text(
         modifier = Modifier.fillMaxWidth().background(Color.White).padding(horizontal = 16.dp, vertical = 8.dp),
         text = string,
