@@ -47,7 +47,7 @@ fun gratitudeRow(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Text(
-                text = gratitudeEntry.text,
+                text = gratitudeEntry.entry,
                 fontFamily = gratitudeFont,
                 fontSize = 22.sp,
                 textAlign = TextAlign.Start,

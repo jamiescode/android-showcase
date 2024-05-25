@@ -29,10 +29,15 @@ dependencies {
     implementation(project(":feature_dog"))
     kapt(libs.hilt.compiler)
 
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    kapt(libs.room.compiler)
+
     debugImplementation(libs.leakcanary)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
+    testImplementation(libs.room.testing)
 
     androidTestImplementation(libs.espresso)
     androidTestImplementation(libs.androidx.test.runner)
