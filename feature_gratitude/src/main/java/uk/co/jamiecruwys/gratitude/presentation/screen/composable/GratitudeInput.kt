@@ -24,6 +24,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -63,6 +65,7 @@ fun gratitudeTextField(
     tintColor: Color,
 ) {
     var textFieldValue by remember { mutableStateOf(TextFieldValue("")) }
+    val keyboardController = LocalSoftwareKeyboardController.current
     Row(
         modifier =
             Modifier
@@ -71,6 +74,7 @@ fun gratitudeTextField(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         TextField(
+            textStyle = TextStyle.Default.copy(fontFamily = gratitudeFont, fontSize = 21.sp),
             modifier = Modifier.weight(1f),
             value = textFieldValue,
             onValueChange = { newText ->
@@ -79,8 +83,8 @@ fun gratitudeTextField(
             maxLines = 1,
             colors =
                 TextFieldDefaults.colors().copy(
-                    focusedTextColor = tintColor,
-                    unfocusedTextColor = tintColor,
+                    focusedTextColor = Color.Black,
+                    unfocusedTextColor = Color.Black,
                     cursorColor = tintColor,
                     focusedContainerColor = Color.Transparent,
                     unfocusedContainerColor = Color.Transparent,
@@ -93,6 +97,8 @@ fun gratitudeTextField(
             onClick = {
                 viewModel.addEntry(textFieldValue.text)
                 textFieldValue = textFieldValue.copy(text = "")
+                keyboardController?.hide()
+                viewModel.scrollListToNewItem()
             },
         ) {
             Icon(Icons.AutoMirrored.Default.Send, contentDescription = "Send", tint = tintColor)

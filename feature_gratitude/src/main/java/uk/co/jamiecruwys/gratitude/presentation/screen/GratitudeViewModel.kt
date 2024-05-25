@@ -21,8 +21,12 @@ class GratitudeViewModel
         private val stateMutableLiveData: MutableLiveData<State> by lazy {
             MutableLiveData<State>(State.Initial)
         }
-
         val stateLiveData = stateMutableLiveData as LiveData<State>
+
+        private val scrollMutableLiveData: MutableLiveData<ScrollState> by lazy {
+            MutableLiveData<ScrollState>(ScrollState.Idle)
+        }
+        val scrollLiveData = scrollMutableLiveData as LiveData<ScrollState>
 
         fun loadEntries() {
             viewModelScope.launch {
@@ -65,6 +69,10 @@ class GratitudeViewModel
             }
         }
 
+        fun scrollListToNewItem() {
+            scrollMutableLiveData.postValue(ScrollState.Scroll)
+        }
+
         sealed class State {
             data object Initial : State()
 
@@ -72,8 +80,14 @@ class GratitudeViewModel
 
             data object Error : State()
 
-            data class Loaded(val gratitudeEntries: List<GratitudeEntry>) : State()
+            data class Loaded(val gratitudeEntries: Map<String, List<GratitudeEntry>>) : State()
 
             data object Empty : State()
+        }
+
+        sealed class ScrollState {
+            data object Idle : ScrollState()
+
+            data object Scroll : ScrollState()
         }
     }

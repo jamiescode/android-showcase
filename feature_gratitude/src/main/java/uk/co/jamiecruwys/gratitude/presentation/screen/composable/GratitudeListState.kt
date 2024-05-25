@@ -10,6 +10,7 @@ import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel
 fun gratitudeListState(
     listModifier: Modifier,
     state: GratitudeViewModel.State,
+    scrollState: GratitudeViewModel.ScrollState,
 ) {
     when (state) {
         GratitudeViewModel.State.Initial -> {
@@ -24,7 +25,8 @@ fun gratitudeListState(
         is GratitudeViewModel.State.Loaded -> {
             gratitudeList(
                 modifier = listModifier,
-                gratitudeEntries = state.gratitudeEntries,
+                groupedEntries = state.gratitudeEntries,
+                scrollState = scrollState,
             )
         }
         GratitudeViewModel.State.Empty -> {
