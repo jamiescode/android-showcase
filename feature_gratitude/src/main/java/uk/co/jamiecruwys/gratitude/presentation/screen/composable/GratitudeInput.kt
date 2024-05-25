@@ -95,6 +95,7 @@ fun gratitudeTextField(
             onClick = {
                 viewModel.addEntry(textFieldValue.text)
                 textFieldValue = textFieldValue.copy(text = "")
+                viewModel.scrollListToNewItem()
             },
         ) {
             Icon(Icons.AutoMirrored.Default.Send, contentDescription = "Send", tint = tintColor)
