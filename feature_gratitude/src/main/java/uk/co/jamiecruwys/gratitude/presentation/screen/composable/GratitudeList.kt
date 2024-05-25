@@ -47,7 +47,7 @@ fun gratitudeList(
 
             val date = groupDate.fromDateString(dateString)
             stickyHeader {
-                gratitudeDateDivider(date)
+                gratitudeDateDivider(date = date, dateStringFallback = dateString)
             }
             items(entries) { entry ->
                 val backgroundColor = getColorForIndex(currentIndex, listColors)

@@ -8,7 +8,7 @@ import java.util.Date
 class GratitudeGroupDate {
     fun toDateString(date: Date): String = SimpleDateFormat(PATTERN).format(date)
 
-    fun fromDateString(string: String): Date = SimpleDateFormat(PATTERN).parse(string)!!
+    fun fromDateString(string: String): Date? = SimpleDateFormat(PATTERN).parse(string)
 
     companion object {
         private const val PATTERN = "yyyy-MM-dd"
