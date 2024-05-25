@@ -1,16 +1,18 @@
 package uk.co.jamiecruwys.showcase.presentation
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
@@ -21,7 +23,6 @@ import uk.co.jamiecruwys.showcase.presentation.compose.customTopAppBar
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -37,14 +38,16 @@ class MainActivity : AppCompatActivity() {
                             HorizontalDivider(color = Color.Black, thickness = 1.dp)
                         }
                     },
-                ) {
-                    NavHost(
-                        navController = navController,
-                        startDestination = Destinations.Gratitude.route,
-                        enterTransition = { fadeIn(animationSpec = tween(0)) },
-                        exitTransition = { fadeOut(animationSpec = tween(0)) },
-                        builder = { createNavigationRoutes() },
-                    )
+                ) { contentPadding ->
+                    Box(modifier = Modifier.padding(contentPadding)) {
+                        NavHost(
+                            navController = navController,
+                            startDestination = Destinations.Gratitude.route,
+                            enterTransition = { fadeIn(animationSpec = tween(0)) },
+                            exitTransition = { fadeOut(animationSpec = tween(0)) },
+                            builder = { createNavigationRoutes() },
+                        )
+                    }
                 }
             }
         }
