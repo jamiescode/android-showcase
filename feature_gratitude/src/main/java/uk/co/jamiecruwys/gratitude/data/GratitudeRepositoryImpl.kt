@@ -22,10 +22,10 @@ class GratitudeRepositoryImpl
                 GratitudeEntry("Food", Date(1714863600000)),
             )
 
-        override suspend fun getEntries(): List<GratitudeEntry> = entries
+        override suspend fun getEntries(): List<GratitudeEntry> = entries.sortedByDescending { it.dateCreated.time }
 
         override suspend fun addEntry(gratitudeEntry: GratitudeEntry): List<GratitudeEntry> {
             entries.add(gratitudeEntry)
-            return entries
+            return getEntries()
         }
     }
