@@ -14,12 +14,12 @@ class GratitudeRepositoryImpl
                 GratitudeEntry("Having good health", Date(1703376000000)),
                 GratitudeEntry("A job that I enjoy doing", Date(1703376000000)),
                 GratitudeEntry("A place to live in", Date(1703462400000)),
-                GratitudeEntry("Being able to express myself freely", Date()),
-                GratitudeEntry("Owning books that I can enjoy", Date(1704067200000)),
-                GratitudeEntry("The kind things other people do for me", Date(1706832000000)),
-                GratitudeEntry("This application", Date(1709424000000)),
-                GratitudeEntry("People who download this app", Date(1712185200000)),
-                GratitudeEntry("Food", Date(1714863600000)),
+                GratitudeEntry("Being able to express myself freely", Date(1704067200000)),
+                GratitudeEntry("Owning books that I can enjoy", Date(1706832000000)),
+                GratitudeEntry("The kind things other people do for me", Date(1709424000000)),
+                GratitudeEntry("This application", Date(1712185200000)),
+                GratitudeEntry("People who download this app", Date(1714863600000)),
+                GratitudeEntry("Food", Date()),
             )
 
         override suspend fun getEntries(): List<GratitudeEntry> = entries.sortedByDescending { it.dateCreated.time }
