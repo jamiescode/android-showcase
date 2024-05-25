@@ -3,8 +3,6 @@ package uk.co.jamiecruwys.gratitude.presentation.screen
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -25,12 +23,18 @@ fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
             initial = GratitudeViewModel.State.Initial,
         )
 
+    val scrollState = viewModel.scrollLiveData.asFlow().collectAsState(initial = GratitudeViewModel.ScrollState.Idle)
+
     Column(
         modifier = Modifier.fillMaxSize(),
     ) {
         gratitudeListState(
-            listModifier = Modifier.fillMaxWidth().weight(1f).verticalScroll(rememberScrollState()),
+            listModifier =
+                Modifier
+                    .fillMaxWidth()
+                    .weight(1f),
             state = state.value,
+            scrollState = scrollState.value,
         )
         gratitudeInput(viewModel)
     }
