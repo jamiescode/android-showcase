@@ -9,5 +9,5 @@ class GroupGratitudeEntriesUseCase
         fun execute(entries: List<GratitudeEntry>): Map<String, List<GratitudeEntry>> =
             entries.groupBy {
                 it.toDateString()
-            }.toSortedMap()
+            }.toSortedMap(Comparator.reverseOrder())
     }
