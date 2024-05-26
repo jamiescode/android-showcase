@@ -1,5 +1,6 @@
 package uk.co.jamiecruwys.showcase.settings.presentation.screen.composable
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,7 +26,7 @@ import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
 fun switchSetting(
-    icon: ImageVector,
+    @DrawableRes icon: Int,
     iconContentDescription: String,
     title: String,
     checked: Boolean,
@@ -44,7 +45,7 @@ fun switchSetting(
             ) {
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Icon(
-                        icon,
+                        painter = painterResource(id = icon),
                         contentDescription = iconContentDescription,
                         modifier = Modifier.size(24.dp),
                         tint = getIconColor(),

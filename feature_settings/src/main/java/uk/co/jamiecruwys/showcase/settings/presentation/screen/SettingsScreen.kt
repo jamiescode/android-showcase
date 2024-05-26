@@ -5,15 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.DateRange
-import androidx.compose.material.icons.filled.KeyboardArrowDown
-import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Email
-import androidx.compose.material.icons.outlined.Info
-import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
+import uk.co.jamiecruwys.showcase.settings.R
 import uk.co.jamiecruwys.showcase.settings.data.UserSettings
 import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.actionSetting
 import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.settingSection
@@ -77,7 +69,7 @@ fun notificationsSection(
 ) {
     settingSection(heading = "Notifications") {
         switchSetting(
-            icon = Icons.Filled.Notifications,
+            icon = R.drawable.notifications,
             iconContentDescription = "Notifications",
             title = "Daily Reminder Notifications",
             checked = userSettings.value.dailyReminderNotifications,
@@ -86,7 +78,7 @@ fun notificationsSection(
             },
         )
         actionSetting(
-            icon = Icons.Filled.DateRange,
+            icon = R.drawable.time,
             iconContentDescription = "Time",
             title = "Change your daily reminder time",
             onClick = {},
@@ -98,7 +90,7 @@ fun notificationsSection(
 fun appearanceSection() {
     settingSection(heading = "Appearance") {
         actionSetting(
-            icon = Icons.Filled.Star,
+            icon = R.drawable.palette,
             iconContentDescription = "Theme",
             title = "Choose a theme",
             onClick = {},
@@ -113,7 +105,7 @@ fun securitySection(
 ) {
     settingSection(heading = "Security") {
         switchSetting(
-            icon = Icons.Outlined.Lock,
+            icon = R.drawable.fingerprint,
             iconContentDescription = "Security",
             title = "Unlock with biometrics",
             checked = userSettings.value.unlockWithBiometrics,
@@ -128,13 +120,13 @@ fun securitySection(
 fun backupAndRestoreSection() {
     settingSection(heading = "Backup & Restore") {
         actionSetting(
-            icon = Icons.Filled.KeyboardArrowDown,
+            icon = R.drawable.download,
             iconContentDescription = "Export",
             title = "Export entries to downloads folder",
             onClick = {},
         )
         actionSetting(
-            icon = Icons.Filled.KeyboardArrowUp,
+            icon = R.drawable.upload,
             iconContentDescription = "Import",
             title = "Import entries from a CSV file",
             onClick = {},
@@ -146,19 +138,19 @@ fun backupAndRestoreSection() {
 fun appInformationSection() {
     settingSection(heading = "App Information") {
         actionSetting(
-            icon = Icons.Outlined.Lock,
+            icon = R.drawable.lock,
             iconContentDescription = "Privacy Policy",
             title = "Privacy Policy",
             onClick = {},
         )
         actionSetting(
-            icon = Icons.Outlined.Email,
+            icon = R.drawable.article,
             iconContentDescription = "Terms & Conditions",
             title = "Terms & Conditions",
             onClick = {},
         )
         actionSetting(
-            icon = Icons.Outlined.Info,
+            icon = R.drawable.info,
             iconContentDescription = "App version number",
             title = "Version number: x.x.x",
             onClick = {},
