@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.gratitude"
+    namespace = "uk.co.jamiecruwys.showcase.settings"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -28,11 +28,7 @@ dependencies {
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
-
-    debugImplementation(libs.leakcanary)
+    implementation(libs.datastore)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
