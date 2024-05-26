@@ -44,7 +44,7 @@ fun gratitudeInput(viewModel: GratitudeViewModel) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        HorizontalDivider(color = Color.Black, thickness = 1.dp)
+        HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = "What are you grateful for?",

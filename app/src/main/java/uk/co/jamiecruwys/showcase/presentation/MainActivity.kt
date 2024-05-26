@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
                                     navController.navigate(Destinations.Settings.route)
                                 },
                             )
-                            HorizontalDivider(color = Color.Black, thickness = 1.dp)
+                            HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
                         }
                     },
                 ) { contentPadding ->
