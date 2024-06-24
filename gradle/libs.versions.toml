@@ -37,7 +37,7 @@ timber = "5.0.1"
 room = "2.6.1"
 
 # Testing
-espresso = "3.5.1"
+espresso = "3.6.0"
 androidx-test = "1.5.2"
 junit = "1.1.5"
 
