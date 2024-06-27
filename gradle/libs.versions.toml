@@ -39,7 +39,7 @@ room = "2.6.1"
 # Testing
 espresso = "3.6.1"
 androidx-test = "1.6.0"
-junit = "1.2.0"
+junit = "1.2.1"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
