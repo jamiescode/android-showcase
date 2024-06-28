@@ -10,7 +10,7 @@ kotlin = "2.0.0"
 detekt = "1.23.6"
 kotlinter = "4.3.0"
 hilt = "2.51.1"
-kover = "0.8.1"
+kover = "0.8.2"
 
 # Libraries
 retrofit = "2.11.0"
