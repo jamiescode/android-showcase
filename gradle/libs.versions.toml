@@ -5,29 +5,29 @@ sdk-min = "24"
 sdk-target = "34"
 
 # Plugins
-android = "8.4.1"
+android = "8.5.0"
 kotlin = "2.0.0"
 detekt = "1.23.6"
 kotlinter = "4.3.0"
 hilt = "2.51.1"
-kover = "0.8.0"
+kover = "0.8.2"
 
 # Libraries
 retrofit = "2.11.0"
 okhttp-logging-interceptor = "4.12.0"
 glide = "1.0.0-beta01"
 core-ktx = "1.13.1"
-appcompat = "1.6.1"
+appcompat = "1.7.0"
 constraintlayout = "2.1.4"
-lifecycle = "2.8.0"
-oss-licenses = "17.0.1"
+lifecycle = "2.8.3"
+oss-licenses = "17.1.0"
 oss-licenses-plugin = "0.10.6"
 leakcanary = "2.14"
 ktx-activity = "1.9.0"
-ktx-fragment = "1.7.1"
-compose = "1.6.7"
+ktx-fragment = "1.8.1"
+compose = "1.6.8"
 compose-activity = "1.9.0"
-compose-viewmodel = "2.8.0"
+compose-viewmodel = "2.8.3"
 compose-navigation = "2.7.7"
 compose-hilt-navigation = "1.2.0"
 compose-material3 = "1.2.1"
@@ -38,9 +38,9 @@ room = "2.6.1"
 datastore = "1.1.1"
 
 # Testing
-espresso = "3.5.1"
-androidx-test = "1.5.2"
-junit = "1.1.5"
+espresso = "3.6.1"
+androidx-test = "1.6.1"
+junit = "1.2.1"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
@@ -100,7 +100,7 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 # Annotations
 
 # Testing
-junit5-bom = { module = "org.junit:junit-bom", version = "5.10.2" }
+junit5-bom = { module = "org.junit:junit-bom", version = "5.10.3" }
 junit5 = { module = "org.junit.jupiter:junit-jupiter" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
