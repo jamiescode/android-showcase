@@ -12,6 +12,7 @@ include(
     ":app",
     ":feature_dog",
     ":feature_gratitude",
+    ":feature_settings",
     ":navigation",
     ":theme",
 )

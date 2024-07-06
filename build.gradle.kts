@@ -31,7 +31,7 @@ plugins {
 dependencies {
     kover(project(":app"))
     kover(project(":feature_gratitude"))
-    kover(project(":feature_dog"))
+    kover(project(":feature_settings"))
     kover(project(":navigation"))
     kover(project(":theme"))
 }

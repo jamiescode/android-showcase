@@ -33,9 +33,11 @@ class MainActivity : AppCompatActivity() {
                         Column {
                             customTopAppBar(
                                 onLaunchSearch = {},
-                                onLaunchSettings = {},
+                                onLaunchSettings = {
+                                    navController.navigate(Destinations.Settings.route)
+                                },
                             )
-                            HorizontalDivider(color = Color.Black, thickness = 1.dp)
+                            HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
                         }
                     },
                 ) { contentPadding ->
