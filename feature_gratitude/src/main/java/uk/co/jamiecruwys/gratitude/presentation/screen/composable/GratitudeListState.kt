@@ -7,8 +7,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import uk.co.jamiecruwys.gratitude.R
 import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
@@ -20,9 +22,7 @@ fun gratitudeListState(
 ) {
     when (state) {
         GratitudeViewModel.State.Initial -> {
-            stateContentContainer(modifier) {
-                stateText("Initial state")
-            }
+            // Nothing to show
         }
         GratitudeViewModel.State.Loading -> {
             stateContentContainer(modifier = modifier) {
@@ -31,7 +31,7 @@ fun gratitudeListState(
         }
         GratitudeViewModel.State.Error -> {
             stateContentContainer(modifier = modifier) {
-                stateText("Error loading gratitude entries")
+                stateText(stringResource(R.string.error_message))
             }
         }
         is GratitudeViewModel.State.Loaded -> {
@@ -43,7 +43,7 @@ fun gratitudeListState(
         }
         GratitudeViewModel.State.Empty -> {
             stateContentContainer(modifier = modifier) {
-                stateText("Enter what you are grateful for in the text input at the bottom")
+                stateText(stringResource(R.string.empty_message))
             }
         }
     }
