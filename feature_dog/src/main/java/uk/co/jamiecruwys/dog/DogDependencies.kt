@@ -34,6 +34,7 @@ object DogDependencies {
                     .setLevel(HttpLoggingInterceptor.Level.BODY),
             ).build()
 
+    @Suppress("MaxLineLength")
     @Singleton
     @Provides
     fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService = retrofit.create(DogImageRetrofitService::class.java)
