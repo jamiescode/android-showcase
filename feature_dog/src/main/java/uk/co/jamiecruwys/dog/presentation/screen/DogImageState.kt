@@ -12,11 +12,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
 import timber.log.Timber
+import uk.co.jamiecruwys.showcase.dog.R
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
@@ -36,16 +38,16 @@ fun dogImageState(state: DogViewModel.State) {
                 // Show nothing
             }
             is DogViewModel.State.Error -> {
-                dogImageError(message = "Error: Failed to load data")
+                dogImageError(message = stringResource(R.string.dog_image_error_message))
             }
             is DogViewModel.State.ImageAvailable -> {
                 Timber.d("Image url: ${state.imageUrl}")
                 GlideImage(
                     model = state.imageUrl,
-                    contentDescription = "Image of a dog",
+                    contentDescription = stringResource(R.string.dog_image_content_description),
                     modifier = Modifier.fillMaxSize(),
                     loading = placeholder { dogImageLoading() },
-                    failure = placeholder { dogImageError("Error: Failed to load image") },
+                    failure = placeholder { dogImageError(stringResource(R.string.dog_image_error_message)) },
                 )
             }
         }
