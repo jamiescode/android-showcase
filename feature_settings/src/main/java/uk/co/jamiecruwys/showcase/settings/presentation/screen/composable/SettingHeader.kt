@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun settingHeader(title: String) {
+fun SettingHeader(title: String) {
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             text = title,

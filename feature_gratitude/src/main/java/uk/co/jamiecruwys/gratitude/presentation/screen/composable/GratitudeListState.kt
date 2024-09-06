@@ -7,50 +7,50 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import uk.co.jamiecruwys.gratitude.R
 import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun gratitudeListState(
+fun GratitudeListState(
     modifier: Modifier,
     state: GratitudeViewModel.State,
     scrollState: GratitudeViewModel.ScrollState,
 ) {
     when (state) {
         GratitudeViewModel.State.Initial -> {
-            stateContentContainer(modifier) {
-                stateText("Initial state")
-            }
+            // Nothing to show
         }
         GratitudeViewModel.State.Loading -> {
-            stateContentContainer(modifier = modifier) {
+            StateContentContainer(modifier = modifier) {
                 CircularProgressIndicator()
             }
         }
         GratitudeViewModel.State.Error -> {
-            stateContentContainer(modifier = modifier) {
-                stateText("Error loading gratitude entries")
+            StateContentContainer(modifier = modifier) {
+                StateText(stringResource(R.string.error_message))
             }
         }
         is GratitudeViewModel.State.Loaded -> {
-            gratitudeList(
+            GratitudeList(
                 modifier = modifier,
                 groupedEntries = state.gratitudeEntries,
                 scrollState = scrollState,
             )
         }
         GratitudeViewModel.State.Empty -> {
-            stateContentContainer(modifier = modifier) {
-                stateText("Enter what you are grateful for in the text input at the bottom")
+            StateContentContainer(modifier = modifier) {
+                StateText(stringResource(R.string.empty_message))
             }
         }
     }
 }
 
 @Composable
-private fun stateContentContainer(
+private fun StateContentContainer(
     modifier: Modifier,
     content: @Composable () -> Unit,
 ) {
@@ -60,6 +60,6 @@ private fun stateContentContainer(
 }
 
 @Composable
-private fun stateText(text: String) {
+private fun StateText(text: String) {
     Text(text = text, fontFamily = gratitudeFont, fontSize = 24.sp)
 }

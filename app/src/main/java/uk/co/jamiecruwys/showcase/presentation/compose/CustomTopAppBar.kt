@@ -3,7 +3,6 @@ package uk.co.jamiecruwys.showcase.presentation.compose
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -20,7 +19,7 @@ import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun customTopAppBar(
+fun CustomTopAppBar(
     onLaunchSettings: () -> Unit,
     onLaunchSearch: () -> Unit,
 ) {

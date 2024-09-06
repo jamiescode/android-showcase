@@ -19,7 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.co.jamiecruwys.navigation.Destinations
-import uk.co.jamiecruwys.showcase.presentation.compose.customTopAppBar
+import uk.co.jamiecruwys.showcase.presentation.compose.CustomTopAppBar
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 Scaffold(
                     topBar = {
                         Column {
-                            customTopAppBar(
+                            CustomTopAppBar(
                                 onLaunchSearch = {},
                                 onLaunchSettings = {
                                     navController.navigate(Destinations.Settings.route)
@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
                         NavHost(
                             navController = navController,
                             startDestination = Destinations.Gratitude.route,
-                            enterTransition = { fadeIn(animationSpec = tween(0)) },
-                            exitTransition = { fadeOut(animationSpec = tween(0)) },
+                            enterTransition = { fadeIn(animationSpec = tween(durationMillis = 0)) },
+                            exitTransition = { fadeOut(animationSpec = tween(durationMillis = 0)) },
                             builder = { createNavigationRoutes() },
                         )
                     }

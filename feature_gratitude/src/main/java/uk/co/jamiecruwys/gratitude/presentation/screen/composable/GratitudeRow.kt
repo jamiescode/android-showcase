@@ -26,7 +26,7 @@ import uk.co.jamiecruwys.gratitude.presentation.domain.model.GratitudeEntry
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun gratitudeRow(
+fun GratitudeRow(
     gratitudeEntry: GratitudeEntry,
     backgroundColor: Color,
     onEditEntry: (GratitudeEntry) -> Unit,

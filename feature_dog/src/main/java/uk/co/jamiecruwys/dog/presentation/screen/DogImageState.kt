@@ -12,15 +12,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
 import timber.log.Timber
+import uk.co.jamiecruwys.showcase.dog.R
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun dogImageState(state: DogViewModel.State) {
+fun DogImageState(state: DogViewModel.State) {
     @Suppress("MagicNumber")
     val maxHeightFraction = 0.5f
     Column(
@@ -36,16 +38,16 @@ fun dogImageState(state: DogViewModel.State) {
                 // Show nothing
             }
             is DogViewModel.State.Error -> {
-                dogImageError(message = "Error: Failed to load data")
+                DogImageError(message = stringResource(R.string.dog_image_error_message))
             }
             is DogViewModel.State.ImageAvailable -> {
                 Timber.d("Image url: ${state.imageUrl}")
                 GlideImage(
                     model = state.imageUrl,
-                    contentDescription = "Image of a dog",
+                    contentDescription = stringResource(R.string.dog_image_content_description),
                     modifier = Modifier.fillMaxSize(),
-                    loading = placeholder { dogImageLoading() },
-                    failure = placeholder { dogImageError("Error: Failed to load image") },
+                    loading = placeholder { DogImageLoading() },
+                    failure = placeholder { DogImageError(stringResource(R.string.dog_image_error_message)) },
                 )
             }
         }
@@ -53,7 +55,7 @@ fun dogImageState(state: DogViewModel.State) {
 }
 
 @Composable
-fun dogImageLoading() {
+fun DogImageLoading() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -63,7 +65,7 @@ fun dogImageLoading() {
 }
 
 @Composable
-fun dogImageError(message: String) {
+fun DogImageError(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,

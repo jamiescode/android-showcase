@@ -24,7 +24,7 @@ import uk.co.jamiecruwys.showcase.theme.getIconColor
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun actionSetting(
+fun ActionSetting(
     @DrawableRes icon: Int,
     iconContentDescription: String,
     title: String,

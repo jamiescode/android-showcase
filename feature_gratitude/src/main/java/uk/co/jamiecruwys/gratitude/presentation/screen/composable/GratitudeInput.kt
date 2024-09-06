@@ -25,17 +25,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import uk.co.jamiecruwys.gratitude.R
 import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel
 import uk.co.jamiecruwys.showcase.theme.getIconColor
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun gratitudeInput(viewModel: GratitudeViewModel) {
+fun GratitudeInput(viewModel: GratitudeViewModel) {
     Column(
         modifier =
             Modifier
@@ -47,12 +49,12 @@ fun gratitudeInput(viewModel: GratitudeViewModel) {
         HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "What are you grateful for?",
+            text = stringResource(R.string.input_hint),
             textAlign = TextAlign.Center,
             fontFamily = gratitudeFont,
             fontSize = 20.sp,
         )
-        gratitudeTextField(
+        GratitudeTextField(
             viewModel = viewModel,
             tintColor = getIconColor(),
         )
@@ -60,7 +62,7 @@ fun gratitudeInput(viewModel: GratitudeViewModel) {
 }
 
 @Composable
-fun gratitudeTextField(
+fun GratitudeTextField(
     viewModel: GratitudeViewModel,
     tintColor: Color,
 ) {
@@ -101,7 +103,11 @@ fun gratitudeTextField(
                 viewModel.scrollListToNewItem()
             },
         ) {
-            Icon(Icons.AutoMirrored.Default.Send, contentDescription = "Send", tint = tintColor)
+            Icon(
+                Icons.AutoMirrored.Default.Send,
+                contentDescription = stringResource(R.string.input_send_icon_content_description),
+                tint = tintColor
+            )
         }
     }
 }

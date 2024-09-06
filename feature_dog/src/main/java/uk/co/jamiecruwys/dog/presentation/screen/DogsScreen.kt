@@ -14,12 +14,14 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
+import uk.co.jamiecruwys.showcase.dog.R
 
 @Composable
-fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
+fun DogsScreen(viewModel: DogViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.onRandomButtonPressed()
     }
@@ -37,7 +39,7 @@ fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        dogImageState(state = state.value)
+        DogImageState(state = state.value)
         Spacer(modifier = Modifier.height(48.dp))
         Button(
             modifier =
@@ -46,7 +48,7 @@ fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
                     .height(64.dp),
             onClick = { viewModel.onRandomButtonPressed() },
         ) {
-            Text("Show another dog!")
+            Text(text = stringResource(R.string.dog_image_button_text))
         }
     }
 }
