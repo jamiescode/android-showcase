@@ -17,7 +17,8 @@ object DogDependencies {
     @Singleton
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
-        Retrofit.Builder()
+        Retrofit
+            .Builder()
             .baseUrl("https://random.dog/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(okHttpClient)
@@ -26,16 +27,14 @@ object DogDependencies {
     @Singleton
     @Provides
     fun provideOkHttpClient(): OkHttpClient =
-        OkHttpClient.Builder()
+        OkHttpClient
+            .Builder()
             .addInterceptor(
                 HttpLoggingInterceptor()
                     .setLevel(HttpLoggingInterceptor.Level.BODY),
-            )
-            .build()
+            ).build()
 
     @Singleton
     @Provides
-    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService {
-        return retrofit.create(DogImageRetrofitService::class.java)
-    }
+    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService = retrofit.create(DogImageRetrofitService::class.java)
 }

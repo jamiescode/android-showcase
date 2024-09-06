@@ -80,7 +80,9 @@ class GratitudeViewModel
 
             data object Error : State()
 
-            data class Loaded(val gratitudeEntries: Map<String, List<GratitudeEntry>>) : State()
+            data class Loaded(
+                val gratitudeEntries: Map<String, List<GratitudeEntry>>,
+            ) : State()
 
             data object Empty : State()
         }

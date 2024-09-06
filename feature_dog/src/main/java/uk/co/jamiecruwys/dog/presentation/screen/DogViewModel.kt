@@ -41,6 +41,8 @@ class DogViewModel
 
             data object Error : State()
 
-            data class ImageAvailable(val imageUrl: String) : State()
+            data class ImageAvailable(
+                val imageUrl: String,
+            ) : State()
         }
     }

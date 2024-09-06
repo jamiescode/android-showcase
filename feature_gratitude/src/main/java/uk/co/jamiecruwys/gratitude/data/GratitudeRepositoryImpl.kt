@@ -8,7 +8,9 @@ import javax.inject.Inject
 
 class GratitudeRepositoryImpl
     @Inject
-    constructor(private val journalEntryDao: JournalEntryDao) : GratitudeRepository {
+    constructor(
+        private val journalEntryDao: JournalEntryDao,
+    ) : GratitudeRepository {
         override suspend fun getEntries(): List<GratitudeEntry> {
             val dbEntries = journalEntryDao.getAll()
             val domainEntries = dbEntries.map { it.toGratitudeEntry() }

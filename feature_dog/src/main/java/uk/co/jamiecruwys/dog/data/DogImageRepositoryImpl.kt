@@ -10,7 +10,5 @@ class DogImageRepositoryImpl
     constructor(
         private val dogImageRetrofitService: DogImageRetrofitService,
     ) : DogImageRepository {
-        override suspend fun getRandomImage(): DogImage? {
-            return dogImageRetrofitService.getRandomImageAsync()?.toDomainModel()
-        }
+        override suspend fun getRandomImage(): DogImage? = dogImageRetrofitService.getRandomImageAsync()?.toDomainModel()
     }

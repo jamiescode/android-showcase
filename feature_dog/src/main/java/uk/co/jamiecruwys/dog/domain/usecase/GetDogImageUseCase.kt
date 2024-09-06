@@ -9,18 +9,21 @@ class GetDogImageUseCase
         private val dogImageRepository: uk.co.jamiecruwys.dog.data.DogImageRepository,
     ) {
         sealed class Result {
-            data class Success(val imageUrl: String) : Result()
+            data class Success(
+                val imageUrl: String,
+            ) : Result()
 
-            data class Error(val e: Throwable) : Result()
+            data class Error(
+                val e: Throwable,
+            ) : Result()
         }
 
-        suspend fun execute(): Result {
-            return try {
+        suspend fun execute(): Result =
+            try {
                 dogImageRepository.getRandomImage()?.let {
                     Result.Success(it.imageUrl)
                 } ?: Result.Error(RuntimeException("No image url"))
             } catch (e: IOException) {
                 Result.Error(e)
             }
-        }
     }
