@@ -20,7 +20,7 @@ class GetDogImageUseCase
 
         suspend fun execute(): Result =
             try {
-                dogImageRepository.getRandomImage()?.let {
+                dogImageRepository.getImage()?.let {
                     Result.Success(it.imageUrl)
                 } ?: Result.Error(RuntimeException("No image url"))
             } catch (e: IOException) {
