@@ -7,7 +7,8 @@ class GroupGratitudeEntriesUseCase
     @Inject
     constructor() {
         fun execute(entries: List<GratitudeEntry>): Map<String, List<GratitudeEntry>> =
-            entries.groupBy {
-                it.toDateString()
-            }.toSortedMap(Comparator.reverseOrder())
+            entries
+                .groupBy {
+                    it.toDateString()
+                }.toSortedMap(Comparator.reverseOrder())
     }

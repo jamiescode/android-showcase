@@ -8,9 +8,7 @@ import javax.inject.Inject
 class DogImageRepositoryImpl
     @Inject
     constructor(
-        private val dogImageRetrofitService: DogImageRetrofitService,
+        private val service: DogImageRetrofitService,
     ) : DogImageRepository {
-        override suspend fun getRandomImage(): DogImage? {
-            return dogImageRetrofitService.getRandomImageAsync()?.toDomainModel()
-        }
+        override suspend fun getImage(): DogImage? = service.getRandomImageAsync()?.toDomainModel()
     }

@@ -11,9 +11,13 @@ class GetGratitudeEntriesUseCase
         private val groupGratitudeEntriesUseCase: GroupGratitudeEntriesUseCase,
     ) {
         sealed class Result {
-            data class Success(val gratitudeEntries: Map<String, List<GratitudeEntry>>) : Result()
+            data class Success(
+                val gratitudeEntries: Map<String, List<GratitudeEntry>>,
+            ) : Result()
 
-            data class Error(val e: Throwable) : Result()
+            data class Error(
+                val e: Throwable,
+            ) : Result()
         }
 
         suspend fun execute(): Result {

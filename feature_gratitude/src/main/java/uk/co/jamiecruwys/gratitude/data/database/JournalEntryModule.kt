@@ -17,11 +17,12 @@ object JournalEntryModule {
     fun journalEntryDatabase(
         @ApplicationContext appContext: Context,
     ): JournalEntryDatabase =
-        Room.databaseBuilder(
-            context = appContext,
-            klass = JournalEntryDatabase::class.java,
-            name = JournalEntryDatabase.NAME,
-        ).build()
+        Room
+            .databaseBuilder(
+                context = appContext,
+                klass = JournalEntryDatabase::class.java,
+                name = JournalEntryDatabase.NAME,
+            ).build()
 
     @Provides
     fun provideJournalEntryDao(database: JournalEntryDatabase): JournalEntryDao = database.journalEntryDao()

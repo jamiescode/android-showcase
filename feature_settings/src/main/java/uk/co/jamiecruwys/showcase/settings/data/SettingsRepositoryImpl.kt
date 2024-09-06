@@ -8,7 +8,9 @@ import javax.inject.Inject
 
 class SettingsRepositoryImpl
     @Inject
-    constructor(dataStoreManager: DataStoreManager) : SettingsRepository {
+    constructor(
+        dataStoreManager: DataStoreManager,
+    ) : SettingsRepository {
         private val dataStore = dataStoreManager.get()
         private val dailyRemindersPrefKey = booleanPreferencesKey("dailyReminderNotifications")
         private val unlockWithBiometricsPrefKey = booleanPreferencesKey("unlockWithBiometrics")

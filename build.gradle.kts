@@ -58,6 +58,11 @@ allprojects {
     tasks.withType<JavaCompile> { applySharedConfig() }
     tasks.withType<Test> { applySharedConfig() }
 
+    // Add Kotlinter pre push hook
+    tasks.findByName("check")?.apply {
+        dependsOn("installKotlinterPrePushHook")
+    }
+
     val moduleName = this.name
     afterEvaluate {
         plugins.withId("com.android.application") {

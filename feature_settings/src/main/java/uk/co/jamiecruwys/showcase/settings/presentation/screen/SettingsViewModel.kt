@@ -14,7 +14,9 @@ import javax.inject.Inject
 @HiltViewModel
 class SettingsViewModel
     @Inject
-    constructor(private val settingsRepository: SettingsRepository) : ViewModel() {
+    constructor(
+        private val settingsRepository: SettingsRepository,
+    ) : ViewModel() {
         private val stateMutableLiveData: MutableLiveData<SettingsState> by lazy {
             MutableLiveData<SettingsState>(SettingsState.Initial)
         }
@@ -44,6 +46,8 @@ class SettingsViewModel
         sealed class SettingsState {
             data object Initial : SettingsState()
 
-            data class Loaded(val userSettings: Flow<UserSettings>) : SettingsState()
+            data class Loaded(
+                val userSettings: Flow<UserSettings>,
+            ) : SettingsState()
         }
     }
