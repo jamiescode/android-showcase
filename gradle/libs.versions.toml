@@ -31,7 +31,7 @@ compose-viewmodel = "2.8.5"
 compose-navigation = "2.8.0"
 compose-hilt-navigation = "1.2.0"
 compose-material3 = "1.3.0"
-accompanist = "0.34.0"
+accompanist = "0.36.0"
 startup = "1.1.1"
 timber = "5.0.1"
 room = "2.6.1"
@@ -100,7 +100,7 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 # Annotations
 
 # Testing
-junit5-bom = { module = "org.junit:junit-bom", version = "5.10.3" }
+junit5-bom = { module = "org.junit:junit-bom", version = "5.11.0" }
 junit5 = { module = "org.junit.jupiter:junit-jupiter" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
