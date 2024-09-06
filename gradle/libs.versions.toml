@@ -1,8 +1,8 @@
 [versions]
 # Android setup
-sdk-compile = "34"
+sdk-compile = "35"
 sdk-min = "24"
-sdk-target = "34"
+sdk-target = "35"
 
 # Plugins
 android = "8.6.0"
