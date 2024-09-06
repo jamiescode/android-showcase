@@ -4,12 +4,12 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
 
 @Composable
-fun SettingSection(
+fun settingSection(
     heading: String,
     content: @Composable () -> Unit,
 ) {
     Column {
-        SettingHeader(title = heading)
+        settingHeader(title = heading)
         content()
     }
 }

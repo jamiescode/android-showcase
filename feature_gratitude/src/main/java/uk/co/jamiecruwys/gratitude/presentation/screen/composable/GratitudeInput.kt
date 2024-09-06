@@ -37,7 +37,7 @@ import uk.co.jamiecruwys.showcase.theme.getIconColor
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun GratitudeInput(viewModel: GratitudeViewModel) {
+fun gratitudeInput(viewModel: GratitudeViewModel) {
     Column(
         modifier =
             Modifier
@@ -54,7 +54,7 @@ fun GratitudeInput(viewModel: GratitudeViewModel) {
             fontFamily = gratitudeFont,
             fontSize = 20.sp,
         )
-        GratitudeTextField(
+        gratitudeTextField(
             viewModel = viewModel,
             tintColor = getIconColor(),
         )
@@ -62,7 +62,7 @@ fun GratitudeInput(viewModel: GratitudeViewModel) {
 }
 
 @Composable
-fun GratitudeTextField(
+fun gratitudeTextField(
     viewModel: GratitudeViewModel,
     tintColor: Color,
 ) {
@@ -106,7 +106,7 @@ fun GratitudeTextField(
             Icon(
                 Icons.AutoMirrored.Default.Send,
                 contentDescription = stringResource(R.string.input_send_icon_content_description),
-                tint = tintColor
+                tint = tintColor,
             )
         }
     }

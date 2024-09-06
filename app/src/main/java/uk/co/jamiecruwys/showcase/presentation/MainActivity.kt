@@ -19,7 +19,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uk.co.jamiecruwys.navigation.Destinations
-import uk.co.jamiecruwys.showcase.presentation.compose.CustomTopAppBar
+import uk.co.jamiecruwys.showcase.presentation.compose.customTopAppBar
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
                 Scaffold(
                     topBar = {
                         Column {
-                            CustomTopAppBar(
+                            customTopAppBar(
                                 onLaunchSearch = {},
                                 onLaunchSettings = {
                                     navController.navigate(Destinations.Settings.route)

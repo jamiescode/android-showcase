@@ -19,7 +19,7 @@ import uk.co.jamiecruwys.showcase.theme.getListColors
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun GratitudeList(
+fun gratitudeList(
     modifier: Modifier,
     groupedEntries: Map<String, List<GratitudeEntry>>,
     scrollState: GratitudeViewModel.ScrollState,
@@ -47,11 +47,11 @@ fun GratitudeList(
 
             val date = groupDate.fromDateString(dateString)
             stickyHeader {
-                GratitudeDateDivider(date = date, dateStringFallback = dateString)
+                gratitudeDateDivider(date = date, dateStringFallback = dateString)
             }
             items(entries) { entry ->
                 val backgroundColor = getColorForIndex(currentIndex, listColors)
-                GratitudeRow(
+                gratitudeRow(
                     gratitudeEntry = entry,
                     backgroundColor = backgroundColor,
                     onEditEntry = {},

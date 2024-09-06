@@ -21,7 +21,7 @@ import androidx.lifecycle.asFlow
 import uk.co.jamiecruwys.showcase.dog.R
 
 @Composable
-fun DogsScreen(viewModel: DogViewModel = hiltViewModel()) {
+fun dogsScreen(viewModel: DogViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.onRandomButtonPressed()
     }
@@ -39,7 +39,7 @@ fun DogsScreen(viewModel: DogViewModel = hiltViewModel()) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        DogImageState(state = state.value)
+        dogImageState(state = state.value)
         Spacer(modifier = Modifier.height(48.dp))
         Button(
             modifier =

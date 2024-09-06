@@ -15,7 +15,7 @@ import uk.co.jamiecruwys.gratitude.presentation.screen.GratitudeViewModel
 import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @Composable
-fun GratitudeListState(
+fun gratitudeListState(
     modifier: Modifier,
     state: GratitudeViewModel.State,
     scrollState: GratitudeViewModel.ScrollState,
@@ -25,32 +25,32 @@ fun GratitudeListState(
             // Nothing to show
         }
         GratitudeViewModel.State.Loading -> {
-            StateContentContainer(modifier = modifier) {
+            stateContentContainer(modifier = modifier) {
                 CircularProgressIndicator()
             }
         }
         GratitudeViewModel.State.Error -> {
-            StateContentContainer(modifier = modifier) {
-                StateText(stringResource(R.string.error_message))
+            stateContentContainer(modifier = modifier) {
+                stateText(stringResource(R.string.error_message))
             }
         }
         is GratitudeViewModel.State.Loaded -> {
-            GratitudeList(
+            gratitudeList(
                 modifier = modifier,
                 groupedEntries = state.gratitudeEntries,
                 scrollState = scrollState,
             )
         }
         GratitudeViewModel.State.Empty -> {
-            StateContentContainer(modifier = modifier) {
-                StateText(stringResource(R.string.empty_message))
+            stateContentContainer(modifier = modifier) {
+                stateText(stringResource(R.string.empty_message))
             }
         }
     }
 }
 
 @Composable
-private fun StateContentContainer(
+private fun stateContentContainer(
     modifier: Modifier,
     content: @Composable () -> Unit,
 ) {
@@ -60,6 +60,6 @@ private fun StateContentContainer(
 }
 
 @Composable
-private fun StateText(text: String) {
+private fun stateText(text: String) {
     Text(text = text, fontFamily = gratitudeFont, fontSize = 24.sp)
 }

@@ -19,7 +19,7 @@ import uk.co.jamiecruwys.showcase.theme.gratitudeFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CustomTopAppBar(
+fun customTopAppBar(
     onLaunchSettings: () -> Unit,
     onLaunchSearch: () -> Unit,
 ) {

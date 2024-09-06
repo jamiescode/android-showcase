@@ -16,7 +16,7 @@ import java.util.Date
 
 @SuppressLint("SimpleDateFormat")
 @Composable
-fun GratitudeDateDivider(
+fun gratitudeDateDivider(
     date: Date?,
     dateStringFallback: String,
 ) {

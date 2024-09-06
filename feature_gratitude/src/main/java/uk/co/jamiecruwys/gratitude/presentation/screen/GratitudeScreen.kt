@@ -9,11 +9,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
-import uk.co.jamiecruwys.gratitude.presentation.screen.composable.GratitudeInput
-import uk.co.jamiecruwys.gratitude.presentation.screen.composable.GratitudeListState
+import uk.co.jamiecruwys.gratitude.presentation.screen.composable.gratitudeInput
+import uk.co.jamiecruwys.gratitude.presentation.screen.composable.gratitudeListState
 
 @Composable
-fun GratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
+fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.loadEntries()
     }
@@ -28,7 +28,7 @@ fun GratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
     Column(
         modifier = Modifier.fillMaxSize(),
     ) {
-        GratitudeListState(
+        gratitudeListState(
             modifier =
                 Modifier
                     .fillMaxWidth()
@@ -36,6 +36,6 @@ fun GratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
             state = state.value,
             scrollState = scrollState.value,
         )
-        GratitudeInput(viewModel)
+        gratitudeInput(viewModel)
     }
 }

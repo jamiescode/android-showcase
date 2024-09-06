@@ -16,12 +16,12 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
 import uk.co.jamiecruwys.showcase.settings.R
 import uk.co.jamiecruwys.showcase.settings.data.UserSettings
-import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.ActionSetting
-import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.SettingSection
-import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.SwitchSetting
+import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.actionSetting
+import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.settingSection
+import uk.co.jamiecruwys.showcase.settings.presentation.screen.composable.switchSetting
 
 @Composable
-fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
+fun settingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.load()
     }
@@ -32,7 +32,7 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
         )
 
     when (val state = liveData.value) {
-        is SettingsViewModel.SettingsState.Initial -> SettingsInitialState()
+        is SettingsViewModel.SettingsState.Initial -> settingsInitialState()
         is SettingsViewModel.SettingsState.Loaded -> {
             val userSettings = state.userSettings.collectAsState(initial = UserSettings())
             val scrollState = rememberScrollState()
@@ -42,18 +42,18 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                         .fillMaxSize()
                         .verticalScroll(scrollState),
             ) {
-                NotificationsSection(viewModel, userSettings)
-                AppearanceSection()
-                SecuritySection(viewModel, userSettings)
-                BackupAndRestoreSection()
-                AppInformationSection()
+                notificationsSection(viewModel, userSettings)
+                appearanceSection()
+                securitySection(viewModel, userSettings)
+                backupAndRestoreSection()
+                appInformationSection()
             }
         }
     }
 }
 
 @Composable
-fun SettingsInitialState() {
+fun settingsInitialState() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -63,12 +63,12 @@ fun SettingsInitialState() {
 }
 
 @Composable
-fun NotificationsSection(
+fun notificationsSection(
     viewModel: SettingsViewModel,
     userSettings: State<UserSettings>,
 ) {
-    SettingSection(heading = "Notifications") {
-        SwitchSetting(
+    settingSection(heading = "Notifications") {
+        switchSetting(
             icon = R.drawable.notifications,
             iconContentDescription = "Notifications",
             title = "Daily Reminder Notifications",
@@ -77,7 +77,7 @@ fun NotificationsSection(
                 viewModel.setDailyReminderNotification(checked)
             },
         )
-        ActionSetting(
+        actionSetting(
             icon = R.drawable.time,
             iconContentDescription = "Time",
             title = "Change your daily reminder time",
@@ -87,9 +87,9 @@ fun NotificationsSection(
 }
 
 @Composable
-fun AppearanceSection() {
-    SettingSection(heading = "Appearance") {
-        ActionSetting(
+fun appearanceSection() {
+    settingSection(heading = "Appearance") {
+        actionSetting(
             icon = R.drawable.palette,
             iconContentDescription = "Theme",
             title = "Choose a theme",
@@ -99,12 +99,12 @@ fun AppearanceSection() {
 }
 
 @Composable
-fun SecuritySection(
+fun securitySection(
     viewModel: SettingsViewModel,
     userSettings: State<UserSettings>,
 ) {
-    SettingSection(heading = "Security") {
-        SwitchSetting(
+    settingSection(heading = "Security") {
+        switchSetting(
             icon = R.drawable.fingerprint,
             iconContentDescription = "Security",
             title = "Unlock with biometrics",
@@ -117,15 +117,15 @@ fun SecuritySection(
 }
 
 @Composable
-fun BackupAndRestoreSection() {
-    SettingSection(heading = "Backup & Restore") {
-        ActionSetting(
+fun backupAndRestoreSection() {
+    settingSection(heading = "Backup & Restore") {
+        actionSetting(
             icon = R.drawable.download,
             iconContentDescription = "Export",
             title = "Export entries to downloads folder",
             onClick = {},
         )
-        ActionSetting(
+        actionSetting(
             icon = R.drawable.upload,
             iconContentDescription = "Import",
             title = "Import entries from a CSV file",
@@ -135,21 +135,21 @@ fun BackupAndRestoreSection() {
 }
 
 @Composable
-fun AppInformationSection() {
-    SettingSection(heading = "App Information") {
-        ActionSetting(
+fun appInformationSection() {
+    settingSection(heading = "App Information") {
+        actionSetting(
             icon = R.drawable.lock,
             iconContentDescription = "Privacy Policy",
             title = "Privacy Policy",
             onClick = {},
         )
-        ActionSetting(
+        actionSetting(
             icon = R.drawable.article,
             iconContentDescription = "Terms & Conditions",
             title = "Terms & Conditions",
             onClick = {},
         )
-        ActionSetting(
+        actionSetting(
             icon = R.drawable.info,
             iconContentDescription = "App version number",
             title = "Version number: x.x.x",

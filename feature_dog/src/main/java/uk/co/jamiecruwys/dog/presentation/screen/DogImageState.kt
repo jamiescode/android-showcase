@@ -22,7 +22,7 @@ import uk.co.jamiecruwys.showcase.dog.R
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun DogImageState(state: DogViewModel.State) {
+fun dogImageState(state: DogViewModel.State) {
     @Suppress("MagicNumber")
     val maxHeightFraction = 0.5f
     Column(
@@ -38,7 +38,7 @@ fun DogImageState(state: DogViewModel.State) {
                 // Show nothing
             }
             is DogViewModel.State.Error -> {
-                DogImageError(message = stringResource(R.string.dog_image_error_message))
+                dogImageError(message = stringResource(R.string.dog_image_error_message))
             }
             is DogViewModel.State.ImageAvailable -> {
                 Timber.d("Image url: ${state.imageUrl}")
@@ -46,8 +46,8 @@ fun DogImageState(state: DogViewModel.State) {
                     model = state.imageUrl,
                     contentDescription = stringResource(R.string.dog_image_content_description),
                     modifier = Modifier.fillMaxSize(),
-                    loading = placeholder { DogImageLoading() },
-                    failure = placeholder { DogImageError(stringResource(R.string.dog_image_error_message)) },
+                    loading = placeholder { dogImageLoading() },
+                    failure = placeholder { dogImageError(stringResource(R.string.dog_image_error_message)) },
                 )
             }
         }
@@ -55,7 +55,7 @@ fun DogImageState(state: DogViewModel.State) {
 }
 
 @Composable
-fun DogImageLoading() {
+fun dogImageLoading() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -65,7 +65,7 @@ fun DogImageLoading() {
 }
 
 @Composable
-fun DogImageError(message: String) {
+fun dogImageError(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
