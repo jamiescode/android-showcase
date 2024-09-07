@@ -1,7 +1,7 @@
 package com.jamiescode.showcase.quote
 
-import com.jamiescode.showcase.quote.domain.repository.QuoteRepository
 import com.jamiescode.showcase.quote.data.repository.QuoteRepositoryImpl
+import com.jamiescode.showcase.quote.domain.repository.QuoteRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
