@@ -47,6 +47,7 @@ android {
 dependencies {
     implementation(project(":feature_gratitude"))
     implementation(project(":feature_settings"))
+    implementation(project(":feature_under_construction"))
     implementation(project(":navigation"))
     implementation(project(":theme"))
 

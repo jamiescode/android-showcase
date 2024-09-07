@@ -1,5 +1,1 @@
-<resources>
-    <string name="dog_image_error_message">Error: Failed to load data</string>
-    <string name="dog_image_content_description">Image of a dog</string>
-    <string name="dog_image_button_text">Show another dog!</string>
-</resources>
+<resources />
