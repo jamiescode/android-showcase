@@ -1,5 +1,6 @@
-package com.jamiescode.showcase.settings.data
+package com.jamiescode.showcase.settings.domain.repository
 
+import com.jamiescode.showcase.settings.data.UserSettings
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsRepository {

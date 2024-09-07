@@ -1,9 +1,10 @@
-package com.jamiescode.showcase.gratitude.data
+package com.jamiescode.showcase.gratitude.data.repository
 
 import com.jamiescode.showcase.gratitude.data.database.JournalEntryDao
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
-import com.jamiescode.showcase.gratitude.presentation.domain.toGratitudeEntry
-import com.jamiescode.showcase.gratitude.presentation.domain.toJournalEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.repository.GratitudeRepository
+import com.jamiescode.showcase.gratitude.domain.toGratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.toJournalEntry
 import javax.inject.Inject
 
 class GratitudeRepositoryImpl

@@ -1,10 +1,10 @@
-package com.jamiescode.showcase.gratitude.presentation.domain.usecase
+package com.jamiescode.showcase.gratitude.domain.usecase
 
-import com.jamiescode.showcase.gratitude.data.GratitudeRepository
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.repository.GratitudeRepository
 import javax.inject.Inject
 
-class GetGratitudeEntriesUseCase
+class AddGratitudeEntryUseCase
     @Inject
     constructor(
         private val gratitudeRepository: GratitudeRepository,
@@ -20,8 +20,8 @@ class GetGratitudeEntriesUseCase
             ) : Result()
         }
 
-        suspend fun execute(): Result {
-            val entries = gratitudeRepository.getEntries()
+        suspend fun execute(gratitudeEntry: GratitudeEntry): Result {
+            val entries = gratitudeRepository.addEntry(gratitudeEntry)
             val groupedEntries = groupGratitudeEntriesUseCase.execute(entries)
             return Result.Success(groupedEntries)
         }
