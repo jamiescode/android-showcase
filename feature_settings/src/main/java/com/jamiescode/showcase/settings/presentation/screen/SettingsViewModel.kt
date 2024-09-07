@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.jamiescode.showcase.navigation.AppNavigator
+import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.settings.data.UserSettings
 import com.jamiescode.showcase.settings.domain.repository.SettingsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,6 +18,7 @@ class SettingsViewModel
     @Inject
     constructor(
         private val settingsRepository: SettingsRepository,
+        private val appNavigator: AppNavigator,
     ) : ViewModel() {
         private val stateMutableLiveData: MutableLiveData<SettingsState> by lazy {
             MutableLiveData<SettingsState>(SettingsState.Initial)
@@ -41,6 +44,10 @@ class SettingsViewModel
                 settingsRepository.setUnlockWithBiometrics(checked)
             }
             load()
+        }
+
+        fun navigateToUnderConstruction() {
+            appNavigator.navigateTo(Destinations.UnderConstruction)
         }
 
         sealed class SettingsState {
