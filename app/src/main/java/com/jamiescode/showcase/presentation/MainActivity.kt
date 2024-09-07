@@ -12,11 +12,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.asFlow
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
+import com.jamiescode.showcase.navigation.AppNavigator
 import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,21 +30,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
+            val navigationEvents = AppNavigator.navigationEventsLiveData.asFlow().collectAsState(
+                initial = Destinations.Nowhere
+            )
+            when (val destination = navigationEvents.value) {
+                Destinations.Nowhere -> {} // Do nothing
+                else -> {
+                    navController.navigate(destination.route)
+                }
+            }
             MaterialTheme {
                 Scaffold(
                     topBar = {
                         Column {
-                            customTopAppBar(
-                                onLaunchHome = {
-                                    navController.navigate(Destinations.Gratitude.route)
-                                },
-                                onLaunchSearch = {
-                                    navController.navigate(Destinations.UnderConstruction.route)
-                                },
-                                onLaunchSettings = {
-                                    navController.navigate(Destinations.Settings.route)
-                                },
-                            )
+                            customTopAppBar()
                             HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
                         }
                     },

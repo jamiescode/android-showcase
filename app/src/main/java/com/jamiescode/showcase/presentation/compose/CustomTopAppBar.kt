@@ -16,22 +16,20 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.jamiescode.showcase.R
+import com.jamiescode.showcase.navigation.AppNavigator
+import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.theme.getIconColor
 import com.jamiescode.showcase.theme.gratitudeFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun customTopAppBar(
-    onLaunchHome: () -> Unit,
-    onLaunchSettings: () -> Unit,
-    onLaunchSearch: () -> Unit,
-) {
+fun customTopAppBar() {
     CenterAlignedTopAppBar(
         scrollBehavior = pinnedScrollBehavior(),
         title = {
             Text(
                 text = stringResource(id = R.string.app_bar_title),
-                modifier = Modifier.clickable { onLaunchHome() },
+                modifier = Modifier.clickable { AppNavigator.navigateTo(Destinations.Gratitude) },
                 fontSize = 36.sp,
                 fontFamily = gratitudeFont,
                 textAlign = TextAlign.Center,
@@ -39,7 +37,7 @@ fun customTopAppBar(
         },
         actions = {
             IconButton(
-                onClick = { onLaunchSearch() },
+                onClick = { AppNavigator.navigateTo(Destinations.UnderConstruction) },
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Search,
@@ -48,9 +46,7 @@ fun customTopAppBar(
                 )
             }
             IconButton(
-                onClick = {
-                    onLaunchSettings()
-                },
+                onClick = { AppNavigator.navigateTo(Destinations.Settings) },
             ) {
                 Icon(
                     imageVector = Icons.Filled.Settings,

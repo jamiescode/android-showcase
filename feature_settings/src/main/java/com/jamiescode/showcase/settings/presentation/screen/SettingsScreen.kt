@@ -14,6 +14,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
+import com.jamiescode.showcase.navigation.AppNavigator
+import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.settings.R
 import com.jamiescode.showcase.settings.data.UserSettings
 import com.jamiescode.showcase.settings.presentation.screen.composable.actionSetting
@@ -81,7 +83,9 @@ fun notificationsSection(
             icon = R.drawable.time,
             iconContentDescription = "Time",
             title = "Change your daily reminder time",
-            onClick = {},
+            onClick = {
+                AppNavigator.navigateTo(Destinations.UnderConstruction)
+            },
         )
     }
 }
