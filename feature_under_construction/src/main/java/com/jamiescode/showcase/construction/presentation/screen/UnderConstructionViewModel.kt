@@ -1,4 +1,4 @@
-package com.jamiescode.showcase.dog.presentation.screen
+package com.jamiescode.showcase.construction.presentation.screen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DogViewModel
+class UnderConstructionViewModel
     @Inject
     constructor(
         private val getRandomDogImageUseCase: GetDogImageUseCase,

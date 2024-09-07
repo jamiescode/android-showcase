@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
                     topBar = {
                         Column {
                             customTopAppBar(
-                                onLaunchSearch = {},
+                                onLaunchSearch = {
+                                    navController.navigate(Destinations.UnderConstruction.route)
+                                },
                                 onLaunchSettings = {
                                     navController.navigate(Destinations.Settings.route)
                                 },
