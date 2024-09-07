@@ -16,7 +16,10 @@ import javax.inject.Singleton
 object QuoteDependencies {
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
+    @QuoteQualifier
+    fun provideRetrofit(
+        @QuoteQualifier okHttpClient: OkHttpClient,
+    ): Retrofit =
         Retrofit
             .Builder()
             .baseUrl("https://zenquotes.io/api/")
@@ -26,6 +29,7 @@ object QuoteDependencies {
 
     @Singleton
     @Provides
+    @QuoteQualifier
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient
             .Builder()
@@ -36,7 +40,10 @@ object QuoteDependencies {
 
     @Singleton
     @Provides
-    fun provideQuoteRetrofitService(retrofit: Retrofit): QuoteRetrofitService =
+    @QuoteQualifier
+    fun provideQuoteRetrofitService(
+        @QuoteQualifier retrofit: Retrofit,
+    ): QuoteRetrofitService =
         retrofit.create(
             QuoteRetrofitService::class.java,
         )

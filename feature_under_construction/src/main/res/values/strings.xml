@@ -1,0 +1,8 @@
+<resources>
+    <string name="under_construction_title">Under Construction</string>
+    <string name="under_construction_description">This feature is under construction. For now you can enjoy some dogs!</string>
+    <string name="under_construction_icon_content_description">Construction icon</string>
+    <string name="under_construction_image_error_message">Sorry, we couldn\'t load the dog this time. Try again later.</string>
+    <string name="under_construction_image_content_description">Image of a dog</string>
+    <string name="under_construction_image_button_text">Show me another dog!</string>
+</resources>

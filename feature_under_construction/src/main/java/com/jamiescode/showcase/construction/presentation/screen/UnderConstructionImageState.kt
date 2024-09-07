@@ -1,4 +1,4 @@
-package com.jamiescode.showcase.dog.presentation.screen
+package com.jamiescode.showcase.construction.presentation.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -17,12 +17,12 @@ import androidx.compose.ui.unit.dp
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
-import com.jamiescode.showcase.dog.R
+import com.jamiescode.showcase.construction.R
 import timber.log.Timber
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable
-fun dogImageState(state: DogViewModel.State) {
+fun underConstructionImageState(state: UnderConstructionViewModel.State) {
     @Suppress("MagicNumber")
     val maxHeightFraction = 0.5f
     Column(
@@ -34,20 +34,25 @@ fun dogImageState(state: DogViewModel.State) {
         verticalArrangement = Arrangement.Center,
     ) {
         when (state) {
-            is DogViewModel.State.Initial -> {
+            is UnderConstructionViewModel.State.Initial -> {
                 // Show nothing
             }
-            is DogViewModel.State.Error -> {
-                dogImageError(message = stringResource(R.string.dog_image_error_message))
+            is UnderConstructionViewModel.State.Error -> {
+                underConstructionImageError(message = stringResource(R.string.under_construction_image_error_message))
             }
-            is DogViewModel.State.ImageAvailable -> {
+            is UnderConstructionViewModel.State.ImageAvailable -> {
                 Timber.d("Image url: ${state.imageUrl}")
                 GlideImage(
                     model = state.imageUrl,
-                    contentDescription = stringResource(R.string.dog_image_content_description),
+                    contentDescription = stringResource(R.string.under_construction_image_content_description),
                     modifier = Modifier.fillMaxSize(),
-                    loading = placeholder { dogImageLoading() },
-                    failure = placeholder { dogImageError(stringResource(R.string.dog_image_error_message)) },
+                    loading = placeholder { underConstructionImageLoading() },
+                    failure =
+                        placeholder {
+                            underConstructionImageError(
+                                stringResource(R.string.under_construction_image_error_message),
+                            )
+                        },
                 )
             }
         }
@@ -55,7 +60,7 @@ fun dogImageState(state: DogViewModel.State) {
 }
 
 @Composable
-fun dogImageLoading() {
+fun underConstructionImageLoading() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
@@ -65,7 +70,7 @@ fun dogImageLoading() {
 }
 
 @Composable
-fun dogImageError(message: String) {
+fun underConstructionImageError(message: String) {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,

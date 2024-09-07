@@ -9,14 +9,22 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Qualifier
 import javax.inject.Singleton
+
+@Qualifier
+@Retention(AnnotationRetention.BINARY)
+annotation class Dog
 
 @InstallIn(SingletonComponent::class)
 @Module
 object DogDependencies {
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit =
+    @DogQualifier
+    fun provideRetrofit(
+        @DogQualifier okHttpClient: OkHttpClient,
+    ): Retrofit =
         Retrofit
             .Builder()
             .baseUrl("https://random.dog/")
@@ -26,6 +34,7 @@ object DogDependencies {
 
     @Singleton
     @Provides
+    @DogQualifier
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient
             .Builder()
@@ -37,7 +46,10 @@ object DogDependencies {
     @Suppress("MaxLineLength")
     @Singleton
     @Provides
-    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService =
+    @DogQualifier
+    fun provideDogImageRetrofitService(
+        @DogQualifier retrofit: Retrofit,
+    ): DogImageRetrofitService =
         retrofit.create(
             DogImageRetrofitService::class.java,
         )
