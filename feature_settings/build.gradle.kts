@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.showcase.settings"
+    namespace = "com.jamiescode.showcase.settings"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
