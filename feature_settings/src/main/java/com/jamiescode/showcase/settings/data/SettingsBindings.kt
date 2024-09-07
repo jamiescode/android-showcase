@@ -1,5 +1,7 @@
 package com.jamiescode.showcase.settings.data
 
+import com.jamiescode.showcase.settings.data.repository.SettingsRepositoryImpl
+import com.jamiescode.showcase.settings.domain.repository.SettingsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jamiescode.showcase.gratitude.R
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
 import com.jamiescode.showcase.theme.gratitudeFont
 
 @Composable

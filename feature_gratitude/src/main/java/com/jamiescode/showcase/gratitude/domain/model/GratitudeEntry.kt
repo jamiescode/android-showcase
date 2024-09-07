@@ -1,4 +1,4 @@
-package com.jamiescode.showcase.gratitude.presentation.domain.model
+package com.jamiescode.showcase.gratitude.domain.model
 
 import java.util.Date
 

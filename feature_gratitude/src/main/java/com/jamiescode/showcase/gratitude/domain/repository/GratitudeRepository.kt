@@ -1,6 +1,6 @@
-package com.jamiescode.showcase.gratitude.data
+package com.jamiescode.showcase.gratitude.domain.repository
 
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
 
 interface GratitudeRepository {
     suspend fun getEntries(): List<GratitudeEntry>

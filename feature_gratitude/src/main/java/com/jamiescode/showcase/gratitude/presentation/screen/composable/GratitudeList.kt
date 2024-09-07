@@ -11,8 +11,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeGroupDate
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeGroupDate
 import com.jamiescode.showcase.gratitude.presentation.screen.GratitudeViewModel
 import com.jamiescode.showcase.theme.getListColors
 import kotlinx.coroutines.launch
