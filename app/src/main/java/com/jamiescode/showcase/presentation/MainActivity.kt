@@ -23,16 +23,20 @@ import com.jamiescode.showcase.navigation.AppNavigator
 import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+    @Inject lateinit var appNavigator: AppNavigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            val navigationEvents = AppNavigator.navigationEventsLiveData.asFlow().collectAsState(
-                initial = Destinations.Nowhere
-            )
+            val navigationEvents =
+                appNavigator.navigationEventsLiveData.asFlow().collectAsState(
+                    initial = Destinations.Nowhere,
+                )
             when (val destination = navigationEvents.value) {
                 Destinations.Nowhere -> {} // Do nothing
                 else -> {
@@ -43,7 +47,7 @@ class MainActivity : AppCompatActivity() {
                 Scaffold(
                     topBar = {
                         Column {
-                            customTopAppBar()
+                            customTopAppBar(appNavigator = appNavigator)
                             HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
                         }
                     },

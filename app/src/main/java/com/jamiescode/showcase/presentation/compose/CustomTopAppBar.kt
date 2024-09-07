@@ -23,13 +23,13 @@ import com.jamiescode.showcase.theme.gratitudeFont
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun customTopAppBar() {
+fun customTopAppBar(appNavigator: AppNavigator) {
     CenterAlignedTopAppBar(
         scrollBehavior = pinnedScrollBehavior(),
         title = {
             Text(
                 text = stringResource(id = R.string.app_bar_title),
-                modifier = Modifier.clickable { AppNavigator.navigateTo(Destinations.Gratitude) },
+                modifier = Modifier.clickable { appNavigator.navigateTo(Destinations.Gratitude) },
                 fontSize = 36.sp,
                 fontFamily = gratitudeFont,
                 textAlign = TextAlign.Center,
@@ -37,7 +37,7 @@ fun customTopAppBar() {
         },
         actions = {
             IconButton(
-                onClick = { AppNavigator.navigateTo(Destinations.UnderConstruction) },
+                onClick = { appNavigator.navigateTo(Destinations.UnderConstruction) },
             ) {
                 Icon(
                     imageVector = Icons.Outlined.Search,
@@ -46,7 +46,7 @@ fun customTopAppBar() {
                 )
             }
             IconButton(
-                onClick = { AppNavigator.navigateTo(Destinations.Settings) },
+                onClick = { appNavigator.navigateTo(Destinations.Settings) },
             ) {
                 Icon(
                     imageVector = Icons.Filled.Settings,

@@ -14,8 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
-import com.jamiescode.showcase.navigation.AppNavigator
-import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.settings.R
 import com.jamiescode.showcase.settings.data.UserSettings
 import com.jamiescode.showcase.settings.presentation.screen.composable.actionSetting
@@ -45,10 +43,10 @@ fun settingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                         .verticalScroll(scrollState),
             ) {
                 notificationsSection(viewModel, userSettings)
-                appearanceSection()
+                appearanceSection(viewModel)
                 securitySection(viewModel, userSettings)
-                backupAndRestoreSection()
-                appInformationSection()
+                backupAndRestoreSection(viewModel)
+                appInformationSection(viewModel)
             }
         }
     }
@@ -84,20 +82,22 @@ fun notificationsSection(
             iconContentDescription = "Time",
             title = "Change your daily reminder time",
             onClick = {
-                AppNavigator.navigateTo(Destinations.UnderConstruction)
+                viewModel.navigateToUnderConstruction()
             },
         )
     }
 }
 
 @Composable
-fun appearanceSection() {
+fun appearanceSection(viewModel: SettingsViewModel) {
     settingSection(heading = "Appearance") {
         actionSetting(
             icon = R.drawable.palette,
             iconContentDescription = "Theme",
             title = "Choose a theme",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
     }
 }
@@ -121,43 +121,53 @@ fun securitySection(
 }
 
 @Composable
-fun backupAndRestoreSection() {
+fun backupAndRestoreSection(viewModel: SettingsViewModel) {
     settingSection(heading = "Backup & Restore") {
         actionSetting(
             icon = R.drawable.download,
             iconContentDescription = "Export",
             title = "Export entries to downloads folder",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
         actionSetting(
             icon = R.drawable.upload,
             iconContentDescription = "Import",
             title = "Import entries from a CSV file",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
     }
 }
 
 @Composable
-fun appInformationSection() {
+fun appInformationSection(viewModel: SettingsViewModel) {
     settingSection(heading = "App Information") {
         actionSetting(
             icon = R.drawable.lock,
             iconContentDescription = "Privacy Policy",
             title = "Privacy Policy",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
         actionSetting(
             icon = R.drawable.article,
             iconContentDescription = "Terms & Conditions",
             title = "Terms & Conditions",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
         actionSetting(
             icon = R.drawable.info,
             iconContentDescription = "App version number",
             title = "Version number: x.x.x",
-            onClick = {},
+            onClick = {
+                viewModel.navigateToUnderConstruction()
+            },
         )
     }
 }
