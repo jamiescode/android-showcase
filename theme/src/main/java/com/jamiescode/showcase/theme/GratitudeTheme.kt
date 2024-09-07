@@ -19,3 +19,6 @@ fun getListColors() =
         colorResource(id = R.color.listColorGreen),
         colorResource(id = R.color.listColorTeal),
     )
+
+@Composable
+fun getQuoteColor() = colorResource(id = R.color.quoteColor)

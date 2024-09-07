@@ -1,6 +1,11 @@
 package com.jamiescode.showcase.gratitude.presentation.screen.composable
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
@@ -8,10 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jamiescode.showcase.gratitude.R
 import com.jamiescode.showcase.gratitude.presentation.screen.GratitudeViewModel
+import com.jamiescode.showcase.quote.presentation.screen.quoteCard
 import com.jamiescode.showcase.theme.gratitudeFont
 
 @Composable
@@ -42,8 +49,20 @@ fun gratitudeListState(
             )
         }
         GratitudeViewModel.State.Empty -> {
-            stateContentContainer(modifier = modifier) {
-                stateText(stringResource(R.string.empty_message))
+            Box(modifier = modifier) {
+                stateContentContainer(modifier = Modifier.fillMaxSize()) {
+                    stateText(
+                        text = stringResource(R.string.empty_message),
+                    )
+                }
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Bottom,
+                ) {
+                    Spacer(modifier = Modifier.height(16.dp))
+                    quoteCard()
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
             }
         }
     }

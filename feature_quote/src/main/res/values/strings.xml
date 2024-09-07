@@ -1,0 +1,4 @@
+<resources>
+    <string name="quote_loading_message">Loading quotes…</string>
+    <string name="quote_error_message">Error loading quotes</string>
+</resources>

@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.jamiescode.showcase.gratitude"
+    namespace = "com.jamiescode.showcase.quote"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -20,24 +20,19 @@ android {
 dependencies {
     implementation(project(":navigation"))
     implementation(project(":theme"))
-    implementation(project(":feature_quote"))
 
     implementation(libs.kotlin)
     implementation(libs.timber)
+    implementation(libs.glide)
+
+    implementation(libs.bundles.retrofit)
     implementation(libs.bundles.compose)
 
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
 
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
-
-    debugImplementation(libs.leakcanary)
-
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
-    testImplementation(libs.room.testing)
 
     androidTestImplementation(libs.espresso)
     androidTestImplementation(libs.androidx.test.runner)
