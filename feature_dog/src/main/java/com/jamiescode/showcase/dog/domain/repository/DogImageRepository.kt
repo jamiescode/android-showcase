@@ -1,4 +1,4 @@
-package com.jamiescode.showcase.dog.data
+package com.jamiescode.showcase.dog.domain.repository
 
 import com.jamiescode.showcase.dog.domain.model.DogImage
 

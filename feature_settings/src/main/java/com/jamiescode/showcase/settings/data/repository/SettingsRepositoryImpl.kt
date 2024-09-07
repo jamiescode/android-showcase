@@ -1,7 +1,10 @@
-package com.jamiescode.showcase.settings.data
+package com.jamiescode.showcase.settings.data.repository
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
+import com.jamiescode.showcase.settings.data.DataStoreManager
+import com.jamiescode.showcase.settings.data.UserSettings
+import com.jamiescode.showcase.settings.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

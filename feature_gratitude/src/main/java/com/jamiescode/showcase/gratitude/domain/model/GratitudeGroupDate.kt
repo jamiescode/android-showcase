@@ -1,4 +1,4 @@
-package com.jamiescode.showcase.gratitude.presentation.domain.model
+package com.jamiescode.showcase.gratitude.domain.model
 
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat

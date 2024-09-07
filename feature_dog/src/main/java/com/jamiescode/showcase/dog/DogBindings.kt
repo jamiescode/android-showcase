@@ -1,7 +1,7 @@
 package com.jamiescode.showcase.dog
 
-import com.jamiescode.showcase.dog.data.DogImageRepository
-import com.jamiescode.showcase.dog.data.DogImageRepositoryImpl
+import com.jamiescode.showcase.dog.data.repository.DogImageRepositoryImpl
+import com.jamiescode.showcase.dog.domain.repository.DogImageRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

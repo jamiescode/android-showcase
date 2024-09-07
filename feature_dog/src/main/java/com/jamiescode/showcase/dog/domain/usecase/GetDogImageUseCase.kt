@@ -1,6 +1,6 @@
 package com.jamiescode.showcase.dog.domain.usecase
 
-import com.jamiescode.showcase.dog.data.DogImageRepository
+import com.jamiescode.showcase.dog.domain.repository.DogImageRepository
 import java.io.IOException
 import javax.inject.Inject
 

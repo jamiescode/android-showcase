@@ -1,6 +1,6 @@
-package com.jamiescode.showcase.gratitude.presentation.domain.usecase
+package com.jamiescode.showcase.gratitude.domain.usecase
 
-import com.jamiescode.showcase.gratitude.presentation.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
 import javax.inject.Inject
 
 class GroupGratitudeEntriesUseCase
