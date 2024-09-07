@@ -1,6 +1,6 @@
 package com.jamiescode.showcase.quote.domain.usecase
 
-import com.jamiescode.showcase.quote.data.QuoteRepository
+import com.jamiescode.showcase.quote.domain.repository.QuoteRepository
 import com.jamiescode.showcase.quote.domain.model.Quote
 import java.io.IOException
 import javax.inject.Inject

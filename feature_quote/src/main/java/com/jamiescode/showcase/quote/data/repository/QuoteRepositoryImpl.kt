@@ -1,8 +1,9 @@
-package com.jamiescode.showcase.quote.data
+package com.jamiescode.showcase.quote.data.repository
 
 import com.jamiescode.showcase.quote.data.datasource.api.response.toDomainModel
 import com.jamiescode.showcase.quote.data.datasource.api.service.QuoteRetrofitService
 import com.jamiescode.showcase.quote.domain.model.Quote
+import com.jamiescode.showcase.quote.domain.repository.QuoteRepository
 import javax.inject.Inject
 
 class QuoteRepositoryImpl
