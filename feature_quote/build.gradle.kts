@@ -18,12 +18,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":navigation"))
     implementation(project(":theme"))
 
     implementation(libs.kotlin)
     implementation(libs.timber)
-    implementation(libs.glide)
 
     implementation(libs.bundles.retrofit)
     implementation(libs.bundles.compose)
