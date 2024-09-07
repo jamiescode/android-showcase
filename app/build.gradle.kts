@@ -11,9 +11,9 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.showcase"
+    namespace = "com.jamiescode.showcase"
     defaultConfig {
-        applicationId = "uk.co.jamiecruwys.showcase"
+        applicationId = "com.jamiescode.showcase"
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"

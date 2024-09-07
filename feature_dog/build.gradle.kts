@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.showcase.dog"
+    namespace = "com.jamiescode.showcase.dog"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

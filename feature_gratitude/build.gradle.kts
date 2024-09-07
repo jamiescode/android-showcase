@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "uk.co.jamiecruwys.gratitude"
+    namespace = "com.jamiescode.showcase.gratitude"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
