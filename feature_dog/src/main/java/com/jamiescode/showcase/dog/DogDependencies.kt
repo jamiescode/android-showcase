@@ -21,9 +21,9 @@ annotation class Dog
 object DogDependencies {
     @Singleton
     @Provides
-    @FeatureDog
+    @DogQualifier
     fun provideRetrofit(
-        @FeatureDog okHttpClient: OkHttpClient,
+        @DogQualifier okHttpClient: OkHttpClient,
     ): Retrofit =
         Retrofit
             .Builder()
@@ -34,7 +34,7 @@ object DogDependencies {
 
     @Singleton
     @Provides
-    @FeatureDog
+    @DogQualifier
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient
             .Builder()
@@ -46,9 +46,9 @@ object DogDependencies {
     @Suppress("MaxLineLength")
     @Singleton
     @Provides
-    @FeatureDog
+    @DogQualifier
     fun provideDogImageRetrofitService(
-        @FeatureDog retrofit: Retrofit,
+        @DogQualifier retrofit: Retrofit,
     ): DogImageRetrofitService =
         retrofit.create(
             DogImageRetrofitService::class.java,

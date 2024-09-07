@@ -47,7 +47,12 @@ fun underConstructionImageState(state: UnderConstructionViewModel.State) {
                     contentDescription = stringResource(R.string.under_construction_image_content_description),
                     modifier = Modifier.fillMaxSize(),
                     loading = placeholder { underConstructionImageLoading() },
-                    failure = placeholder { underConstructionImageError(stringResource(R.string.under_construction_image_error_message)) },
+                    failure =
+                        placeholder {
+                            underConstructionImageError(
+                                stringResource(R.string.under_construction_image_error_message),
+                            )
+                        },
                 )
             }
         }

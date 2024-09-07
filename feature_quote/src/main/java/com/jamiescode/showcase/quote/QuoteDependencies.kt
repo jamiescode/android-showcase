@@ -16,9 +16,9 @@ import javax.inject.Singleton
 object QuoteDependencies {
     @Singleton
     @Provides
-    @FeatureQuote
+    @QuoteQualifier
     fun provideRetrofit(
-        @FeatureQuote okHttpClient: OkHttpClient,
+        @QuoteQualifier okHttpClient: OkHttpClient,
     ): Retrofit =
         Retrofit
             .Builder()
@@ -29,7 +29,7 @@ object QuoteDependencies {
 
     @Singleton
     @Provides
-    @FeatureQuote
+    @QuoteQualifier
     fun provideOkHttpClient(): OkHttpClient =
         OkHttpClient
             .Builder()
@@ -40,9 +40,9 @@ object QuoteDependencies {
 
     @Singleton
     @Provides
-    @FeatureQuote
+    @QuoteQualifier
     fun provideQuoteRetrofitService(
-        @FeatureQuote retrofit: Retrofit,
+        @QuoteQualifier retrofit: Retrofit,
     ): QuoteRetrofitService =
         retrofit.create(
             QuoteRetrofitService::class.java,

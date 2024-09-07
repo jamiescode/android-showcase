@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -25,7 +24,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.asFlow
 import com.jamiescode.showcase.construction.R
-import com.jamiescode.showcase.theme.getIconColor
 import com.jamiescode.showcase.theme.gratitudeFont
 
 @Composable
@@ -59,7 +57,7 @@ fun underConstructionScreen(viewModel: UnderConstructionViewModel = hiltViewMode
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth(),
         )
-     Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = stringResource(R.string.under_construction_description),
             fontFamily = gratitudeFont,

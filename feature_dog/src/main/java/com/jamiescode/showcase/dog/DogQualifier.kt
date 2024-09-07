@@ -1,7 +1,7 @@
-package com.jamiescode.showcase.quote
+package com.jamiescode.showcase.dog
 
 import javax.inject.Qualifier
 
 @Qualifier
 @Retention(AnnotationRetention.BINARY)
-annotation class FeatureQuote
+annotation class DogQualifier
