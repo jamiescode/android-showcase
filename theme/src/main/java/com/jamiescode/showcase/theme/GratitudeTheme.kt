@@ -2,7 +2,6 @@ package com.jamiescode.showcase.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
-import com.jamiescode.showcase.theme.R
 
 @Composable
 fun getIconColor() = colorResource(id = R.color.appBarIconColor)

@@ -1,5 +1,6 @@
 package com.jamiescode.showcase.dog
 
+import com.jamiescode.showcase.dog.data.datasource.api.service.DogImageRetrofitService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -8,7 +9,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.jamiescode.showcase.dog.data.datasource.api.service.DogImageRetrofitService
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -37,6 +37,8 @@ object DogDependencies {
     @Suppress("MaxLineLength")
     @Singleton
     @Provides
-    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService = retrofit.create(
-        DogImageRetrofitService::class.java)
+    fun provideDogImageRetrofitService(retrofit: Retrofit): DogImageRetrofitService =
+        retrofit.create(
+            DogImageRetrofitService::class.java,
+        )
 }

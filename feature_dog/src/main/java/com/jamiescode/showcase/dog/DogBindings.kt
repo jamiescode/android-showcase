@@ -1,11 +1,11 @@
 package com.jamiescode.showcase.dog
 
+import com.jamiescode.showcase.dog.data.DogImageRepository
+import com.jamiescode.showcase.dog.data.DogImageRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import com.jamiescode.showcase.dog.data.DogImageRepository
-import com.jamiescode.showcase.dog.data.DogImageRepositoryImpl
 
 @Module
 @InstallIn(SingletonComponent::class)
