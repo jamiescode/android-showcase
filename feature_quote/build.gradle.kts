@@ -31,6 +31,8 @@ dependencies {
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.junit5)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kluent)
 
     androidTestImplementation(libs.espresso)
     androidTestImplementation(libs.androidx.test.runner)

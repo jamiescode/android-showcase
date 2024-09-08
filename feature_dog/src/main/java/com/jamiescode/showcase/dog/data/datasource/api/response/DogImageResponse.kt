@@ -11,5 +11,5 @@ internal fun DogImageResponse.toDomainModel(): DogImage {
         this.filter {
             it.endsWith(".png") || it.endsWith(".jpg") || it.endsWith(".jpeg") || it.endsWith(".gif")
         }
-    return DogImage(imageUrl = "https://random.dog/" + filteredItems.random())
+    return DogImage(imageUrl = "https://random.dog/" + filteredItems.randomOrNull())
 }
