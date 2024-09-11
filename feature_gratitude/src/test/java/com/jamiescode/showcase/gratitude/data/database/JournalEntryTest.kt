@@ -32,15 +32,18 @@ class JournalEntryTest {
 
     @Test
     fun `database creation`() {
+        val sqLiteOpenHelper: SupportSQLiteOpenHelper = mockk(relaxed = true)
         val journalEntryDatabase =
             object : JournalEntryDatabase() {
                 override fun journalEntryDao(): JournalEntryDao = mockk(relaxed = true)
 
-                override fun clearAllTables() {}
+                override fun clearAllTables() {
+                    // Noop
+                }
 
                 override fun createInvalidationTracker(): InvalidationTracker = InvalidationTracker(database = this)
 
-                override fun createOpenHelper(config: DatabaseConfiguration): SupportSQLiteOpenHelper = mockk(relaxed = true)
+                override fun createOpenHelper(config: DatabaseConfiguration) = sqLiteOpenHelper
             }
         assertNotNull(journalEntryDatabase)
     }
