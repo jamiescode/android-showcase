@@ -30,8 +30,9 @@ class GratitudeEntryTest {
 
         // WHEN
         val date = gratitudeGroupDate.fromDateString("2024-09-11")
+        val dateTime = date?.time ?: 0L
 
         // THEN
-        assertEquals(Date(1726009200000), date)
+        assertEquals(1726009200000, dateTime)
     }
 }
