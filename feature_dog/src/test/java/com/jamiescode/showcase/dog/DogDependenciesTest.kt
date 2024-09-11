@@ -1,14 +1,10 @@
 package com.jamiescode.showcase.dog
 
-import com.jamiescode.showcase.dog.data.datasource.api.service.DogImageRetrofitService
-import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 import retrofit2.Retrofit
-import javax.inject.Singleton
 
 class DogDependenciesTest {
     @Test

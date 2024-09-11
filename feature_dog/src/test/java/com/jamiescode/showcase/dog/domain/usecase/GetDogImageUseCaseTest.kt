@@ -6,13 +6,12 @@ import com.jamiescode.showcase.dog.domain.usecase.GetDogImageUseCase.Result
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.runBlocking
+import org.amshove.kluent.shouldBeInstanceOf
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.io.IOException
 
-
 class GetDogImageUseCaseTest {
-
     val dogImageRepository: DogImageRepository = mockk()
     val dogImageUseCase = GetDogImageUseCase(dogImageRepository)
 
@@ -39,7 +38,7 @@ class GetDogImageUseCaseTest {
         val result = runBlocking { dogImageUseCase.execute() }
 
         // THEN error returned
-        assertEquals(Result.Error(any()), result)
+        result.shouldBeInstanceOf<Result.Error>()
     }
 
     @Test

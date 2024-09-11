@@ -17,7 +17,7 @@ class DogImageRepositoryImplTest {
     @Test
     fun `given response, when get image is called, then image url returned`() {
         // GIVEN DogImageResponse
-        val imageResponse : DogImageResponse = listOf("1.png")
+        val imageResponse: DogImageResponse = listOf("1.png")
         coEvery { retrofitService.getRandomImageAsync() }.returns(imageResponse)
 
         // WHEN getImage is called
