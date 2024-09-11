@@ -19,5 +19,5 @@ fun GratitudeEntry.toJournalEntry() =
         created = created.time,
         updated = updated.time,
         entry = entry,
-        tags = tags.joinToString(separator = com.jamiescode.showcase.gratitude.domain.TAGS_SEPARATOR),
+        tags = tags.joinToString(separator = TAGS_SEPARATOR),
     )

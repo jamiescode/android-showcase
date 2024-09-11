@@ -4,9 +4,11 @@ import android.content.Context
 import androidx.startup.Initializer
 import timber.log.Timber
 
-class TimberInitializer : Initializer<Unit> {
+class TimberInitializer(
+    private val isDebug: Boolean = BuildConfig.DEBUG,
+) : Initializer<Unit> {
     override fun create(context: Context) {
-        if (BuildConfig.DEBUG) {
+        if (isDebug) {
             Timber.plant(Timber.DebugTree())
         }
     }

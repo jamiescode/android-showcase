@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-interface GratitudeBindings {
+interface GratitudeDependencies {
     @Binds
-    fun gratitudeRepository(impl: GratitudeRepositoryImpl): GratitudeRepository
+    fun provideGratitudeRepository(impl: GratitudeRepositoryImpl): GratitudeRepository
 }
