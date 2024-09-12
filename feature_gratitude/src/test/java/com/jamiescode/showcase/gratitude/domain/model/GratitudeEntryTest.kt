@@ -33,6 +33,7 @@ class GratitudeEntryTest {
         val dateTime = date?.time ?: 0L
 
         // THEN
-        assertEquals(1726009200000, dateTime)
+        throw Exception("DateTime: $dateTime")
+        // assertEquals(1726009200000, dateTime)
     }
 }
