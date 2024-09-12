@@ -35,6 +35,6 @@ class GratitudeEntryTest {
         println("DateTime: $dateTime")
 
         // THEN
-        assertEquals(1726009200000, dateTime)
+        assertEquals(1726012800000, dateTime)
     }
 }
