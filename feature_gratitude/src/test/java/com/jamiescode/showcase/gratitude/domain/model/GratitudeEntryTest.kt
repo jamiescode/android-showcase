@@ -32,8 +32,9 @@ class GratitudeEntryTest {
         val date = gratitudeGroupDate.fromDateString("2024-09-11")
         val dateTime = date?.time ?: 0L
 
+        println("DateTime: $dateTime")
+
         // THEN
-        throw Exception("DateTime: $dateTime")
-        // assertEquals(1726009200000, dateTime)
+        assertEquals(1726009200000, dateTime)
     }
 }
