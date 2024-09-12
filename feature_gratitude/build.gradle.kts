@@ -33,14 +33,10 @@ dependencies {
     implementation(libs.room.ktx)
     kapt(libs.room.compiler)
 
-    debugImplementation(libs.leakcanary)
-
     testImplementation(platform(libs.junit5.bom))
-    testImplementation(libs.junit5)
+    testImplementation(libs.bundles.test)
     testImplementation(libs.room.testing)
 
-    androidTestImplementation(libs.espresso)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.hilt.testing)
+    androidTestImplementation(libs.bundles.uitest)
     kaptAndroidTest(libs.hilt.compiler)
 }

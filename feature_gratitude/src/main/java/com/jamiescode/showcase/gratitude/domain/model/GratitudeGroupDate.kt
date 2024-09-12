@@ -3,14 +3,22 @@ package com.jamiescode.showcase.gratitude.domain.model
 import android.annotation.SuppressLint
 import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.TimeZone
 
 @SuppressLint("SimpleDateFormat")
 class GratitudeGroupDate {
-    fun toDateString(date: Date): String = SimpleDateFormat(PATTERN).format(date)
+    private val simpleDateFormat: SimpleDateFormat = SimpleDateFormat(PATTERN)
 
-    fun fromDateString(string: String): Date? = SimpleDateFormat(PATTERN).parse(string)
+    init {
+        simpleDateFormat.timeZone = TimeZone.getTimeZone(TIMEZONE)
+    }
+
+    fun toDateString(date: Date): String = simpleDateFormat.format(date)
+
+    fun fromDateString(string: String): Date? = simpleDateFormat.parse(string)
 
     companion object {
         private const val PATTERN = "yyyy-MM-dd"
+        private const val TIMEZONE = "UTC"
     }
 }

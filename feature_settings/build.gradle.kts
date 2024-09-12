@@ -31,11 +31,8 @@ dependencies {
     implementation(libs.datastore)
 
     testImplementation(platform(libs.junit5.bom))
-    testImplementation(libs.junit5)
-    testImplementation(libs.room.testing)
+    testImplementation(libs.bundles.test)
 
-    androidTestImplementation(libs.espresso)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.hilt.testing)
+    androidTestImplementation(libs.bundles.uitest)
     kaptAndroidTest(libs.hilt.compiler)
 }

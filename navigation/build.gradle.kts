@@ -22,11 +22,7 @@ dependencies {
     implementation(libs.bundles.compose)
     implementation(libs.oss.licenses)
 
-    testImplementation(platform(libs.junit5.bom))
-    testImplementation(libs.junit5)
-
-    androidTestImplementation(libs.espresso)
-    androidTestImplementation(libs.androidx.test.runner)
-    androidTestImplementation(libs.hilt.testing)
+    testImplementation(libs.bundles.test)
+    androidTestImplementation(libs.bundles.uitest)
     kaptAndroidTest(libs.hilt.compiler)
 }

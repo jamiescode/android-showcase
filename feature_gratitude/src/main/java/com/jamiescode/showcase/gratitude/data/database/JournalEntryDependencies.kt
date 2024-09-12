@@ -11,10 +11,10 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object JournalEntryModule {
+object JournalEntryDependencies {
     @Singleton
     @Provides
-    fun journalEntryDatabase(
+    fun provideJournalEntryDatabase(
         @ApplicationContext appContext: Context,
     ): JournalEntryDatabase =
         Room
