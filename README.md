@@ -11,7 +11,7 @@
 [![Gradle](https://img.shields.io/badge/Gradle-8.x-blue?style=flat)](https://gradle.org)
 [![License](https://img.shields.io/github/license/jamiescode/android-showcase)](https://github.com/jamiescode/android-showcase/blob/main/LICENSE)
 ![Min SDK 24](https://img.shields.io/badge/Min%20SDK-24-839192?logo=android&logoColor=white)
-![Target SDK 34](https://img.shields.io/badge/Target%20SDK-34-566573?logo=android&logoColor=white)
+![Target SDK 35](https://img.shields.io/badge/Target%20SDK-35-566573?logo=android&logoColor=white)
 [![Language: Kotlin](https://img.shields.io/github/languages/top/jamiescode/android-showcase.svg)](https://github.com/jamiescode/android-showcase/search?l=kotlin)
 
 Showcase Android application MVVM, clean architecture, Jetpack Compose and more
