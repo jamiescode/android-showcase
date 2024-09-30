@@ -44,7 +44,7 @@ androidx-test = "1.6.2"
 junit = "1.2.1"
 mockk = "1.13.12"
 kluent = "1.73"
-mockito = "5.13.0"
+mockito = "5.14.1"
 core-testing = "2.2.0"
 
 [plugins]
