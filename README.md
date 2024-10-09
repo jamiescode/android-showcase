@@ -18,6 +18,12 @@ Showcase Android application MVVM, clean architecture, Jetpack Compose and more
 
 To see the list of current and upcoming features please take a look at the [feature roadmap](ROADMAP.md).
 
+## Screenshots
+
+| Empty | List | Search | Settings |
+| --- | --- | --- | --- |
+| ![Empty](.screenshots/screenshot-empty.webp) | ![List](.screenshots/screenshot-list.webp) | ![Search](.screenshots/screenshot-search.webp) | ![Settings](.screenshots/screenshot-settings.webp) |
+
 ## Code quality
 
 The following code quality tools are used:

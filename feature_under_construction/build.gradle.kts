@@ -2,10 +2,10 @@ plugins {
     id("com.android.library")
     kotlin("android")
     kotlin("kapt")
-    id("org.jetbrains.kotlin.plugin.compose")
-    id("io.gitlab.arturbosch.detekt")
-    id("org.jmailen.kotlinter")
-    id("org.jetbrains.kotlinx.kover")
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlinter)
+    alias(libs.plugins.kover)
 }
 
 android {
