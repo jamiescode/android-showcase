@@ -20,9 +20,9 @@ To see the list of current and upcoming features please take a look at the [feat
 
 ## Screenshots
 
-| Empty | List | Search | Settings |
-| --- | --- | --- | --- |
-| ![Empty](.screenshots/screenshot-empty.webp) | ![List](.screenshots/screenshot-list.webp) | ![Search](.screenshots/screenshot-search.webp) | ![Settings](.screenshots/screenshot-settings.webp) |
+| Empty | List | Settings |
+| --- | --- | --- |
+| ![Empty](.screenshots/screenshot-empty.webp) | ![List](.screenshots/screenshot-list.webp) | ![Settings](.screenshots/screenshot-settings.webp) |
 
 ## Code quality
 
