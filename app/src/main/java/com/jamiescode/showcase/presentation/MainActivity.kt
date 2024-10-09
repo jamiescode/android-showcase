@@ -2,6 +2,7 @@ package com.jamiescode.showcase.presentation
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     @Inject lateinit var appNavigator: AppNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
