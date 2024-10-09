@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -23,6 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.jamiescode.showcase.navigation.AppNavigator
 import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
+import com.jamiescode.showcase.theme.showcaseTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(destination.route)
                 }
             }
-            MaterialTheme {
+            showcaseTheme {
                 Scaffold(
                     topBar = {
                         Column {
