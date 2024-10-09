@@ -2,10 +2,9 @@
 # Android setup
 sdk-compile = "35"
 sdk-min = "24"
-sdk-target = "35"
 
 # Plugins
-android = "8.6.1"
+android = "8.7.0"
 kotlin = "2.0.20"
 detekt = "1.23.7"
 kotlinter = "4.4.1"
@@ -17,22 +16,16 @@ coroutines = "1.9.0"
 retrofit = "2.11.0"
 okhttp-logging-interceptor = "4.12.0"
 glide = "1.0.0-beta01"
-core-ktx = "1.13.1"
 appcompat = "1.7.0"
-constraintlayout = "2.1.4"
-lifecycle = "2.8.6"
 oss-licenses = "17.1.0"
 oss-licenses-plugin = "0.10.6"
 leakcanary = "2.14"
-ktx-activity = "1.9.2"
-ktx-fragment = "1.8.3"
-compose = "1.7.2"
+compose = "1.7.3"
 compose-activity = "1.9.2"
 compose-viewmodel = "2.8.6"
-compose-navigation = "2.8.1"
+compose-navigation = "2.8.2"
 compose-hilt-navigation = "1.2.0"
 compose-material3 = "1.3.0"
-accompanist = "0.36.0"
 startup = "1.2.0"
 timber = "5.0.1"
 room = "2.6.1"
@@ -41,17 +34,16 @@ datastore = "1.1.1"
 # Testing
 espresso = "3.6.1"
 androidx-test = "1.6.2"
-junit = "1.2.1"
-mockk = "1.13.12"
+mockk = "1.13.13"
 kluent = "1.73"
-mockito = "5.13.0"
+mockito = "5.14.1"
 core-testing = "2.2.0"
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
 library = { id = "com.android.library", version.ref = "android" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin"}
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin"}
 oss-licenses = { id = "com.google.android.gms:oss-licenses-plugin", version.ref = "oss-licenses-plugin" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
@@ -60,18 +52,13 @@ kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 
 [libraries]
 kotlin = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp-logging-interceptor" }
-core-ktx = { module = "androidx.core:core-ktx", version.ref = "core-ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
-lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 glide = { module = "com.github.bumptech.glide:compose", version.ref = "glide" }
 oss-licenses = { module = "com.google.android.gms:play-services-oss-licenses", version.ref = "oss-licenses" }
 leakcanary = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanary" }
-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "ktx-activity"}
-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "ktx-fragment"}
 startup = { module = "androidx.startup:startup-runtime", version.ref = "startup" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
@@ -92,11 +79,6 @@ compose-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose",
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "compose-navigation" }
 compose-hilt-navigation = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "compose-hilt-navigation" }
 
-# Accompanist
-accompanist-system-ui = { module = "com.google.accompanist:accompanist-systemuicontroller", version.ref = "accompanist" }
-accompanist-insets-ui = { module = "com.google.accompanist:accompanist-insets-ui", version.ref = "accompanist" }
-accompanist-swiperefresh = { module = "com.google.accompanist:accompanist-swiperefresh", version.ref = "accompanist" }
-
 # Dagger
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
@@ -105,7 +87,7 @@ hilt-compiler = { module = "com.google.dagger:hilt-android-compiler", version.re
 # Annotations
 
 # Testing
-junit5-bom = { module = "org.junit:junit-bom", version = "5.11.1" }
+junit5-bom = { module = "org.junit:junit-bom", version = "5.11.2" }
 junit5 = { module = "org.junit.jupiter:junit-jupiter" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
@@ -125,19 +107,10 @@ compose-navigation-test = { module = "androidx.navigation:navigation-testing", v
 retrofit = [
     "retrofit", "retrofit-converter-gson", "okhttp-logging-interceptor"
 ]
-ktx = [
-    "core-ktx", "fragment-ktx", "activity-ktx"
-]
 compose = [
     "compose-runtime", "compose-ui-core", "compose-ui-tooling", "compose-ui-tooling-preview",
     "compose-foundation", "compose-material3", "compose-activity", "compose-viewmodel",
     "compose-navigation", "compose-hilt-navigation",
-]
-accompanist = [
-    "accompanist-system-ui", "accompanist-insets-ui", "accompanist-swiperefresh"
-]
-lifecycle = [
-    "lifecycle-viewmodel"
 ]
 test = [
     "junit5", "junit4", "mockk", "kluent", "mockito", "test-coroutines", "core-testing",

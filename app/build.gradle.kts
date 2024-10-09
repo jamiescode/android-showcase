@@ -2,12 +2,12 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
-    id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.android.gms.oss-licenses-plugin")
-    id("io.gitlab.arturbosch.detekt")
-    id("org.jmailen.kotlinter")
-    id("com.google.dagger.hilt.android")
-    id("org.jetbrains.kotlinx.kover")
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlinter)
+    alias(libs.plugins.kover)
 }
 
 android {
