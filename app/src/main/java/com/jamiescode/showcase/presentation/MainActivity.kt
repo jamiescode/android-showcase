@@ -22,7 +22,7 @@ import androidx.navigation.compose.rememberNavController
 import com.jamiescode.showcase.navigation.AppNavigator
 import com.jamiescode.showcase.navigation.Destinations
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
-import com.jamiescode.showcase.theme.ShowcaseTheme
+import com.jamiescode.showcase.theme.showcaseTheme
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                     navController.navigate(destination.route)
                 }
             }
-            ShowcaseTheme {
+            showcaseTheme {
                 Scaffold(
                     topBar = {
                         Column {

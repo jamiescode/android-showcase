@@ -20,7 +20,7 @@ private val darkThemeColors = darkColorScheme()
 private val typography = Typography()
 
 @Composable
-fun ShowcaseTheme(content: @Composable () -> Unit) {
+fun showcaseTheme(content: @Composable () -> Unit) {
     val colorScheme = if (isSystemInDarkTheme()) darkThemeColors else lightThemeColors
     MaterialTheme(
         colorScheme = colorScheme,
