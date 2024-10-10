@@ -5,5 +5,6 @@ enum class Routes(
 ) {
     GRATITUDE("gratitude"),
     SETTINGS("settings"),
+    OPEN_SOURCE_LICENSES("open_source_licenses"),
     UNDER_CONSTRUCTION("under_construction"),
 }

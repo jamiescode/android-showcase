@@ -7,6 +7,8 @@ sealed class Destinations(
 
     data object Settings : Destinations(Routes.SETTINGS.value)
 
+    data object OpenSourceLicenses : Destinations(Routes.OPEN_SOURCE_LICENSES.value)
+
     data object UnderConstruction : Destinations(Routes.UNDER_CONSTRUCTION.value)
 
     data object Nowhere : Destinations("")

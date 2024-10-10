@@ -33,7 +33,7 @@
 ### App info
 - [ ] Privacy policy
 - [ ] Terms and conditions
-- [ ] Open source licences
+- [x] Open source licences
 - [ ] Show app version
 - 
 ### Sharing

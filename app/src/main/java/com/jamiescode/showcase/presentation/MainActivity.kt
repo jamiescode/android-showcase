@@ -15,12 +15,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.asFlow
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.jamiescode.showcase.navigation.AppNavigator
 import com.jamiescode.showcase.navigation.Destinations
+import com.jamiescode.showcase.navigation.launchOpenSourceLicenses
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
 import com.jamiescode.showcase.theme.showcaseTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -41,6 +43,9 @@ class MainActivity : AppCompatActivity() {
                 )
             when (val destination = navigationEvents.value) {
                 Destinations.Nowhere -> {} // Do nothing
+                Destinations.OpenSourceLicenses -> {
+                    LocalContext.current.launchOpenSourceLicenses()
+                }
                 else -> {
                     navController.navigate(destination.route)
                 }
