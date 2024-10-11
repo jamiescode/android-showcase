@@ -17,13 +17,16 @@ class JournalEntryTest {
 
     @Test
     fun `database version is correct`() {
+        val id = "1234567890"
         val journalEntry =
             JournalEntry(
+                id = id,
                 created = 100L,
                 updated = 200L,
                 entry = "entry",
                 tags = "tag",
             )
+        assertEquals(id, journalEntry.id)
         assertEquals(100L, journalEntry.created)
         assertEquals(200L, journalEntry.updated)
         assertEquals("entry", journalEntry.entry)
