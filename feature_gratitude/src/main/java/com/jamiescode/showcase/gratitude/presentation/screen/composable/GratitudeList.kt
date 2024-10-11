@@ -23,6 +23,7 @@ fun gratitudeList(
     modifier: Modifier,
     groupedEntries: Map<String, List<GratitudeEntry>>,
     scrollState: GratitudeViewModel.ScrollState,
+    viewModel: GratitudeViewModel,
 ) {
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
@@ -49,12 +50,18 @@ fun gratitudeList(
             stickyHeader {
                 gratitudeDateDivider(date = date, dateStringFallback = dateString)
             }
-            items(entries) { entry ->
+            items(
+                items = entries,
+                key = { it.id }
+            ) { entry ->
                 val backgroundColor = getColorForIndex(currentIndex, listColors)
                 gratitudeRow(
                     gratitudeEntry = entry,
                     backgroundColor = backgroundColor,
                     onEditEntry = {},
+                    onRemoveEntry = { gratitudeEntry ->
+                        viewModel.deleteEntry(gratitudeEntry)
+                    }
                 )
                 currentIndex++
             }

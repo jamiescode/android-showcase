@@ -6,7 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class JournalEntry(
-    @PrimaryKey val created: Long,
+    @PrimaryKey val id: String,
+    @ColumnInfo(name = "created") val created: Long,
     @ColumnInfo(name = "updated") val updated: Long,
     @ColumnInfo(name = "entry") val entry: String,
     @ColumnInfo(name = "tags") val tags: String,

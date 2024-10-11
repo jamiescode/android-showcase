@@ -8,6 +8,7 @@ private const val TAGS_SEPARATOR = ","
 
 fun JournalEntry.toGratitudeEntry() =
     GratitudeEntry(
+        id = id,
         entry = entry,
         created = Date(created),
         updated = Date(updated),
@@ -16,6 +17,7 @@ fun JournalEntry.toGratitudeEntry() =
 
 fun GratitudeEntry.toJournalEntry() =
     JournalEntry(
+        id = id,
         created = created.time,
         updated = updated.time,
         entry = entry,

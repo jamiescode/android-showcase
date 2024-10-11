@@ -6,4 +6,6 @@ interface GratitudeRepository {
     suspend fun getEntries(): List<GratitudeEntry>
 
     suspend fun addEntry(gratitudeEntry: GratitudeEntry): List<GratitudeEntry>
+
+    suspend fun deleteEntry(gratitudeEntry: GratitudeEntry): List<GratitudeEntry>
 }

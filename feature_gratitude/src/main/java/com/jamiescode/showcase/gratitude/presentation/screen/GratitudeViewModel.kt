@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
 import com.jamiescode.showcase.gratitude.domain.usecase.AddGratitudeEntryUseCase
+import com.jamiescode.showcase.gratitude.domain.usecase.DeleteGratitudeEntryUseCase
 import com.jamiescode.showcase.gratitude.domain.usecase.GetGratitudeEntriesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,6 +18,7 @@ class GratitudeViewModel
     constructor(
         private val getGratitudeEntriesUseCase: GetGratitudeEntriesUseCase,
         private val addGratitudeEntryUseCase: AddGratitudeEntryUseCase,
+        private val deleteGratitudeEntryUseCase: DeleteGratitudeEntryUseCase,
     ) : ViewModel() {
         private val stateMutableLiveData: MutableLiveData<State> by lazy {
             MutableLiveData<State>(State.Initial)
@@ -34,12 +36,7 @@ class GratitudeViewModel
                     when (it) {
                         is GetGratitudeEntriesUseCase.Result.Success -> {
                             val entries = it.gratitudeEntries
-                            val value =
-                                if (entries.isEmpty()) {
-                                    State.Empty
-                                } else {
-                                    State.Loaded(entries)
-                                }
+                            val value = State.Loaded(entries)
                             stateMutableLiveData.postValue(value)
                         }
 
@@ -69,6 +66,23 @@ class GratitudeViewModel
             }
         }
 
+        fun deleteEntry(gratitudeEntry: GratitudeEntry) {
+            stateMutableLiveData.postValue(State.Loading)
+            viewModelScope.launch {
+                deleteGratitudeEntryUseCase.execute(gratitudeEntry).also {
+                    when (it) {
+                        is DeleteGratitudeEntryUseCase.Result.Success -> {
+                            stateMutableLiveData.postValue(State.Loaded(it.gratitudeEntries))
+                        }
+
+                        is DeleteGratitudeEntryUseCase.Result.Error -> {
+                            stateMutableLiveData.postValue(State.Error)
+                        }
+                    }
+                }
+            }
+        }
+
         fun scrollListToNewItem() {
             scrollMutableLiveData.postValue(ScrollState.Scroll)
         }
@@ -83,8 +97,6 @@ class GratitudeViewModel
             data class Loaded(
                 val gratitudeEntries: Map<String, List<GratitudeEntry>>,
             ) : State()
-
-            data object Empty : State()
         }
 
         sealed class ScrollState {

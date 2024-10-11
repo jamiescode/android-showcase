@@ -1,8 +1,11 @@
 package com.jamiescode.showcase.gratitude.domain.model
 
 import java.util.Date
+import kotlin.uuid.ExperimentalUuidApi
+import kotlin.uuid.Uuid
 
-data class GratitudeEntry(
+data class GratitudeEntry @OptIn(ExperimentalUuidApi::class) constructor(
+    val id: String = Uuid.random().toString(),
     val entry: String,
     val created: Date = Date(),
     val updated: Date = Date(),

@@ -35,6 +35,7 @@ fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
                     .weight(1f),
             state = state.value,
             scrollState = scrollState.value,
+            viewModel = viewModel,
         )
         gratitudeInput(viewModel)
     }

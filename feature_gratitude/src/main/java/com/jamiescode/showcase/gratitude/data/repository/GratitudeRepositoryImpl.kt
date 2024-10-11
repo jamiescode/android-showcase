@@ -23,4 +23,10 @@ class GratitudeRepositoryImpl
             journalEntryDao.add(dbEntry)
             return getEntries()
         }
-    }
+
+        override suspend fun deleteEntry(gratitudeEntry: GratitudeEntry): List<GratitudeEntry> {
+            val dbEntry = gratitudeEntry.toJournalEntry()
+            journalEntryDao.delete(dbEntry)
+            return getEntries()
+        }
+}

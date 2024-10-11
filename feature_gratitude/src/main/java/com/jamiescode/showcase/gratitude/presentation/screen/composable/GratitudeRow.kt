@@ -1,68 +1,52 @@
 package com.jamiescode.showcase.gratitude.presentation.screen.composable
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.material3.SwipeToDismissBox
+import androidx.compose.material3.SwipeToDismissBoxValue
+import androidx.compose.material3.rememberSwipeToDismissBoxState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.jamiescode.showcase.gratitude.R
 import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
-import com.jamiescode.showcase.theme.gratitudeFont
 
 @Composable
 fun gratitudeRow(
     gratitudeEntry: GratitudeEntry,
     backgroundColor: Color,
     onEditEntry: (GratitudeEntry) -> Unit,
+    onRemoveEntry: (GratitudeEntry) -> Unit,
 ) {
-    Card(
-        modifier =
-            Modifier
-                .padding(horizontal = 16.dp, vertical = 8.dp)
-                .fillMaxWidth(),
-        colors = CardDefaults.cardColors().copy(containerColor = backgroundColor),
-    ) {
-        Row(
-            modifier =
-                Modifier
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
-                    .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = gratitudeEntry.entry,
-                fontFamily = gratitudeFont,
-                fontSize = 22.sp,
-                textAlign = TextAlign.Start,
-                modifier = Modifier.weight(1f),
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            IconButton(
-                onClick = { onEditEntry(gratitudeEntry) },
-            ) {
-                Icon(
-                    imageVector = Icons.Filled.Edit,
-                    contentDescription = stringResource(R.string.edit_entry),
-                    tint = Color.Black,
-                )
+    val isRemoved = remember {
+        mutableStateOf(false)
+    }
+    val dismissState = rememberSwipeToDismissBoxState(
+        confirmValueChange = {
+            when (it) {
+                SwipeToDismissBoxValue.StartToEnd -> {
+                    isRemoved.value = true
+                    onRemoveEntry(gratitudeEntry)
+                }
+                SwipeToDismissBoxValue.EndToStart -> return@rememberSwipeToDismissBoxState false
+                SwipeToDismissBoxValue.Settled -> return@rememberSwipeToDismissBoxState false
             }
-        }
+            return@rememberSwipeToDismissBoxState true
+        },
+        positionalThreshold = { it * .25f }
+    )
+
+    AnimatedVisibility(visible = !isRemoved.value) {
+        SwipeToDismissBox(
+            state = dismissState,
+            backgroundContent = { DismissBackground(dismissState) },
+            enableDismissFromEndToStart = false,
+            content = {
+                gratitudeRowCard(
+                    gratitudeEntry = gratitudeEntry,
+                    backgroundColor = backgroundColor,
+                    onEditEntry = onEditEntry,
+                )
+            },
+        )
     }
 }

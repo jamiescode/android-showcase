@@ -26,6 +26,7 @@ fun gratitudeListState(
     modifier: Modifier,
     state: GratitudeViewModel.State,
     scrollState: GratitudeViewModel.ScrollState,
+    viewModel: GratitudeViewModel,
 ) {
     when (state) {
         GratitudeViewModel.State.Initial -> {
@@ -42,27 +43,16 @@ fun gratitudeListState(
             }
         }
         is GratitudeViewModel.State.Loaded -> {
-            gratitudeList(
-                modifier = modifier,
-                groupedEntries = state.gratitudeEntries,
-                scrollState = scrollState,
-            )
-        }
-        GratitudeViewModel.State.Empty -> {
-            Box(modifier = modifier) {
-                stateContentContainer(modifier = Modifier.fillMaxSize()) {
-                    stateText(
-                        text = stringResource(R.string.empty_message),
-                    )
-                }
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    verticalArrangement = Arrangement.Bottom,
-                ) {
-                    Spacer(modifier = Modifier.height(16.dp))
-                    quoteCard()
-                    Spacer(modifier = Modifier.height(8.dp))
-                }
+            val entries = state.gratitudeEntries
+            if (entries.isEmpty()) {
+                emptyState(modifier = modifier)
+            } else {
+                gratitudeList(
+                    modifier = modifier,
+                    groupedEntries = state.gratitudeEntries,
+                    scrollState = scrollState,
+                    viewModel = viewModel,
+                )
             }
         }
     }
@@ -86,4 +76,23 @@ private fun stateText(text: String) {
         fontSize = 24.sp,
         textAlign = TextAlign.Center,
     )
+}
+
+@Composable
+private fun emptyState(modifier: Modifier) {
+    Box(modifier = modifier) {
+        stateContentContainer(modifier = Modifier.fillMaxSize()) {
+            stateText(
+                text = stringResource(R.string.empty_message),
+            )
+        }
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Bottom,
+        ) {
+            Spacer(modifier = Modifier.height(16.dp))
+            quoteCard()
+            Spacer(modifier = Modifier.height(8.dp))
+        }
+    }
 }
