@@ -162,6 +162,14 @@ fun appInformationSection(viewModel: SettingsViewModel) {
             },
         )
         actionSetting(
+            icon = R.drawable.article,
+            iconContentDescription = "Open source licences",
+            title = "Open source licences",
+            onClick = {
+                viewModel.navigateToOpenSourceLicenses()
+            },
+        )
+        actionSetting(
             icon = R.drawable.info,
             iconContentDescription = "App version number",
             title = "Version number: x.x.x",

@@ -46,6 +46,10 @@ class SettingsViewModel
             load()
         }
 
+        fun navigateToOpenSourceLicenses() {
+            appNavigator.navigateTo(Destinations.OpenSourceLicenses)
+        }
+
         fun navigateToUnderConstruction() {
             appNavigator.navigateTo(Destinations.UnderConstruction)
         }
