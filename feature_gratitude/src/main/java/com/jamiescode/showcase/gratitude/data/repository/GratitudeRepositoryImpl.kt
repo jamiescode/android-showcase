@@ -29,4 +29,4 @@ class GratitudeRepositoryImpl
             journalEntryDao.delete(dbEntry)
             return getEntries()
         }
-}
+    }

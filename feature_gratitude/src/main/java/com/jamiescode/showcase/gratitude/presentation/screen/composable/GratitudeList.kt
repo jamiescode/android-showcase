@@ -52,7 +52,7 @@ fun gratitudeList(
             }
             items(
                 items = entries,
-                key = { it.id }
+                key = { it.id },
             ) { entry ->
                 val backgroundColor = getColorForIndex(currentIndex, listColors)
                 gratitudeRow(
@@ -61,7 +61,7 @@ fun gratitudeList(
                     onEditEntry = {},
                     onRemoveEntry = { gratitudeEntry ->
                         viewModel.deleteEntry(gratitudeEntry)
-                    }
+                    },
                 )
                 currentIndex++
             }

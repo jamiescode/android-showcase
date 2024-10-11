@@ -1,7 +1,8 @@
 <resources>
     <string name="edit_entry">Edit</string>
     <string name="input_hint">What are you grateful for?</string>
-    <string name="input_send_icon_content_description">Send</string>
+    <string name="input_send_icon_content_desc">Send</string>
     <string name="empty_message">Enter what you are grateful for in the text input at the bottom</string>
-    <string name="error_message">"Error loading gratitude entries"</string>
+    <string name="error_message">Error loading gratitude entries</string>
+    <string name="swipe_to_delete_background_content_desc">Delete</string>
 </resources>
