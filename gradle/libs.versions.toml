@@ -1,7 +1,7 @@
 [versions]
 # Android setup
 sdk-compile = "35"
-sdk-min = "24"
+sdk-min = "26"
 
 # Plugins
 android = "8.7.0"
