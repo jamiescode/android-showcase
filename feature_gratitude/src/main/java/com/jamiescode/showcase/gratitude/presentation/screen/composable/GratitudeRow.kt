@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.jamiescode.showcase.gratitude.R
 import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.presentation.screen.composable.swipetodelete.swipeToDeleteContainer
 import com.jamiescode.showcase.theme.gratitudeFont
 
 @Composable
@@ -30,38 +31,44 @@ fun gratitudeRow(
     gratitudeEntry: GratitudeEntry,
     backgroundColor: Color,
     onEditEntry: (GratitudeEntry) -> Unit,
+    onRemoveEntry: (GratitudeEntry) -> Unit,
 ) {
-    Card(
-        modifier =
-            Modifier
-                .padding(horizontal = 16.dp, vertical = 8.dp)
-                .fillMaxWidth(),
-        colors = CardDefaults.cardColors().copy(containerColor = backgroundColor),
+    swipeToDeleteContainer(
+        item = gratitudeEntry,
+        onRemoveItem = onRemoveEntry,
     ) {
-        Row(
+        Card(
             modifier =
                 Modifier
-                    .padding(horizontal = 16.dp, vertical = 12.dp)
+                    .padding(horizontal = 16.dp, vertical = 8.dp)
                     .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
+            colors = CardDefaults.cardColors().copy(containerColor = backgroundColor),
         ) {
-            Text(
-                text = gratitudeEntry.entry,
-                fontFamily = gratitudeFont,
-                fontSize = 22.sp,
-                textAlign = TextAlign.Start,
-                modifier = Modifier.weight(1f),
-            )
-            Spacer(modifier = Modifier.size(8.dp))
-            IconButton(
-                onClick = { onEditEntry(gratitudeEntry) },
+            Row(
+                modifier =
+                    Modifier
+                        .padding(horizontal = 16.dp, vertical = 12.dp)
+                        .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                Icon(
-                    imageVector = Icons.Filled.Edit,
-                    contentDescription = stringResource(R.string.edit_entry),
-                    tint = Color.Black,
+                Text(
+                    text = gratitudeEntry.entry,
+                    fontFamily = gratitudeFont,
+                    fontSize = 22.sp,
+                    textAlign = TextAlign.Start,
+                    modifier = Modifier.weight(1f),
                 )
+                Spacer(modifier = Modifier.size(8.dp))
+                IconButton(
+                    onClick = { onEditEntry(gratitudeEntry) },
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.Edit,
+                        contentDescription = stringResource(R.string.edit_entry),
+                        tint = Color.Black,
+                    )
+                }
             }
         }
     }

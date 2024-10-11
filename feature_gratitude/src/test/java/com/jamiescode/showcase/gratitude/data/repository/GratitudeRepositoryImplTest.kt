@@ -3,6 +3,7 @@ package com.jamiescode.showcase.gratitude.data.repository
 import com.jamiescode.showcase.gratitude.data.database.JournalEntry
 import com.jamiescode.showcase.gratitude.data.database.JournalEntryDao
 import com.jamiescode.showcase.gratitude.domain.model.GratitudeEntry
+import com.jamiescode.showcase.gratitude.domain.toGratitudeEntry
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -18,7 +19,8 @@ class GratitudeRepositoryImplTest {
     @Test
     fun `when get entries call, then return entries from database`() {
         // GIVEN
-        val journalEntry1 = JournalEntry(created = 0L, updated = 0L, entry = "", tags = "tag")
+        val id = "1234567890"
+        val journalEntry1 = JournalEntry(id = id, created = 0L, updated = 0L, entry = "", tags = "tag")
         val journalEntries = listOf(journalEntry1)
         coEvery { journalEntryDao.getAll() }.returns(journalEntries)
 
@@ -28,6 +30,7 @@ class GratitudeRepositoryImplTest {
         // THEN
         val expectedGratitudeEntry =
             GratitudeEntry(
+                id = id,
                 entry = journalEntry1.entry,
                 created = Date(journalEntry1.created),
                 updated = Date(journalEntry1.updated),
@@ -41,35 +44,20 @@ class GratitudeRepositoryImplTest {
         // GIVEN
         val journalEntry =
             JournalEntry(
+                id = "1234567890",
                 created = 100L,
                 updated = 200L,
                 entry = "entry",
                 tags = "tag",
             )
         coEvery { journalEntryDao.add(journalEntry) }.returns(Unit)
-
-        val journalEntry1 = JournalEntry(created = 0L, updated = 0L, entry = "", tags = "tag")
-        val journalEntries = listOf(journalEntry1)
-        coEvery { journalEntryDao.getAll() }.returns(journalEntries)
+        coEvery { journalEntryDao.getAll() }.returns(listOf(journalEntry))
 
         // WHEN
-        val gratitudeEntry =
-            GratitudeEntry(
-                entry = "entry",
-                created = Date(100L),
-                updated = Date(200L),
-                tags = listOf("tag"),
-            )
+        val gratitudeEntry = journalEntry.toGratitudeEntry()
         val entries = runBlocking { repository.addEntry(gratitudeEntry) }
         coVerify { journalEntryDao.add(journalEntry) }
 
-        val expectedGratitudeEntry =
-            GratitudeEntry(
-                entry = journalEntry1.entry,
-                created = Date(journalEntry1.created),
-                updated = Date(journalEntry1.updated),
-                tags = listOf("tag"),
-            )
-        assertEquals(listOf(expectedGratitudeEntry), entries)
+        assertEquals(listOf(gratitudeEntry), entries)
     }
 }

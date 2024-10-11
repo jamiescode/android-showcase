@@ -105,7 +105,7 @@ fun gratitudeTextField(
         ) {
             Icon(
                 Icons.AutoMirrored.Default.Send,
-                contentDescription = stringResource(R.string.input_send_icon_content_description),
+                contentDescription = stringResource(R.string.input_send_icon_content_desc),
                 tint = tintColor,
             )
         }
