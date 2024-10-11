@@ -64,9 +64,7 @@ fun settingsInitialState() {
 }
 
 @Composable
-fun feedbackSection(
-    viewModel: SettingsViewModel,
-) {
+fun feedbackSection(viewModel: SettingsViewModel) {
     settingSection(heading = "Help us improve the app") {
         actionSetting(
             icon = R.drawable.feedback,
