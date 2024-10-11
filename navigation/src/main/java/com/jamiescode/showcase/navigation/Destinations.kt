@@ -9,6 +9,10 @@ sealed class Destinations(
 
     data object OpenSourceLicenses : Destinations(Routes.OPEN_SOURCE_LICENSES.value)
 
+    data object FeedbackForm : Destinations(Routes.FEEDBACK_FORM.value)
+
+    data object BuyMeACofee : Destinations(Routes.BUY_ME_A_COFFEE.value)
+
     data object UnderConstruction : Destinations(Routes.UNDER_CONSTRUCTION.value)
 
     data object Nowhere : Destinations("")
