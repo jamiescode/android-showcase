@@ -167,7 +167,7 @@ fun appInformationSection(viewModel: SettingsViewModel) {
             title = "Open source licences",
             onClick = {
                 viewModel.navigateToOpenSourceLicenses()
-            }
+            },
         )
         actionSetting(
             icon = R.drawable.info,
