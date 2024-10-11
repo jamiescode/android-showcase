@@ -21,6 +21,7 @@ dependencies {
     implementation(libs.kotlin)
     implementation(libs.bundles.compose)
     implementation(libs.oss.licenses)
+    implementation(libs.chrome.custom.tabs)
 
     testImplementation(libs.bundles.test)
     androidTestImplementation(libs.bundles.uitest)

@@ -42,6 +42,7 @@ fun settingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                         .fillMaxSize()
                         .verticalScroll(scrollState),
             ) {
+                feedbackSection(viewModel)
                 notificationsSection(viewModel, userSettings)
                 appearanceSection(viewModel)
                 securitySection(viewModel, userSettings)
@@ -59,6 +60,30 @@ fun settingsInitialState() {
         contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator()
+    }
+}
+
+@Composable
+fun feedbackSection(
+    viewModel: SettingsViewModel,
+) {
+    settingSection(heading = "Help us improve the app") {
+        actionSetting(
+            icon = R.drawable.feedback,
+            iconContentDescription = "Feedback",
+            title = "Tap here to provide feedback",
+            onClick = {
+                viewModel.navigateToFeedbackForm()
+            },
+        )
+        actionSetting(
+            icon = R.drawable.coffee,
+            iconContentDescription = "Buy me a coffee",
+            title = "Buy me a coffee to support the app",
+            onClick = {
+                viewModel.navigateToBuyMeACoffee()
+            },
+        )
     }
 }
 

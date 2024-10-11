@@ -21,7 +21,9 @@ import androidx.lifecycle.asFlow
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.jamiescode.showcase.navigation.AppNavigator
+import com.jamiescode.showcase.navigation.AppUrls
 import com.jamiescode.showcase.navigation.Destinations
+import com.jamiescode.showcase.navigation.launchCustomTabs
 import com.jamiescode.showcase.navigation.launchOpenSourceLicenses
 import com.jamiescode.showcase.presentation.compose.customTopAppBar
 import com.jamiescode.showcase.theme.showcaseTheme
@@ -45,6 +47,12 @@ class MainActivity : AppCompatActivity() {
                 Destinations.Nowhere -> {} // Do nothing
                 Destinations.OpenSourceLicenses -> {
                     LocalContext.current.launchOpenSourceLicenses()
+                }
+                Destinations.FeedbackForm -> {
+                    LocalContext.current.launchCustomTabs(AppUrls.FEEDBACK_FORM)
+                }
+                Destinations.BuyMeACofee -> {
+                    LocalContext.current.launchCustomTabs(AppUrls.BUY_ME_A_COFFEE)
                 }
                 else -> {
                     navController.navigate(destination.route)
