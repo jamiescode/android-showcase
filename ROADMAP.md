@@ -41,7 +41,7 @@
 - [ ] Allow users to share the app with a friend
 
 ### Feedback
-- [ ] Have a built in way for users to provide suggestions for improvements
+- [x] Have a built in way for users to provide suggestions for improvements
 
 ### UI
 - [ ] Dark mode
@@ -50,4 +50,4 @@
 - [ ] Be reminded proactively of what happened at some point in the past e.g. yesterday
 
 ### Donations
-- [ ] Allow users to donate to support development
+- [x] Allow users to donate to support development

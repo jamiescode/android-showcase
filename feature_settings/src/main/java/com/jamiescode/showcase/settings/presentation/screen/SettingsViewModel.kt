@@ -50,6 +50,14 @@ class SettingsViewModel
             appNavigator.navigateTo(Destinations.OpenSourceLicenses)
         }
 
+        fun navigateToFeedbackForm() {
+            appNavigator.navigateTo(Destinations.FeedbackForm)
+        }
+
+        fun navigateToBuyMeACoffee() {
+            appNavigator.navigateTo(Destinations.BuyMeACofee)
+        }
+
         fun navigateToUnderConstruction() {
             appNavigator.navigateTo(Destinations.UnderConstruction)
         }
