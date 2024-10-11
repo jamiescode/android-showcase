@@ -5,7 +5,7 @@
 - [x] Create entries
 - [x] Read entries
 - [ ] Update entries
-- [ ] Delete entries (swipe to delete)
+- [x] Delete entries (swipe to delete)
 - [x] Attached date and time
 - [x] Grouped by day
 
