@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -38,45 +39,50 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
-            val navigationEvents =
-                appNavigator.navigationEventsLiveData.asFlow().collectAsState(
-                    initial = Destinations.Nowhere,
+            appComposable(appNavigator)
+        }
+    }
+}
+
+@Composable
+fun appComposable(appNavigator: AppNavigator) {
+    val navController = rememberNavController()
+    val navigationEvents =
+        appNavigator.navigationEventsLiveData.asFlow().collectAsState(
+            initial = Destinations.Nowhere,
+        )
+    when (val destination = navigationEvents.value) {
+        Destinations.Nowhere -> {} // Do nothing
+        Destinations.OpenSourceLicenses -> {
+            LocalContext.current.launchOpenSourceLicenses()
+        }
+        Destinations.FeedbackForm -> {
+            LocalContext.current.launchCustomTabs(AppUrls.FEEDBACK_FORM)
+        }
+        Destinations.BuyMeACofee -> {
+            LocalContext.current.launchCustomTabs(AppUrls.BUY_ME_A_COFFEE)
+        }
+        else -> {
+            navController.navigate(destination.route)
+        }
+    }
+    showcaseTheme {
+        Scaffold(
+            topBar = {
+                Column {
+                    customTopAppBar(appNavigator = appNavigator)
+                    HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
+                }
+            },
+        ) { contentPadding ->
+            Box(modifier = Modifier.padding(contentPadding)) {
+                NavHost(
+                    navController = navController,
+                    startDestination = Destinations.Gratitude.route,
+                    enterTransition = { fadeIn(animationSpec = tween(durationMillis = 0)) },
+                    exitTransition = { fadeOut(animationSpec = tween(durationMillis = 0)) },
+                    builder = { createNavigationRoutes() },
                 )
-            when (val destination = navigationEvents.value) {
-                Destinations.Nowhere -> {} // Do nothing
-                Destinations.OpenSourceLicenses -> {
-                    LocalContext.current.launchOpenSourceLicenses()
-                }
-                Destinations.FeedbackForm -> {
-                    LocalContext.current.launchCustomTabs(AppUrls.FEEDBACK_FORM)
-                }
-                Destinations.BuyMeACofee -> {
-                    LocalContext.current.launchCustomTabs(AppUrls.BUY_ME_A_COFFEE)
-                }
-                else -> {
-                    navController.navigate(destination.route)
-                }
-            }
-            showcaseTheme {
-                Scaffold(
-                    topBar = {
-                        Column {
-                            customTopAppBar(appNavigator = appNavigator)
-                            HorizontalDivider(color = Color.LightGray, thickness = 1.dp)
-                        }
-                    },
-                ) { contentPadding ->
-                    Box(modifier = Modifier.padding(contentPadding)) {
-                        NavHost(
-                            navController = navController,
-                            startDestination = Destinations.Gratitude.route,
-                            enterTransition = { fadeIn(animationSpec = tween(durationMillis = 0)) },
-                            exitTransition = { fadeOut(animationSpec = tween(durationMillis = 0)) },
-                            builder = { createNavigationRoutes() },
-                        )
-                    }
-                }
             }
         }
     }

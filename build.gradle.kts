@@ -14,6 +14,7 @@ buildscript {
     }
     dependencies {
         classpath(libs.plugins.oss.licenses.get().toString())
+        classpath(libs.shot.gradle.plugin)
     }
 }
 
