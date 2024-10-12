@@ -21,7 +21,7 @@ jobs:
           java-version: '17'
 
       - name: Run UI tests
-        uses: ReactiveCircus/android-emulator-runner@v2.32.0
+        uses: ReactiveCircus/android-emulator-runner@v2.33.0
         with:
           api-level: 29
           target: default
