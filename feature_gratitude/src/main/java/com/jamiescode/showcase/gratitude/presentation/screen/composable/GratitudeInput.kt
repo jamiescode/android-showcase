@@ -92,13 +92,15 @@ fun gratitudeTextField(
             onValueChange = { newText ->
                 textFieldValue = newText
             },
-            keyboardOptions = KeyboardOptions(
-                capitalization = KeyboardCapitalization.Sentences,
-                imeAction = ImeAction.Send,
-            ),
-            keyboardActions = KeyboardActions(
-                onSend = { submitEntry() }
-            ),
+            keyboardOptions =
+                KeyboardOptions(
+                    capitalization = KeyboardCapitalization.Sentences,
+                    imeAction = ImeAction.Send,
+                ),
+            keyboardActions =
+                KeyboardActions(
+                    onSend = { submitEntry() },
+                ),
             maxLines = 1,
             colors =
                 TextFieldDefaults.colors().copy(
