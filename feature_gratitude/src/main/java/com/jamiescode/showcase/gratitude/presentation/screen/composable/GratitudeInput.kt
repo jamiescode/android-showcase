@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material3.HorizontalDivider
@@ -27,6 +29,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -68,6 +72,12 @@ fun gratitudeTextField(
 ) {
     var textFieldValue by remember { mutableStateOf(TextFieldValue("")) }
     val keyboardController = LocalSoftwareKeyboardController.current
+    val submitEntry = {
+        viewModel.addEntry(textFieldValue.text)
+        textFieldValue = textFieldValue.copy(text = "")
+        keyboardController?.hide()
+        viewModel.scrollListToNewItem()
+    }
     Row(
         modifier =
             Modifier
@@ -82,6 +92,13 @@ fun gratitudeTextField(
             onValueChange = { newText ->
                 textFieldValue = newText
             },
+            keyboardOptions = KeyboardOptions(
+                capitalization = KeyboardCapitalization.Sentences,
+                imeAction = ImeAction.Send,
+            ),
+            keyboardActions = KeyboardActions(
+                onSend = { submitEntry() }
+            ),
             maxLines = 1,
             colors =
                 TextFieldDefaults.colors().copy(
@@ -96,12 +113,7 @@ fun gratitudeTextField(
         )
         Spacer(modifier = Modifier.width(8.dp))
         IconButton(
-            onClick = {
-                viewModel.addEntry(textFieldValue.text)
-                textFieldValue = textFieldValue.copy(text = "")
-                keyboardController?.hide()
-                viewModel.scrollListToNewItem()
-            },
+            onClick = { submitEntry() },
         ) {
             Icon(
                 Icons.AutoMirrored.Default.Send,
