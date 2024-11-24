@@ -8,8 +8,7 @@ on:
 
 jobs:
   build:
-    # Set to ubuntu-22.04 due to: https://github.com/ReactiveCircus/android-emulator-runner/issues/400
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
       - name: checkout
         uses: actions/checkout@v4
@@ -21,7 +20,7 @@ jobs:
           java-version: '17'
 
       - name: Run UI tests
-        uses: ReactiveCircus/android-emulator-runner@v2.32.0
+        uses: ReactiveCircus/android-emulator-runner@v2.33.0
         with:
           api-level: 29
           target: default
