@@ -1,4 +1,4 @@
-# Gratitude
+# Gratitude - What are you grateful for?
 
 [![Build Status](https://github.com/jamiescode/gratitude/actions/workflows/build.yml/badge.svg)](https://github.com/jamiescode/gratitude/actions/workflows/build.yml)
 [![Codebeat](https://codebeat.co/badges/7eae179e-dac3-47e3-a483-a5be4b9aa1ac)](https://codebeat.co/projects/github-com-jamiescode-gratitude-main)
@@ -14,7 +14,7 @@
 ![Target SDK 35](https://img.shields.io/badge/Target%20SDK-35-566573?logo=android&logoColor=white)
 [![Language: Kotlin](https://img.shields.io/github/languages/top/jamiescode/gratitude.svg)](https://github.com/jamiescode/gratitude/search?l=kotlin)
 
-Showcase Android application MVVM, clean architecture, Jetpack Compose and more
+Showcase Android application using MVVM, clean architecture, Jetpack Compose and more.
 
 To see the list of current and upcoming features please take a look at the [feature roadmap](ROADMAP.md).
 
