@@ -77,7 +77,7 @@ fun feedbackSection(viewModel: SettingsViewModel) {
         actionSetting(
             icon = R.drawable.coffee,
             iconContentDescription = "Buy me a coffee",
-            title = "Buy me a coffee to support the app",
+            title = "Buy me a coffee to support development",
             onClick = {
                 viewModel.navigateToBuyMeACoffee()
             },
