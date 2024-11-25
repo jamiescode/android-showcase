@@ -8,6 +8,7 @@
 - [x] Delete entries (swipe to delete)
 - [x] Attached date and time
 - [x] Grouped by day
+- [ ] Ability to favourite entries
 
 ### Tags
 - [ ] Create predetermined tags for user to pick from
@@ -24,7 +25,11 @@
 - [ ] Set daily reminder time
 - [ ] Set days of week to be reminded
 - [ ] Custom themes
-- [ ] Unlock with biometrics
+- [ ] Unlock with biometrics / passcode
+
+### Notifications
+- [ ] Reminder notifications
+- [ ] Quick reply to notification with a thing you are grateful for
 
 ### Data migration
 - [ ] Backup
@@ -42,6 +47,7 @@
 
 ### Feedback
 - [x] Have a built in way for users to provide suggestions for improvements
+- [ ] Implement analytics to see how users interact with the app
 
 ### UI
 - [ ] Dark mode
@@ -51,3 +57,9 @@
 
 ### Donations
 - [x] Allow users to donate to support development
+
+### Development
+- [ ] Set up proguard
+- [ ] Add UI tests
+- [ ] Add screenshot testing
+- 
