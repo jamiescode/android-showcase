@@ -165,7 +165,8 @@ fun LibraryExtension.applySharedConfig(moduleName: String) {
 
 fun LibraryDefaultConfig.applySharedConfig(withConsumerProguard: Boolean = false) {
     minSdk = libs.versions.sdk.min.get().toInt()
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    testInstrumentationRunner = "com.jamiescode.GratitudeTestRunner"
     if (withConsumerProguard) {
         consumerProguardFiles("consumer-rules.pro")
     }

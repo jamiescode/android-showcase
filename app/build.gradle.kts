@@ -18,7 +18,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunner = "com.karumi.shot.ShotTestRunner"
+        testInstrumentationRunner = "com.jamiescode.GratitudeTestRunner"
         minSdk = libs.versions.sdk.min.get().toInt()
         targetSdk = libs.versions.sdk.compile.get().toInt()
         compileSdk = libs.versions.sdk.compile.get().toInt()
@@ -46,6 +46,14 @@ android {
 
     buildFeatures {
         buildConfig = true
+    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
     }
 }
 

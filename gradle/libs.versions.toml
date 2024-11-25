@@ -98,6 +98,7 @@ junit5 = { module = "org.junit.jupiter:junit-jupiter" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+mockk-android = { module = "io.mockk:mockk-android", version.ref = "mockk" }
 kluent = { module = "org.amshove.kluent:kluent-android", version.ref = "kluent" }
 mockito = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 test-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
@@ -124,5 +125,5 @@ test = [
     "junit5", "junit4", "mockk", "kluent", "mockito", "test-coroutines", "core-testing",
 ]
 uitest = [
-    "espresso", "compose-ui-test", "compose-navigation-test", "androidx-test-runner", "hilt-testing", "junit-test-ext",
+    "espresso", "compose-ui-test", "compose-navigation-test", "androidx-test-runner", "hilt-testing", "junit-test-ext", "mockk-android",
 ]

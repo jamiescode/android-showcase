@@ -13,7 +13,7 @@ import com.jamiescode.showcase.gratitude.presentation.screen.composable.gratitud
 import com.jamiescode.showcase.gratitude.presentation.screen.composable.gratitudeListState
 
 @Composable
-fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
+fun gratitudeScreen(showQuotes: Boolean = true, viewModel: GratitudeViewModel = hiltViewModel()) {
     LaunchedEffect(Unit) {
         viewModel.loadEntries()
     }
@@ -36,6 +36,7 @@ fun gratitudeScreen(viewModel: GratitudeViewModel = hiltViewModel()) {
             state = state.value,
             scrollState = scrollState.value,
             viewModel = viewModel,
+            showQuotes = showQuotes,
         )
         gratitudeInput(viewModel)
     }
