@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.detekt)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.kover)
+    id("shot")
 }
 
 android {
@@ -16,7 +17,8 @@ android {
         applicationId = "com.jamiescode.showcase"
         versionCode = 1
         versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.jamiescode.GratitudeTestRunner"
         minSdk = libs.versions.sdk.min.get().toInt()
         targetSdk = libs.versions.sdk.compile.get().toInt()
         compileSdk = libs.versions.sdk.compile.get().toInt()
@@ -45,6 +47,14 @@ android {
     buildFeatures {
         buildConfig = true
     }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
+    }
 }
 
 dependencies {
@@ -64,6 +74,7 @@ dependencies {
     kapt(libs.hilt.compiler)
 
     debugImplementation(libs.leakcanary)
+    debugImplementation(libs.ui.test.manifest)
 
     testImplementation(platform(libs.junit5.bom))
     testImplementation(libs.bundles.test)

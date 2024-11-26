@@ -27,6 +27,7 @@ fun gratitudeListState(
     state: GratitudeViewModel.State,
     scrollState: GratitudeViewModel.ScrollState,
     viewModel: GratitudeViewModel,
+    showQuotes: Boolean,
 ) {
     when (state) {
         GratitudeViewModel.State.Initial -> {
@@ -45,7 +46,10 @@ fun gratitudeListState(
         is GratitudeViewModel.State.Loaded -> {
             val entries = state.gratitudeEntries
             if (entries.isEmpty()) {
-                emptyState(modifier = modifier)
+                emptyState(
+                    modifier = modifier,
+                    showQuotes = showQuotes,
+                )
             } else {
                 gratitudeList(
                     modifier = modifier,
@@ -79,7 +83,10 @@ private fun stateText(text: String) {
 }
 
 @Composable
-private fun emptyState(modifier: Modifier) {
+private fun emptyState(
+    modifier: Modifier,
+    showQuotes: Boolean,
+) {
     Box(modifier = modifier) {
         stateContentContainer(modifier = Modifier.fillMaxSize()) {
             stateText(
@@ -91,7 +98,9 @@ private fun emptyState(modifier: Modifier) {
             verticalArrangement = Arrangement.Bottom,
         ) {
             Spacer(modifier = Modifier.height(16.dp))
-            quoteCard()
+            if (showQuotes) {
+                quoteCard()
+            }
             Spacer(modifier = Modifier.height(8.dp))
         }
     }
